@@ -1,6 +1,8 @@
 # booklet-workshops
 Latex Document source files for Manchester Raspberry Jam workshops. These documents are subject to the CC BY-SA 4.0 License.
 
+### How to Compile
+
 A standard TeXStudio installation is recommended for compiling these documents. Compiled PDFs can be downloaded from http://bit.ly/mcrraspjam
 
 ### ARM Assembly latex listings
