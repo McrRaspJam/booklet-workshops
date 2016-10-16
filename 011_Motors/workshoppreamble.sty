@@ -1,0 +1,110 @@
+\ProvidesPackage{workshoppreamble}
+
+%Page Layout, Assumes that:
+% documentclass[a4paper, twocolumn, twoside, 11pt]{article}
+\setlength{\columnsep}{1cm}
+\usepackage[margin=1.5cm]{geometry}
+
+%Text Formatting
+\setlength{\parskip}{6pt}
+\usepackage{tocloft}
+\renewcommand\cftsecafterpnum{\vskip-5pt}
+\usepackage{enumitem}
+
+%Font
+\usepackage[T1]{fontenc}
+\usepackage[sfdefault]{roboto}
+\usepackage[T1]{fontenc}
+\usepackage[usenames, dvipsnames]{color}
+
+%Misc. Formatting
+\usepackage{float}
+\usepackage[toc,page]{appendix}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=WildStrawberry]{hyperref}
+
+%Other
+\usepackage[utf8]{inputenc}
+\usepackage[UKenglish]{babel}
+\usepackage{graphicx}
+
+
+%	-	-	-	-	-	-	-	-	-	-
+
+
+%Code listings
+\usepackage{listings}
+\definecolor{code}{rgb}{0.95,0.95,0.95}
+\definecolor{codeframe}{rgb}{0.9,0.9,0.9}
+
+\lstset{
+	frame=single,
+	numbers=left,
+	numbersep=10pt,
+	tabsize=8,
+	basicstyle=\footnotesize\ttfamily,
+	rulecolor=\color{codeframe},
+	backgroundcolor=\color{code}
+}
+
+%Python Specific
+\definecolor{pcomment}{RGB}{207,0,19}
+\definecolor{pkey}{RGB}{241,117,34 }
+\definecolor{pcode}{rgb}{0.95,0.95,1.0}
+\definecolor{pcodeframe}{rgb}{0.8,0.8,1.0}
+\definecolor{codenumber}{rgb}{0.5,0.5,0.5}
+
+\lstdefinestyle{python}{
+	language=Python,
+	rulecolor=\color{pcodeframe},
+	backgroundcolor=\color{pcode},
+	keywordstyle=\color{pkey},
+	commentstyle=\color{pcomment},
+	numberstyle=\tiny\color{codenumber},
+	emphstyle=\color{purple},
+	showstringspaces=false,
+	tabsize=4,
+	breaklines=true
+}
+
+\lstdefinestyle{ARM}{
+	language=[ARM]{Assembler},
+	rulecolor=\color{pcodeframe},
+	backgroundcolor=\color{pcode},
+	keywordstyle=\color{pkey},
+	commentstyle=\color{pcomment},
+	numberstyle=\tiny\color{codenumber},
+	emphstyle=\color{purple},
+	showstringspaces=false,
+	tabsize=4,
+	breaklines=true
+}
+
+
+%	-	-	-	-	-	-	-	-	-	-
+
+	
+%Asides
+\usepackage{mdframed}
+\newenvironment{aside}
+{
+	\begin{mdframed}
+		[
+			style=0,%
+			leftline=false,
+			rightline=false,
+			innerbottommargin=2pt,
+			innerleftmargin=12pt,
+			innerrightmargin=0pt,
+			linewidth=0.75pt,
+			skipabove=6pt,
+			skipbelow=6pt
+		]
+		\small
+		\color{JungleGreen}
+		\setlength{\parskip}{2pt}
+		\vspace{2pt} %correct for parskip
+		}
+		{
+	\end{mdframed}
+}
+	

@@ -1,163 +1,36 @@
-%Layout
 	\documentclass[a4paper, twocolumn, twoside, 11pt]{article}
-	\setlength{\columnsep}{1cm}
-	\setlength{\parskip}{6pt}
-	%\usepackage{geometry}
-	\usepackage[margin=1.5cm]{geometry}
-	\usepackage{float}
-	%\usepackage{multicol}
-	\usepackage{tocloft}
-	\renewcommand\cftsecafterpnum{\vskip-5pt}
-	%\usepackage{hyperref}
-	\usepackage{enumitem}
-	\usepackage[toc,page]{appendix}
-
-%fonts
-	\usepackage[T1]{fontenc}
-	\usepackage[sfdefault]{roboto}
-	\usepackage[T1]{fontenc}
-	\usepackage[usenames, dvipsnames]{color}
-	
-%URLs
-	\usepackage[colorlinks=true,
-				linkcolor=black,
-				urlcolor=WildStrawberry]{hyperref}
-
-%Code listings
-	\input{codelisting_setup}
-%Asides
-	\usepackage{mdframed}
-	\newenvironment{aside}
-		{
-		\begin{mdframed}[
-			style=0,%
-			leftline=false,
-			rightline=false,
-			innerbottommargin=2pt,
-			innerleftmargin=12pt,
-			innerrightmargin=0pt,
-			linewidth=0.75pt,
-			skipabove=6pt,
-			skipbelow=6pt
-			]
-				\small
-				\color{JungleGreen}
-				\setlength{\parskip}{2pt}
-				\vspace{2pt} %correct for parskip
-		}
-		{
-		\end{mdframed}
-		}
-
-%Everything else
-	\usepackage[utf8]{inputenc}
-	\usepackage{graphicx}
+	\usepackage{workshoppreamble}
+	%\raggedbottom
 	
 %	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
 
 \begin{document}
 
+	%Title
 	\author{Manchester Raspberry Jam}
 	\title{Workshop 11: GPIO \& Motors}
 	\date{}
-
 	\maketitle
 	
+	%Table of Contents
 	\setcounter{tocdepth}{1}
 	\tableofcontents
 	
-	%	-	PART 0
-	\setcounter{section}{-1}
-	\section{Introduction}
+	%Contents
+	\input{sections/0_introduction}
+	\newpage																						%Print Formatting
+	\input{sections/1_LED}
+	\input{sections/2_motor}
 	
-		The workshop shows how to control a motor with the Raspberry Pi, using a breadboard circuit and a standard motor controller chip. The motor is then programmed with the Python GPIO library.
-
-		This is and introductory workshop and is suitable for anybody to attempt.
+	%Appendices
+	\begin{appendices}	
+		%Don't list each appendix in Table of Contents
+		\addtocontents{toc}{\setcounter{tocdepth}{-1}}
 		
-		These booklets were created using {\fontfamily{rfdefault}\selectfont \LaTeX}, an advanced typesetting system used for several sorts of books, academic reports and letters. The schematic diagrams were created using \textit{Fritzing}, a free hardware prototyping and PCB design software.
-		
-		To allow modification and redistribution of these booklets, they are distributed under the CC BY-SA 4.0 License.
+		\input{sections/a0_codelisting}
+		\input{sections/a1_GPIO}
+		\input{sections/a2_motorcontroller}
+	\end{appendices}	
 	
-		\subsection*{What you'll need}
-			
-			The hardware requirements for this workshop are listed below. %Illustrations are provided on page \textbf{REF} below.
-	
-			\begin{itemize}[noitemsep]		
-				\item A solderless breadboard, preferably one with seperate bus strips. (those labelled + \& -)
-				\item Male-to-female \& male-to-male jumper cables.
-				\item A 6V DC motor.
-				\item A L293D or L293DNE motor controller.
-				\item (Optional) a 4$\times$AA Battery Pack				
-			\end{itemize}
-			
-			\newpage
-			
-			For the LED exercise in \autoref{sec:LED}, you will also require:
-			
-			\begin{itemize}[noitemsep]	
-				\item An LED
-				\item A $\sim 330 \Omega$ Resistor
-			\end{itemize}
-				
-			You can download both the template and completed python scripts for this workshop at \url{bit.ly/mcrraspjam}, along with a PDF copy of these notes.
-			
-			All required APIs are pre-installed with Raspbian.
-			
-	
-		\subsection*{Code listings \& asides}
-	
-			When you need to make changes to your code, they'll be presented in boxes like the following:
-
-			\lstinputlisting[style=Python]{code/helloworld.py}
-	
-			You might not need to copy everything, so check the line numbers to make sure you're not copying something twice.
-			
-			Terminal commands are listed as such, copy everything \textit{after} the dollar sign. Lines without dollar signs are example outputs, and do not need to be copied.
-			
-			\begin{lstlisting}
-$ cd code
-$ python3 helloworld.py 
-Hello, World!
-Hello, World!
-..
-			\end{lstlisting}
-		
-		\subsection*{Questions?}
-		
-			Send any corrections, suggestions or questions to:
-			\url{jam@jackjkelly.com}\label{email}
-	
-	
-	%Main Sections	
- 	\newpage
-	\input{section_LED}
-	\input{section_motor}
-	%\newpage
-	
-	\begin{appendices}
-		
-	%Don't list each appendix in Table of Contents
-	\addtocontents{toc}{\setcounter{tocdepth}{-1}}	
-		
-	\section{Completed Code Listings}
-	
-		\subsection*{0\_LED.py}
-			\lstinputlisting[style=Python]{code/0_LED.py}
-		\newpage
-		\subsection*{1\_Motor.py}
-			\lstinputlisting[style=Python]{code/2_Motor.py}	
-			
-	\section{GPIO Pinout (GPIO.BOARD)}
-	
-	\begin{figure}[h]
-		\label{sec:pinout}
-		\centering
-		\includegraphics[width=0.5\linewidth]{img/pinout_pi}
-		\scriptsize
-		\\Source: \url{hobbytronics.co.uk/raspberry-pi-gpio-pinout}
-		\normalsize
-		\label{fig:pinout}
-	\end{figure}
-	\end{appendices}
 
 \end{document}

@@ -4,16 +4,17 @@
 		
 		\textit{<Written explanation to be added after the workshop>}
 		
-		The pinout for the L293D/L239DNE is as follows:
+		%\begin{figure}
+		%	\centering
+		%	\includegraphics[height=5cm]{sections/2_motor/schematic_HbridgeA}
+		%	\hspace{5mm}
+		%	\includegraphics[height=5cm]{sections/2_motor/schematic_HbridgeB}
+		%	\caption{A H-bridge circuit in both configurations}
+		%	\label{fig:schematic_HbridgeA}
+		%\end{figure}
+
 		
-		\begin{figure}[h]
-			\centering
-			\includegraphics[width=0.7\linewidth]{img/pinout_L293DNE}
-			\scriptsize
-			\\ Source: \url{https://www.rs-online.com/designspark/raspberry-pi-controlling-a-motor-via-gpio}
-			\normalsize
-			\label{fig:pinout_L293DNE}
-		\end{figure}
+		The pinout for the L293D/L239DNE chip is shown in Appendix \autoref{sec:pinoutL293}.
 
 			
 	\subsection{Setting up a Motor Circuit}
@@ -33,7 +34,7 @@
 		
 		\begin{figure}[h]
 			\centering
-			\includegraphics[width=0.6\linewidth]{img/schematic_3}
+			\includegraphics[width=0.6\linewidth]{sections/2_motor/schematic_3}
 			\caption{Powering the L293DNE.}
 			\label{fig:schematic_3}
 		\end{figure}
@@ -50,7 +51,7 @@
 		
 		\begin{figure}[h]
 			\centering
-			\includegraphics[width=0.6\linewidth]{img/schematic_5}
+			\includegraphics[width=0.6\linewidth]{sections/2_motor/schematic_5}
 			\caption{The complete motor circuit.}
 			\label{fig:schematic_5}
 		\end{figure}
@@ -59,20 +60,19 @@
 	
 		Start with a copy of the template program from before:
 		
-		\newpage		
-		\lstinputlisting[style=Python, lastline=6]{code/1_Motor.py}
+		\lstinputlisting[style=Python, lastline=6]{sections/2_motor/1_Motor.py}
 		
 		This time, we will set up all three of the GPIO pins that we connected:
 	
-		\lstinputlisting[style=Python, firstline=7, firstnumber=7, lastline=15]{code/1_Motor.py}
+		\lstinputlisting[style=Python, firstline=7, firstnumber=7, lastline=15]{sections/2_motor/1_Motor.py}
 		
 		Remember that to turn on a motor, we need to set two opposing signals for A and B, then set enable to high. Therefore, to turn the motor on:
 		
-		\lstinputlisting[style=Python, firstline=16, firstnumber=16, lastline=20]{code/1_Motor.py}
+		\lstinputlisting[style=Python, firstline=16, firstnumber=16, lastline=20]{sections/2_motor/1_Motor.py}
 		
 		As with our LED, we will leave the motor running for a few seconds before turning it off. We do not need to change the A or B input, we can just change `Enable' to turn off the motor:
 		
-		\lstinputlisting[style=Python, firstline=21, firstnumber=21, lastline=26]{code/1_Motor.py}
+		\lstinputlisting[style=Python, firstline=21, firstnumber=21, lastline=26]{sections/2_motor/1_Motor.py}
 		
 		After adding the GPIO.cleanup() function, you can now try running your program.
 		
@@ -83,9 +83,8 @@
 			One final thing to check. Our motor controller should allow us to run the motor in reverse. 
 			
 			Make the following changes to your program, and have a go at filling in the missing parameters for the GPIO.output function calls:
-				
-			\newpage
-			\lstinputlisting[style=Python, firstline=21, firstnumber=21, lastline=38]{code/2_Motor.py}
+					
+			\lstinputlisting[style=Python, firstline=21, firstnumber=21, lastline=38]{sections/2_motor/2_Motor.py}
 			
 			It will be difficult to tell which way the motor is spinning with nothing attached, but it tends to make a slightly different noise when running in the other direction.
 			

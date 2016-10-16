@@ -9,7 +9,7 @@
 	
 		\begin{figure}[h]
 			\centering
-			\includegraphics[width=0.75\linewidth]{img/breadboard_underside}
+			\includegraphics[width=0.75\linewidth]{sections/1_LED/breadboard_underside}
 			\caption{The underside of a breadboard, showing the direction of electrical connections.}
 			\label{fig:pinout_breadboard}
 		\end{figure}
@@ -49,7 +49,7 @@
 		
 		\begin{figure}[h]
 			\centering
-			\includegraphics[width=0.5\linewidth]{img/schematic_LED_3}
+			\includegraphics[width=0.5\linewidth]{sections/1_LED/schematic_LED_3}
 			\caption{The complete LED circuit}
 			\label{fig:schematic_LED_3}
 		\end{figure}
@@ -68,24 +68,24 @@
 		
 			\begin{figure}[h]
 				\centering
-				\includegraphics[width=0.6\linewidth]{img/schematic_LED_4}
+				\includegraphics[width=0.6\linewidth]{sections/1_LED/schematic_LED_4}
 				\caption{A GPIO controlled LED circuit}
 				\label{fig:schematic_LED_4}
 			\end{figure}
 		
 	\subsection{Programming the LED}
 		
-			Once you're happy again with the circuit, you can start you Pi up again.
+			Once again, if you're happy your circuit matches figure \ref{fig:schematic_LED_4}, you can start up your Raspberry Pi again.
 			The LED will be off to begin with, so we will write a simple Python program to turn the LED on.
 			
 			Once your Pi is started up, start \textit{IDLE 3} and open the template python file for this workshop.
 		
 			\newpage
-			\lstinputlisting[style=Python, lastline=6]{code/0_LED.py}
+			\lstinputlisting[style=Python, lastline=6]{sections/1_LED/0_LED.py}
 			
 			Add the following lines into this file:
 			
-			\lstinputlisting[style=Python, firstline=7, firstnumber=7, lastline = 10]{code/0_LED.py}
+			\lstinputlisting[style=Python, firstline=7, firstnumber=7, lastline = 10]{sections/1_LED/0_LED.py}
 			
 			Before we control something through GPIO, we need to setup the pin. We just stated that pin 16 (labelled `LED') is an output device, i.e. we are outputting a signal to the light, we aren't reading a sensor input.
 			
@@ -93,13 +93,13 @@
 			
 			Now it is set up, we can control the GPIO pin:
 			
-			\lstinputlisting[style=Python, firstline=11, firstnumber=11, lastline = 13]{code/0_LED.py}
+			\lstinputlisting[style=Python, firstline=11, firstnumber=11, lastline = 13]{sections/1_LED/0_LED.py}
 			
 			Once again, we are sending a command for pin number 16 (`LED'), this time telling it to output a `high' signal. This will turn on our LED.
 			
 			Let's have our LED on for a few seconds, then turn it off before the program ends. The function sleep() will cause the program to wait, then we will repeat the GPIO.output() function, this time using GPIO.LOW to turn off the LED.
 			
-			\lstinputlisting[style=Python, firstline=14, firstnumber=14, lastline = 20]{code/0_LED.py}
+			\lstinputlisting[style=Python, firstline=14, firstnumber=14, lastline = 20]{sections/1_LED/0_LED.py}
 			
 			We place GPIO.cleanup() at the end of our program, to reset the pin setup for the next program.
 			
