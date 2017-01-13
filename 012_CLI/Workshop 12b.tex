@@ -1,0 +1,36 @@
+	\documentclass[a4paper, twocolumn, twoside, 11pt]{article}
+	\usepackage{workshoppreamble}
+	%\raggedbottom
+	
+%	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
+\begin{document}
+
+	%Title
+	\author{Manchester Raspberry Jam}
+	\title{Workshop 11: GPIO \& Motors}
+	\date{}
+	\maketitle
+	
+	%Table of Contents
+	\setcounter{tocdepth}{1}
+	\tableofcontents
+	
+	%Contents
+	\input{sections/0_introduction}
+	\newpage																						%Print Formatting
+	\input{sections/1_LED}
+	\input{sections/2_motor}
+	
+	%Appendices
+	\begin{appendices}	
+		%Don't list each appendix in Table of Contents
+		\addtocontents{toc}{\setcounter{tocdepth}{-1}}
+		
+		\input{sections/a0_codelisting}
+		\input{sections/a1_GPIO}
+		\input{sections/a2_motorcontroller}
+	\end{appendices}	
+	
+
+\end{document}
