@@ -1,0 +1,26 @@
+\section{Booting the Pi}
+\label{sec:setup}
+
+	When booting the Pi, you should insert all of the connectors and the MicroSD card first, then insert the Micro USB power \textbf{last}, as this will cause the Pi to boot.
+	
+	If all goes well, the Pi should boot automatically. If not, here are some tips on spotting problems with your connections and equipment.
+	
+	\subsection*{Power Issues}
+		
+		The tell-tale sign for power issues is that the Pi will get at least partway through the boot process, then reset to the beginning.
+		
+		If nothing appears on the monitor, check other possible causes first.
+		
+	\subsection*{Display Issues}
+	
+		Monitors tend to be fiddly when picking up new input sources. For a sanity check it's a good idea to have another device that outputs HDMI so you can test the monitor is working, such as a laptop.
+		
+		If your test device outputs correctly but your Pi does not, it is likely to be an SD card issue.
+		
+	\subsection*{SD Card Issues}
+	
+		If there is an issue with your SD card, the Pi will usually not boot at all. The best way to spot this is to watch the green CPU activity light on the Raspberry Pi board. During a normal boot this will flash on and off, so if it's stuck on, the SD card is likely faulty.
+	
+		SD card issues can usually be fixed by formatting and reinstalling NOOBS. Use the official SD formatter tool from \url{https://www.sdcard.org/downloads/} to format your card if your OS's built in formatter did not work.
+		
+		A small number of SD Cards do not work with the Raspberry Pi. A compatibility list of SD cards is maintained at \url{http://elinux.org/RPi_SD_cards}, though it is not exhaustive.

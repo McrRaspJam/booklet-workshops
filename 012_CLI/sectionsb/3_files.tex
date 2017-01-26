@@ -1,0 +1,63 @@
+\section{Files}
+	
+	Once you've picked a directory, you can use the \textbf{ls} command, which is short for the word list.
+	
+\begin{lstlisting}
+ $ cd
+~$ ls
+Desktop Downloads Pictures python_games
+\end{lstlisting}
+
+	Once we've found the file we're looking for, it's straightforward to edit it. For example, a text file could be opened using
+	
+\begin{lstlisting}
+~$ nano textfile.txt
+\end{lstlisting}	
+
+	If a file doesn't exist, most editor programs will create a new file with that name. Save this new file by pressing \textbf{Ctrl+O}, then quitting with \textbf{Ctrl+X}. Run ls again, and your file should now be present.
+
+	\subsection{Manipulating Files}
+	
+		Let's blitz through a few file operation commands.
+		
+		To copy a file:
+\begin{lstlisting}
+~$ cp textfile.txt anothertextfile.txt
+\end{lstlisting}
+
+		To move a file:
+\begin{lstlisting}
+~$ cp textfile.txt originaltextfile.txt
+\end{lstlisting}
+
+		You'll note that both of these commands use the same parameters, the original file followed by the resulting file.
+
+		To remove a file:	
+\begin{lstlisting}
+~$ rm anothertextfile.txt
+\end{lstlisting}
+
+		To make a directory:		
+\begin{lstlisting}
+~$ mkdir textfile
+\end{lstlisting}
+
+		We should be left with originaltextfile.txt and a directory. Try \textit{moving} the text file to within this new directory.
+		
+		you can remove an empty directory with rmdir, but because our has a file in it, we will delete it using the following command.
+\begin{lstlisting}
+~$ rm -r textfile
+\end{lstlisting}
+
+		-r is flag that tells rm to run recursively. There are lots of flags for most commands, for example try \textbf{ls -l}. you can view the flags of a program by viewing it's manual using the \textbf{man} command.
+\begin{lstlisting}
+~$ man ls
+\end{lstlisting}
+
+		Shortly, we'll use a flag for the rm command in order to execute
+		
+		\large \textbf{The Ultimate Command of Destruction!} \normalsize
+		
+		but for now, we'll learn how to maintain the software on our Pi. Much more constructive.
+		
+		

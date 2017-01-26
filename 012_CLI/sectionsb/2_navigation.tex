@@ -1,0 +1,68 @@
+\section{Directories}
+
+	\subsection{Where am I?}
+	
+		Once you've logged in, you should see a line that looks like this.
+	
+\begin{lstlisting}
+pi@raspberrypi:~$
+\end{lstlisting}
+	
+		This is your command prompt. Let's break up that line. \textbf{pi} is the current user. We logged in as `pi', so that appears first. \textbf{raspberrypi} is the computers machine name (or hostname). Following the colon, the tilde \textbf{\~} is the current directory.
+		
+		\~\ is in fact a shortcut for the home folder. to see the position on the disk of your home folder, we can use the command \textbf{pwd}, which stands for `print working directory'.
+
+\begin{lstlisting}
+pi@raspberrypi:~$ pwd
+/home/pi
+\end{lstlisting}
+	
+	\subsection{The Filesystem}
+	
+		\textit{<Written explanation to be added after the workshop>}
+	
+	\subsection{Moving around}
+	
+		So, we're currently in our home directory, and there are two levels above us. to move to the root folder, we can use the \textbf{cd} command, which stands for `change directory'.
+		
+\begin{lstlisting}
+pi@raspberrypi:~$ cd ..
+pi@raspberrypi:/home $ cd ..
+pi@raspberrypi:/ $ pwd
+/
+\end{lstlisting}
+
+		\textbf{..} causes us to move up a directory. to move into a directory, we can type its name.
+	
+\begin{lstlisting}
+pi@raspberrypi:/ $ cd usr
+pi@raspberrypi:/usr $ pwd
+/usr
+\end{lstlisting}
+
+		We can type an absolute directory starting with `/', the root folder. Using the cd command without a directory or .. takes us to the home folder.
+		
+\begin{lstlisting}
+pi@raspberrypi:/usr $ cd /media
+pi@raspberrypi:/media $ pwd
+/media
+pi@raspberrypi:/media $ cd
+pi@raspberrypi:~ $ pwd
+/home/pi
+\end{lstlisting}
+
+		We can string together directory changes using forward slashes.
+		
+\begin{lstlisting}
+pi@raspberrypi:~ $ cd ../../usr
+pi@raspberrypi:/usr $ pwd
+/usr
+\end{lstlisting}
+
+		Now have a go at finding at finding the location of the Python 3 binary executable. You can use the \textbf{whereis} command to find the location of a program.
+		
+\begin{lstlisting}
+$ whereis python3
+\end{lstlisting}
+
+		The first part of the output will be the directory of the binary file.
