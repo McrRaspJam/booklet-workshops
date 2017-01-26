@@ -1,5 +1,5 @@
 	\documentclass[a4paper, twocolumn, twoside, 11pt]{article}
-	\usepackage{workshoppreamble}
+	\usepackage{common/workshoppreamble}
 	%\raggedbottom
 	
 %	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
@@ -7,8 +7,13 @@
 \begin{document}
 
 	%Title
-	\author{Manchester Raspberry Jam}
-	\title{Workshop 12: The Linux Command Line}
+	\author{}
+	\title{
+		\begin{center}
+			\includegraphics[width=30mm]{common/logo-512}
+		\end{center}
+		\vspace{12pt}
+		Workshop 12: The Linux Command Line}
 	\date{}
 	\maketitle
 	
@@ -17,12 +22,13 @@
 	\tableofcontents
 	
 	%Contents
-	\input{sectionsb/0_introduction}
-	\input{sectionsb/1_setup}
-	\input{sectionsb/2_navigation}
-	\input{sectionsb/3_files}
-	\input{sectionsb/4_aptget}
-	\input{sectionsb/5_destroy}
+	\input{012_CLI/0_introduction}
+	\newpage
+	\input{012_CLI/1_setup}
+	\input{012_CLI/2_navigation}
+	\input{012_CLI/3_files}
+	\input{012_CLI/4_aptget}
+	\input{012_CLI/5_destroy}
 	\newpage
 	
 	%Appendices
