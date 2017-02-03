@@ -1,37 +1,32 @@
-	\documentclass[a4paper, twocolumn, twoside, 11pt]{article}
-	\usepackage{common/workshoppreamble}
-	%\raggedbottom
-%	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+%
+% Manchester Raspberry Jam Workshop Booklet
+%
+% This template is designed to try and aide consistency between each booklet.
+% Insert files as instructed by comments, things like tables of contents are created by other linked files
+%
 
+% Enter the document title here
+\newcommand{\workshopTitle}{Getting Started with Raspberry Pi}
+
+% Enter the author of this workshop
+\newcommand{\workshopAuthor}{Jack Kelly}
+
+\input{McrRaspJam/Common/booklet_preamble}
 \begin{document}
-
-	%Title
-	\author{}
-	\title{
-		\begin{center}
-			\includegraphics[width=30mm]{common/logo-512}
-		\end{center}
-		\vspace{12pt}
-		Getting Started with Raspberry Pi}
-	\date{}
-	\maketitle
+	\input{McrRaspJam/Common/booklet_title}
 	
-%	PDF available at \url{bit.ly/mcrraspjam}
+	%
+	% Input the main CONTENT below, sans title page or contents.
+	% Recommend inputting per section, and adding page breaks here.
+	%
 	
-	%Table of Contents
-	\setcounter{tocdepth}{1}
-	\tableofcontents
-	\vspace{12pt}
-
-	%Contents
-	\input{000_IntroToPi/0_Introduction}
-	%\newpage
-	\input{000_IntroToPi/1_EquipmentNeeded}
-	\newpage
-	\input{000_IntroToPi/2_NOOBS}
-	\newpage
-	\input{000_IntroToPi/3_Setup}
-	\newpage
-	\input{000_IntroToPi/4_Resources}
+	\input{McrRaspJam/000_IntroToPi/0_Introduction}
+	\input{McrRaspJam/000_IntroToPi/1_EquipmentNeeded}
+		\newpage
+	\input{McrRaspJam/000_IntroToPi/2_NOOBS}
+		\newpage
+	\input{McrRaspJam/000_IntroToPi/3_Setup}
+		\newpage
+	\input{McrRaspJam/000_IntroToPi/4_Resources}
 
 \end{document}

@@ -1,31 +1,30 @@
-	\documentclass[a4paper, twocolumn, twoside, 11pt]{article}
-	\usepackage{common/workshoppreamble}
-	%\raggedbottom
-	
-%	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+%
+% Manchester Raspberry Jam Workshop Booklet
+%
+% This template is designed to try and aide consistency between each booklet.
+% Insert files as instructed by comments, things like tables of contents are created by other linked files
+%
 
+% Enter the document title here
+\newcommand{\workshopTitle}{Workshop 12 Extension: Raspbian Lite}
+
+% Enter the author of this workshop
+\newcommand{\workshopAuthor}{Jack Kelly}
+
+\input{McrRaspJam/Common/booklet_preamble}
 \begin{document}
-
-	%Title
-	\author{}
-	\title{
-		\begin{center}
-			\includegraphics[width=30mm]{common/logo-512}
-		\end{center}
-		\vspace{12pt}
-		Workshop 12 Extension: Customising Raspbian Lite}
-	\date{}
-	\maketitle
+	%Modified to remove author, as this workshop is based on external content
+	\input{McrRaspJam/012_CLI/extension/booklet_title}
 	
-	%Table of Contents
-	\setcounter{tocdepth}{1}
-	\tableofcontents
+	%
+	% Input the main CONTENT below, sans title page or contents.
+	% Recommend inputting per section, and adding page breaks here.
+	%
 	
-	%Contents
-	\input{012_CLI/extension/0_introduction}
-	\newpage
-	\input{012_CLI/extension/1_foundation}
-	\input{012_CLI/extension/2_furniture}	
-	\input{012_CLI/extension/3_customize}
+	\input{McrRaspJam/012_CLI/extension/0_introduction}
+		\newpage
+	\input{McrRaspJam/012_CLI/extension/1_foundation}
+	\input{McrRaspJam/012_CLI/extension/2_furniture}	
+	\input{McrRaspJam/012_CLI/extension/3_customize}
 
 \end{document}

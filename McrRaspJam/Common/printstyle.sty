@@ -1,0 +1,89 @@
+\ProvidesPackage{McrRaspjam/Common/printstyle}
+
+
+\usepackage[utf8]{inputenc}	
+\usepackage[UKenglish]{babel}
+
+
+\setlength{\columnsep}{1.25cm}							% Page Margins
+\usepackage[margin=1.25cm]{geometry}
+\setlength{\parskip}{6pt}								%Paragraph Spacing
+
+
+\usepackage[usenames, dvipsnames]{color}				%Font Colour
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=WildStrawberry]{hyperref}	%URLs
+
+
+\usepackage{enumitem}									%List spacing changes
+\usepackage[toc,page]{appendix}							%Appendix package
+%\usepackage{float}
+\usepackage{graphicx}									% TOC?
+\usepackage{etoolbox}									%Boolean used for print/web switching
+
+%	-	-	-	-	-	-	-	-	-	-
+
+
+%Code listings
+\usepackage{listings}
+\definecolor{code}{rgb}{0.95,0.95,0.95}
+\definecolor{codeframe}{rgb}{0.9,0.9,0.9}
+
+\lstdefinestyle{Terminal}{
+	language=bash,
+	frame=leftline,
+	numbers=left,
+	tabsize=8,
+	basicstyle=\footnotesize\ttfamily,
+	showstringspaces=false
+	%breaklines=true
+}
+
+\definecolor{IDLEcomment}{rgb}{0.75,0,0}
+\definecolor{IDLEkey}{rgb}{0.5,0.0,0.5}
+\definecolor{IDLEstring}{rgb}{0,0.5,0}
+
+\lstdefinestyle{Python}{
+	language=Python,
+	frame=leftline,
+	numbers=left,
+	tabsize=8,
+	basicstyle=\footnotesize\ttfamily,
+	showstringspaces=false,
+	%breaklines=true,
+	keywordstyle=\color{IDLEkey},
+	commentstyle=\color{IDLEcomment},
+	stringstyle=\color{IDLEstring}
+}
+
+%ARM Specific
+\lstdefinestyle{ARM}{
+	language=[ARM]{Assembler},
+	frame=leftline,
+	numbers=left,
+	tabsize=8,
+	basicstyle=\footnotesize\ttfamily,
+	showstringspaces=false,
+	%breaklines=true,
+	keywordstyle=\color{IDLEkey},
+	commentstyle=\color{IDLEcomment},
+	stringstyle=\color{IDLEstring}
+}
+
+
+%	-	-	-	-	-	-	-	-	-	-
+
+	
+%Asides
+\usepackage{mdframed}
+\mdfsetup{frametitlealignment=\center}
+\newenvironment{aside}[1][Aside]
+{
+	\begin{mdframed}[frametitle={#1}]
+		\footnotesize
+		\setlength{\parskip}{2pt}
+		\vspace{2pt} %correct for parskip
+		}
+		{
+	\end{mdframed}
+}
+	

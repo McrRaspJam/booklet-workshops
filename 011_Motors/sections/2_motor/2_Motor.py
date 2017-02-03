@@ -26,7 +26,7 @@ GPIO.output(Enable, GPIO.LOW)
 
 sleep(1)
 
-print("reverse")
+print('reverse')
 GPIO.output(	,	)
 GPIO.output(	,	)
 GPIO.output(	,	)
