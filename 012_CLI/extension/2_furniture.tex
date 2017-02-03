@@ -1,0 +1,125 @@
+\section{Installing a GUI}
+
+	This next part focuses on installing a GUI on top of Raspbian Lite. In order to have a GUI, we need these 4 things:
+	
+	\begin{enumerate}[nosep]
+		\item Display Server
+		\item Desktop Environment
+		\item Window Manager
+		\item Login Manager (Optional)
+	\end{enumerate}
+		
+	\subsection{Display Server}
+	
+		The display server is like the software glue that allows the other 3 components to cooperate, it manages all of these components, input devices (keyboards and mice), output devices (monitors), and allows us to swap out each of these components and replace them with alternates.
+		
+		Most Linux distributions use the X Window System, and that is what you'll be installing. You can do this by installing the package \textbf{xserver-xorg}:
+	
+\begin{lstlisting}[breaklines=true]
+$ sudo apt-get install --no-install-recommends xserver-xorg
+\end{lstlisting}
+
+		apt-get is quite clever, it not only installs the software you asked for, but also any `dependencies' that this piece of software needs.
+		
+		In the spirit of creating a custom and lean operating system, you should add the flag \textit{\mbox{`-\--no-install-recommends'}}, to dissuade apt-get from installing anything that it thinks is useful, but isn't absolutely necessary.
+		
+		If you only install xserver-xorg, you will not have the ability to launch X from the command line, using the typical \textit{`startx'} command. This would be a problem if you are not planning on installing a login manager. You should therefore the package \textbf{xinit}:
+	
+\begin{lstlisting}[breaklines=true]
+$ sudo apt-get install --no-install-recommends xinit
+\end{lstlisting}
+
+	\subsection{Desktop Environment and Window Manager}
+	
+		Time to choose a path.
+		
+		\begin{itemize}
+			\item \textbf{PIXEL} is the default Raspbian desktop environment.
+			
+			For the purposes of trying something new in this exercise, we recommend picking another option first.
+			
+			\item \textbf{LXDE} is a desktop environment you may recognise from the older versions of Raspbian (a modified version is still used in PIXEL).
+			
+			It's designed as a lightweight desktop environment for lower performance computers, so we recommend this if you're using a Pi Gen1 or B+.
+			
+			\item \textbf{XFCE} is a highly customisable desktop environment similar to LXDE.
+			
+			It is slightly more performance heavy than LXDE, but arguably has some visual and software improvements.
+			
+			\item \textbf{MATE} is the desktop used by Ubuntu MATE, one of the third party Raspberry Pi operating systems.
+			
+			It is a modernised GNOME 2 desktop environment, and is more performance heavy that the other choices, so more suited to Pi Gen2 or 3 computers.
+		\end{itemize}
+		
+		\subsubsection*{PIXEL}
+		
+			Your reading this part because you want to install PIXEL right? Let's continue.
+			
+			For this desktop environment, we will install the whole PIXEL desktop environment. This is to ensure that you get the same experience as if you are using the regular Raspbian distribution, but without preinstalled applications. Essentials such as settings, task manager, terminal and file manager are included.
+			
+			To install PIXEL:
+\begin{lstlisting}[breaklines=true]
+$ sudo apt-get install raspberrypi-ui-mods
+\end{lstlisting}
+			
+			The Openbox window manager is installed by default when you install PIXEL, so you do not need to install one manually.
+			
+		\subsubsection*{LXDE}
+			
+			Your reading this part because you want to install LXDE right? Let's continue.
+			
+			We will be installing the LXDE core. When you install LXDE, some essentials such as settings, terminal and file manager are included.
+			
+			LXAppearance is used to change the look of applications such as panels, icons, progress bars, cursors, and so on. This is optional to install but I recommend installing it in order to give yourself more customization abilities.
+			
+			To install LXDE with LXAppearance:
+\begin{lstlisting}[breaklines=true]
+$ sudo apt-get install lxde-core lxappearance
+\end{lstlisting}
+
+			The Openbox window manager is installed by default when you install PIXEL, so you do not need to install one manually.
+			
+			You can customize the look of the titlebar using the Openbox settings which is also installed by default. By using LXAppearance and Openbox settings together, you chose what LXDE looks like!
+			
+		\subsubsection*{XFCE}
+		
+			Your reading this part because you want to install XFCE right? Let's continue.
+			
+			We will be installing the XFCE core. When you install XFCE, some essentials such as settings and file manager are included. By default, XFCE uses XFCE4 Terminal.
+			
+			To install XFCE with XFCE4 Terminal:
+\begin{lstlisting}[breaklines=true]
+$ sudo apt-get install xfce4 xfce4-terminal
+\end{lstlisting}
+
+			The XFWM window manager is installed by default when you install xfce4, so you do not need to install one manually.
+			
+		\subsubsection*{MATE}
+		
+			Your reading this part because you want to install MATE right? Let's continue.
+			
+			We will be installing the MATE core. When you install MATE, some essentials such as settings, terminal, and file manager are included. To install MATE:
+\begin{lstlisting}[breaklines=true]
+$ sudo apt-get install mate-desktop-environment-core
+\end{lstlisting}		
+
+			The Marco window manager is installed by default when you install MATE, so you do not need to install one manually.
+			
+	\subsection{Login Manager}
+	
+		If you just want to start the desktop by running the `startx' command after launch, you don't need to install a login manager.
+		
+		If you want to boot to the desktop, you should install a login manager, such as lightdm:
+		
+\begin{lstlisting}[breaklines=true]
+$ sudo apt-get install lightdm
+\end{lstlisting}
+
+		Everything we need to have Raspbian Lite with a GUI is ready! Fortunately, we don't have to do anything else but reboot! Reboot your Pi. When it finishes booting, you will see the LightDM login screen.
+		
+		From here, log in and you should now see either PIXEL, LXDE, XFCE, or MATE desktop!
+ 
+		 Otherwise, if no login manager was installed, then just login via the command line. Then, at any time, you can launch the X Server with:
+\begin{lstlisting}[breaklines=true]
+$ startx
+\end{lstlisting}
