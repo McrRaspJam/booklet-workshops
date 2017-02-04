@@ -1,0 +1,52 @@
+%
+% Manchester Raspberry Jam Workshop Booklet
+%
+% This template is designed to try and aide consistency between each booklet.
+% Insert files as instructed by comments, things like tables of contents are created by other linked files
+%
+
+% Is this document PRINT or WEB format?
+% (you can use the toggle to cut content for paper, see etoolbox)
+\input{McrRaspJam/Common/web_preamble}
+\providetoggle{isPRINT}
+\settoggle{isPRINT}{false}
+
+% Enter the document title here
+\newcommand{\workshopTitle}{Workshop 11: GPIO \& Motors}
+
+% Enter the author of this workshop
+\newcommand{\workshopAuthor}{Jack Kelly}
+
+
+\begin{document}
+	\input{McrRaspJam/Common/booklet_title}
+	
+	%Place a SINGLE paragraph summary here
+	In this workshop, we'll learn about motor controller chips, and make a breadboard circuit to drive a motor. 
+	
+	%Difficulty
+	\textit{Difficulty: Intermediate workshop}
+	
+	\setcounter{tocdepth}{1}
+	\tableofcontents
+	\vspace{12pt}
+	
+	%
+	% Input the main CONTENT below, sans title page or contents.
+	% Recommend inputting per section, and adding page breaks here.
+	%
+	
+	\input{McrRaspJam/011_Motors/0_introduction}
+	\input{McrRaspJam/011_Motors/1_LED}
+	\input{McrRaspJam/011_Motors/2_Motor}
+	
+	\begin{appendices}	
+		%Don't list each appendix in Table of Contents
+		\addtocontents{toc}{\setcounter{tocdepth}{-1}}
+		\iftoggle{isPRINT}{}{\input{McrRaspJam/011_Motors/a0_codelisting}}
+		\newpage
+		\input{McrRaspJam/011_Motors/a1_GPIO}
+		\input{McrRaspJam/011_Motors/a2_motorcontroller}
+	\end{appendices}
+
+\end{document}
