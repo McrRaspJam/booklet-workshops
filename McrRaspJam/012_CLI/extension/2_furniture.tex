@@ -15,7 +15,7 @@
 		
 		Most Linux distributions use the X Window System, and that is what you'll be installing. You can do this by installing the package \textbf{xserver-xorg}:
 	
-\begin{lstlisting}[breaklines=true]
+\begin{lstlisting}[style=Terminal, breaklines=true]
 $ sudo apt-get install --no-install-recommends xserver-xorg
 \end{lstlisting}
 
@@ -25,7 +25,7 @@ $ sudo apt-get install --no-install-recommends xserver-xorg
 		
 		If you only install xserver-xorg, you will not have the ability to launch X from the command line, using the typical \textit{`startx'} command. This would be a problem if you are not planning on installing a login manager. You should therefore the package \textbf{xinit}:
 	
-\begin{lstlisting}[breaklines=true]
+\begin{lstlisting}[style=Terminal, breaklines=true]
 $ sudo apt-get install --no-install-recommends xinit
 \end{lstlisting}
 
@@ -64,7 +64,7 @@ $ sudo apt-get install --no-install-recommends xinit
 			For this desktop environment, we will install the whole PIXEL desktop environment. This is to ensure that you get the same experience as if you are using the regular Raspbian distribution, but without preinstalled applications. Essentials such as settings, task manager, terminal and file manager are included.
 			
 			To install PIXEL:
-\begin{lstlisting}[breaklines=true]
+\begin{lstlisting}[style=Terminal, breaklines=true]
 $ sudo apt-get install raspberrypi-ui-mods
 \end{lstlisting}
 			
@@ -79,7 +79,7 @@ $ sudo apt-get install raspberrypi-ui-mods
 			LXAppearance is used to change the look of applications such as panels, icons, progress bars, cursors, and so on. This is optional to install but I recommend installing it in order to give yourself more customization abilities.
 			
 			To install LXDE with LXAppearance:
-\begin{lstlisting}[breaklines=true]
+\begin{lstlisting}[style=Terminal, breaklines=true]
 $ sudo apt-get install lxde-core lxappearance
 \end{lstlisting}
 
@@ -94,7 +94,7 @@ $ sudo apt-get install lxde-core lxappearance
 			We will be installing the XFCE core. When you install XFCE, some essentials such as settings and file manager are included. By default, XFCE uses XFCE4 Terminal.
 			
 			To install XFCE with XFCE4 Terminal:
-\begin{lstlisting}[breaklines=true]
+\begin{lstlisting}[style=Terminal, breaklines=true]
 $ sudo apt-get install xfce4 xfce4-terminal
 \end{lstlisting}
 
@@ -105,7 +105,7 @@ $ sudo apt-get install xfce4 xfce4-terminal
 			Your reading this part because you want to install MATE right? Let's continue.
 			
 			We will be installing the MATE core. When you install MATE, some essentials such as settings, terminal, and file manager are included. To install MATE:
-\begin{lstlisting}[breaklines=true]
+\begin{lstlisting}[style=Terminal, breaklines=true]
 $ sudo apt-get install mate-desktop-environment-core
 \end{lstlisting}		
 
@@ -117,7 +117,7 @@ $ sudo apt-get install mate-desktop-environment-core
 		
 		If you want to boot to the desktop, you should install a login manager, such as lightdm:
 		
-\begin{lstlisting}[breaklines=true]
+\begin{lstlisting}[style=Terminal, breaklines=true]
 $ sudo apt-get install lightdm
 \end{lstlisting}
 
@@ -126,6 +126,6 @@ $ sudo apt-get install lightdm
 		From here, log in and you should now see either PIXEL, LXDE, XFCE, or MATE desktop!
  
 		 Otherwise, if no login manager was installed, then just login via the command line. Then, at any time, you can launch the X Server with:
-\begin{lstlisting}[breaklines=true]
+\begin{lstlisting}[style=Terminal, breaklines=true]
 $ startx
 \end{lstlisting}

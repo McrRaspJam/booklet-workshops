@@ -10,10 +10,10 @@
 	\vspace{10pt}
 	Once you're logged in, it'll be a good idea to check you're connected to the internet. Type:
 
-\begin{lstlisting}
+		\begin{lstlisting}[style=Terminal]
 $ ping www.google.com
 PING www.google.com (216.58.213.100) ...
-\end{lstlisting}
+		\end{lstlisting}
 
 	Ping will repeatedly try to contact a server (in this case, the Google webpage), and the server will notice this and send a response. Press \textbf{Ctrl + C} to stop pinging.
 	
@@ -23,17 +23,17 @@ PING www.google.com (216.58.213.100) ...
 		
 		Apt-get stores a list of available software, which we can then choose to install from. To get an up-to-date list of available software, you'll \textbf{update} this list using
 	
-\begin{lstlisting}
+		\begin{lstlisting}[style=Terminal]
 $ sudo apt-get update
-\end{lstlisting}
+		\end{lstlisting}
 
 		After a few moments, the \$ prompt will reappear, telling us the command has completed.
 		
 		You can take the opportunity now to update the software on the Pi, you do this using an \textbf{upgrade} command.
 	
-\begin{lstlisting}
+		\begin{lstlisting}[style=Terminal]
 $ sudo apt-get upgrade
-\end{lstlisting}	
+		\end{lstlisting}	
 
 		On Raspbian, this command would take quite a while. Luckily on Raspbian Lite, there's not a lot of software to be upgraded!
 		

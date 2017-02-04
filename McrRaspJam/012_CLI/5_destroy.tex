@@ -20,54 +20,58 @@
 	
 		In the CLI, the asterisk character \textbf{*} is used as a wildcard. If we wanted to delete all the .txt files from a directory filled with thousands of different files, we could find each one and manually type in
 	
-\begin{lstlisting}
+		\begin{lstlisting}[style=Terminal]
 $ rm file23of9000.txt
 $ rm file72of9000.txt
 $ rm file73of9000.txt
 $ rm file79of9000.txt
 ...
-\end{lstlisting}
+		\end{lstlisting}
 
-		or, using a wildcard, we can search for a partial string. Entering:
-\begin{lstlisting}
+		or, using a wildcard, we can search for a partial name. Entering:
+		\begin{lstlisting}[style=Terminal]
 $ rm *.txt
-\end{lstlisting}
+		\end{lstlisting}
 
-		would delete all of the files ending in `.txt', just like we wanted
-\begin{lstlisting}
+		would delete all of the files ending in `.txt', just like we wanted. Likewise, to delete all the files beginning with January, we could do:
+		\begin{lstlisting}[style=Terminal]1
 $ rm january*
-\end{lstlisting}
-
-		would delete all file names beginning with `january'
+		\end{lstlisting}
 	
 		But what if you tried a command such as `rm *'? By default it would stop within the current folder, and possibly the sub folders, but what if we accidentally told it not to?
 	
-	\subsection{The ultimate command of destruction}
+	\subsection{Making the wrong combination}
 	
 	The truly scary thing about the ultimate command of destruction is how inconspicuous it looks.
 	
-\begin{lstlisting}
+		\begin{lstlisting}[style=Terminal]
 $ sudo rm -rf /
-\end{lstlisting}
+		\end{lstlisting}
 
-	Let's break the command down.
+		Let's break the command down.
+		
+		rm is our standard remove file function. To it, we have supplied the flags \textbf{-rf}. -f means we know what we're doing, and -r means it will start at one point and work through every subdirectory it finds.
+		
+		This is fine if we're trying to delete a Java Project folder, or a collection of cat pictures, but what directory have we supplied?
+		
+		\textbf{/} is the root directory, the directory under which every single file on our computer is contained.
+		
+		The Operating system would have stopped you, but we've ran it under \textbf{sudo}, so the computer's convinced we done this intentionally.
+		
+		And now (if you're happy to wipe whatever SD card you're running on) you can try it on your Raspberry Pi.\footnote{A feature of modern Linux distributions, at this point the program throws one last warning at you to try and stop you.
+			
+		If you're really \textit{really} happy to lose all of your files, just add the flag it tells you to, and it \textit{will} finally run your command.} I'd recommend adding the flag -v for dramatic effect, which will display the files as they're being deleted.
 	
-	rm is our standard remove file function. To it, we have supplied the flags -rf. -f means we know what we're doing, and -r means it will start at one point and work through every subdirectory it finds.
-	
-	This is fine if we're trying to delete a Java Project folder, or a collection of cat pictures, but what directory have we supplied?
-	
-	/ is the root directory, the directory under which every single file on our computer is contained.
-	
-	The Operating system would have stopped you, but we've ran it under sudo, so the computer's convinced we done this intentionally.
-	
-	And now (if you're happy to wipe whatever SD card you're running on) you can try it on your Raspberry Pi. I'd recommend adding the flag -v for dramatic effect, which will display the files as they're being deleted.
-	
-\begin{lstlisting}
+		\begin{lstlisting}[style=Terminal]
 $ sudo rm -rfv /
-\end{lstlisting}
+		\end{lstlisting}
 
 \section{The End}
 
 	Whilst it certainly is for your Raspberry Pi (until you reinstall NOOBS, that is), I thought I'd leave you with one story about accidental misuse of rm.
 	
 	This story about a quite famous film company is available as a video at \url{https://youtu.be/8dhp_20j0Ys}, and a text article is available at \url{http://bit.ly/2jgR3nC}.
+	
+	\iftoggle{isPRINT}{}{
+		Try not to be too intimidated by what you've just accomplished Getting you to destroy your Pi in a single command wasn't meant to scare you away from using the command line, just to show you the power that it gifts you.
+	}

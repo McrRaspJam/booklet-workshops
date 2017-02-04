@@ -2,14 +2,14 @@
 
 	The Linux command line is usually accessed through one of two ways.
 	
-	\begin{enumerate}[nosep]
+	\begin{enumerate}[noitemsep]
 		\item By opening a terminal window from the desktop.
 		\item By running the operating system in the command line mode.
 	\end{enumerate}
 	
 	When we use the latter method, the desktop environment won't start at all. We'll set our Pi's into this mode now, so we won't feel tempted to stray outside of the command line for this workshop.
 	
-	\begin{aside}
+	\begin{aside}[Why use the Command Line?]
 		Other than as a fun challenge, running a machine without a desktop environment has some benefits.
 		
 		Imagine a server in a large server-bank. These machines run automatically, and are only accessed by humans for maintenance purposes. So most of the time, running a graphical desktop would waste resources.
@@ -19,7 +19,7 @@
 	
 		Open a terminal window and type the following
 		
-\begin{lstlisting}
+\begin{lstlisting}[style=Terminal]
 $ sudo raspi-config
 \end{lstlisting}
 	
@@ -42,8 +42,10 @@ $ sudo raspi-config
 		\\\textbf{username:}\hspace{2cm}pi
 		\\\textbf{password:}\hspace{2cm}raspberry
 		
-		\begin{aside}
-		As you type your password, you'll notice that you don't see the typical dots or asterisks where your password should be.
+		Take care when typing your password, it won't appear on screen as you type it, not even as asterisks or dots.
 		
-		This is a security feature to hide the length of your password from onlookers, as well as the password itself. Knowing the length of a password would make brute-forcing a password lock considerably faster.
+		\begin{aside}[The hidden password]
+		This is a security feature to hide the length of your password from onlookers, as well as the password itself.
+		
+		Knowing the length of a password would make guessing or brute-forcing a passworded lock considerably faster.
 		\end{aside}

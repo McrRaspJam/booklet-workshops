@@ -1,32 +1,31 @@
-\ProvidesPackage{McrRaspjam/Common/workshoppreamble}
+\ProvidesPackage{McrRaspjam/Common/webstyle}
 
-%Page Layout, Assumes that:
-% documentclass[a4paper, twocolumn, twoside, 11pt]{article}
-\setlength{\columnsep}{1cm}
-\usepackage[margin=1.5cm]{geometry}
 
-%Text Formatting
-\setlength{\parskip}{6pt}
+\usepackage[utf8]{inputenc}	
+\usepackage[UKenglish]{babel}
+
+	
+\setlength{\columnsep}{1.5cm}		
+\usepackage[margin=1.5cm]{geometry}						% Page Margins
+\setlength{\parskip}{6pt}								%Paragraph Spacing
+
+
 \usepackage{tocloft}
-\renewcommand\cftsecafterpnum{\vskip-5pt}
-\usepackage{enumitem}
+\renewcommand\cftsecafterpnum{\vskip-5pt}				%TOC spacing
 
-%Font
+
 \usepackage[T1]{fontenc}
 \usepackage[sfdefault]{roboto}
 \usepackage[T1]{fontenc}
-\usepackage[usenames, dvipsnames]{color}
-
-%Misc. Formatting
-\usepackage{float}
-\usepackage[toc,page]{appendix}
+\usepackage[usenames, dvipsnames]{color}				%Font Colour
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=WildStrawberry]{hyperref}
 
-%Other
-\usepackage[utf8]{inputenc}
-\usepackage[UKenglish]{babel}
-\usepackage{graphicx}
-\usepackage{etoolbox}
+
+\usepackage{enumitem}									%List spacing changes
+\usepackage[toc,page]{appendix}							%Appendix package
+%\usepackage{float}
+\usepackage{graphicx}									% TOC?
+\usepackage{etoolbox}									%Boolean used for print/web switching
 
 
 %	-	-	-	-	-	-	-	-	-	-
@@ -34,74 +33,89 @@
 
 %Code listings
 \usepackage{listings}
-\definecolor{code}{rgb}{0.95,0.95,0.95}
-\definecolor{codeframe}{rgb}{0.9,0.9,0.9}
 
-\lstset{
+\definecolor{Terminalprogram}{rgb}{0,0.5,0}
+\definecolor{TerminalBoxBkg}{rgb}{0.95,0.95,0.95}
+\definecolor{TerminalBoxBrd}{rgb}{0.75,0.75,0.75}
+
+\lstdefinestyle{Terminal}{
+	language=bash,
 	frame=single,
+	framerule=0.75pt,
+	rulecolor=\color{TerminalBoxBrd},
+	backgroundcolor=\color{TerminalBoxBkg},
 	numbers=left,
-	numbersep=10pt,
 	tabsize=8,
-	basicstyle=\footnotesize\ttfamily,
-	rulecolor=\color{codeframe},
-	backgroundcolor=\color{code}
+	basicstyle=\small\ttfamily,
+	showstringspaces=false,
+	keywordstyle=\color{Terminalprogram},
+	morekeywords={whereis, sudo, apt-get, raspi-config, ls, nano, cp, mv, rm, mkdir}
+	%breaklines=true
 }
 
-%Python Specific
-\definecolor{pcomment}{RGB}{207,0,19}
-\definecolor{pkey}{RGB}{241,117,34 }
-\definecolor{pcode}{rgb}{0.95,0.95,1.0}
-\definecolor{pcodeframe}{rgb}{0.8,0.8,1.0}
-\definecolor{codenumber}{rgb}{0.5,0.5,0.5}
+\definecolor{IDLEcomment}{rgb}{0.75,0,0}
+\definecolor{IDLEkey}{rgb}{0.5,0.0,0.5}
+\definecolor{IDLEstring}{rgb}{0,0.5,0}
+\definecolor{IDLEBoxBkg}{rgb}{0.95,0.9,0.95}
+\definecolor{IDLEBoxBrd}{rgb}{0.9,0.75,1.0}
+
 
 \lstdefinestyle{Python}{
 	language=Python,
-	rulecolor=\color{pcodeframe},
-	backgroundcolor=\color{pcode},
-	keywordstyle=\color{pkey},
-	commentstyle=\color{pcomment},
-	numberstyle=\tiny\color{codenumber},
-	emphstyle=\color{purple},
+	frame=single,
+	framerule=0.75pt,
+	rulecolor=\color{IDLEBoxBrd},
+	backgroundcolor=\color{IDLEBoxBkg},
+	numbers=left,
+	tabsize=8,
+	basicstyle=\small\ttfamily,
 	showstringspaces=false,
-	tabsize=4,
-	breaklines=true
+	%breaklines=true,
+	keywordstyle=\color{IDLEkey},
+	commentstyle=\color{IDLEcomment},
+	stringstyle=\color{IDLEstring}
 }
 
+%ARM Specific
 \lstdefinestyle{ARM}{
 	language=[ARM]{Assembler},
-	rulecolor=\color{pcodeframe},
-	backgroundcolor=\color{pcode},
-	keywordstyle=\color{pkey},
-	commentstyle=\color{pcomment},
-	numberstyle=\tiny\color{codenumber},
-	emphstyle=\color{purple},
+	frame=single,
+	framerule=0.75pt,
+	rulecolor=\color{IDLEBoxBrd},
+	backgroundcolor=\color{IDLEBoxBkg},
+	numbers=left,
+	tabsize=8,
+	basicstyle=\small\ttfamily,
 	showstringspaces=false,
-	tabsize=4,
-	breaklines=true
+	%breaklines=true,
+	keywordstyle=\color{IDLEkey},
+	commentstyle=\color{IDLEcomment},
+	stringstyle=\color{IDLEstring}
 }
 
 
 %	-	-	-	-	-	-	-	-	-	-
 
+\definecolor{asideback}{rgb}{0.9,0.95,1.0}
+\definecolor{asideborder}{rgb}{0.75,0.9,1.0}	
 	
 %Asides
 \usepackage{mdframed}
-\newenvironment{aside}
+\mdfsetup{frametitlealignment=\center}
+\newenvironment{aside}[1][Aside]
 {
 	\begin{mdframed}
 		[
-			style=0,%
-			leftline=false,
-			rightline=false,
-			innerbottommargin=2pt,
-			innerleftmargin=12pt,
-			innerrightmargin=0pt,
+			frametitle={#1},
+			backgroundcolor=asideback,
+			linecolor=asideborder,
 			linewidth=0.75pt,
-			skipabove=6pt,
-			skipbelow=6pt
+			roundcorner=4pt,
+			innertopmargin=8pt,
+			innerbottommargin=8pt,
+			innerleftmargin=16pt,
+			innerrightmargin=16pt
 		]
-		\small
-		\color{Gray}
 		\setlength{\parskip}{2pt}
 		\vspace{2pt} %correct for parskip
 		}

@@ -1,17 +1,20 @@
-\ProvidesPackage{McrRaspjam/Common/printstyle}
+\ProvidesPackage{McrRaspJam/Common/printstyle}
 
 
 \usepackage[utf8]{inputenc}	
 \usepackage[UKenglish]{babel}
 
 
-\setlength{\columnsep}{1.25cm}							% Page Margins
-\usepackage[margin=1.25cm]{geometry}
+\setlength{\columnsep}{1.5cm}							% Page Margins
+\usepackage[margin=1.5cm]{geometry}
 \setlength{\parskip}{6pt}								%Paragraph Spacing
+
+\usepackage{tocloft}
+\renewcommand\cftsecafterpnum{\vskip-5pt}				%TOC spacing
 
 
 \usepackage[usenames, dvipsnames]{color}				%Font Colour
-\usepackage[colorlinks=true,linkcolor=black,urlcolor=WildStrawberry]{hyperref}	%URLs
+\usepackage[colorlinks=false]{hyperref}	%URLs
 
 
 \usepackage{enumitem}									%List spacing changes
@@ -25,17 +28,19 @@
 
 %Code listings
 \usepackage{listings}
-\definecolor{code}{rgb}{0.95,0.95,0.95}
-\definecolor{codeframe}{rgb}{0.9,0.9,0.9}
+\definecolor{Terminalprogram}{rgb}{0,0.5,0}
+\definecolor{BoxTerminal}{rgb}{0,0,0}
+\definecolor{BoxCode}{rgb}{0.5,0,0.75}
 
 \lstdefinestyle{Terminal}{
 	language=bash,
 	frame=leftline,
+	rulecolor=\color{BoxTerminal},
 	numbers=left,
 	tabsize=8,
 	basicstyle=\footnotesize\ttfamily,
-	showstringspaces=false
-	%breaklines=true
+	showstringspaces=false,
+	keywordstyle=\color{Terminalprogram}
 }
 
 \definecolor{IDLEcomment}{rgb}{0.75,0,0}
@@ -45,6 +50,7 @@
 \lstdefinestyle{Python}{
 	language=Python,
 	frame=leftline,
+	rulecolor=\color{BoxCode},
 	numbers=left,
 	tabsize=8,
 	basicstyle=\footnotesize\ttfamily,
@@ -59,6 +65,7 @@
 \lstdefinestyle{ARM}{
 	language=[ARM]{Assembler},
 	frame=leftline,
+	rulecolor=\color{BoxCode},
 	numbers=left,
 	tabsize=8,
 	basicstyle=\footnotesize\ttfamily,

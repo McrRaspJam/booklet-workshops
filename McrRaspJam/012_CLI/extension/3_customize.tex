@@ -5,7 +5,7 @@
 		Once you've reached your desktop, take a look at your application menu. It should look familiar to regular Raspbian, especially on PIXEL, LXDE or XFCE, but is missing much of the software we usually make use of.
 		
 		It's up to you which software you wish to install. For example, at the Jam we usually use a program called IDLE, which is an IDE for Python. To install IDLE, we install the package named \textbf{idle3}:
-\begin{lstlisting}
+\begin{lstlisting}[style=Terminal]
 $ sudo apt-get install idle3
 \end{lstlisting}
 
@@ -14,7 +14,7 @@ $ sudo apt-get install idle3
 		If we also wanted to install the older python2 version of IDLE that is included in Raspbian, we could install the package \textbf{idle}, however, we probably don't need to.
 		
 		In fact, we don't even need IDLE to program in python. If you prefer editing Python files in another editor, we just need the Python Interpreter itself, which you can install with the \textbf{python3} package:
-\begin{lstlisting}
+\begin{lstlisting}[style=Terminal]
 $ sudo apt-get install python3
 \end{lstlisting}
 
@@ -32,8 +32,8 @@ $ sudo apt-get install python3
 			
 			Firstly, remember that the tab key attempts an auto-complete on your current command. Try typing the following, then pressing tab
 	
-	\begin{lstlisting}
-	$ sudo apt-get install minecr
+	\begin{lstlisting}[style=Terminal]
+$ sudo apt-get install minecr
 	\end{lstlisting}
 	
 			We can also look for online listings of Raspbian software. A web view of the actual software list apt-get uses can be found at \url{http://archive.raspbian.org/}, but it's a bit confusing to navigate.

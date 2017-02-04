@@ -5,15 +5,31 @@
 % Insert files as instructed by comments, things like tables of contents are created by other linked files
 %
 
+% Is this document PRINT or WEB format?
+% (you can use the toggle to cut content for paper, see etoolbox)
+\input{McrRaspJam/Common/web_preamble}
+\providetoggle{isPRINT}
+\settoggle{isPRINT}{false}
+
 % Enter the document title here
 \newcommand{\workshopTitle}{Getting Started with Raspberry Pi}
 
 % Enter the author of this workshop
 \newcommand{\workshopAuthor}{Jack Kelly}
 
-\input{McrRaspJam/Common/booklet_preamble}
+
 \begin{document}
 	\input{McrRaspJam/Common/booklet_title}
+	
+	%Place a SINGLE paragraph summary here
+	This workshop booklet will help you get your Raspberry Pi up and running.
+	
+	%Difficulty
+	\textit{Difficulty: Introductory workshop}
+	
+	\setcounter{tocdepth}{1}
+	\tableofcontents
+	\vspace{12pt}
 	
 	%
 	% Input the main CONTENT below, sans title page or contents.
@@ -21,12 +37,10 @@
 	%
 	
 	\input{McrRaspJam/000_IntroToPi/0_Introduction}
+	\newpage
 	\input{McrRaspJam/000_IntroToPi/1_EquipmentNeeded}
-		\newpage
 	\input{McrRaspJam/000_IntroToPi/2_NOOBS}
-		\newpage
 	\input{McrRaspJam/000_IntroToPi/3_Setup}
-		\newpage
 	\input{McrRaspJam/000_IntroToPi/4_Resources}
 
 \end{document}
