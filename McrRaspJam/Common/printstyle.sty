@@ -40,7 +40,8 @@
 	tabsize=8,
 	basicstyle=\footnotesize\ttfamily,
 	showstringspaces=false,
-	keywordstyle=\color{Terminalprogram}
+	keywordstyle=\color{Terminalprogram},
+	morekeywords={whereis, sudo, apt-get, raspi-config, ls, nano, cp, mv, rm, mkdir}
 }
 
 \definecolor{IDLEcomment}{rgb}{0.75,0,0}
@@ -53,6 +54,20 @@
 	rulecolor=\color{BoxCode},
 	numbers=left,
 	tabsize=8,
+	basicstyle=\footnotesize\ttfamily,
+	showstringspaces=false,
+	%breaklines=true,
+	keywordstyle=\color{IDLEkey},
+	commentstyle=\color{IDLEcomment},
+	stringstyle=\color{IDLEstring}
+}
+
+\lstdefinestyle{Java}{
+	language=Java,
+	frame=leftline,
+	rulecolor=\color{BoxCode},
+	numbers=left,
+	tabsize=4,
 	basicstyle=\footnotesize\ttfamily,
 	showstringspaces=false,
 	%breaklines=true,
