@@ -8,9 +8,8 @@
 \setlength{\columnsep}{1.5cm}							% Page Margins
 \usepackage[margin=1.5cm]{geometry}
 \setlength{\parskip}{6pt}								%Paragraph Spacing
+\usepackage{tocloft}									%TOC spacing
 
-\usepackage{tocloft}
-\renewcommand\cftsecafterpnum{\vskip-5pt}				%TOC spacing
 
 
 \usepackage[usenames, dvipsnames]{color}				%Font Colour
@@ -47,7 +46,6 @@
 \definecolor{IDLEcomment}{rgb}{0.75,0,0}
 \definecolor{IDLEkey}{rgb}{0.5,0.0,0.5}
 \definecolor{IDLEstring}{rgb}{0,0.5,0}
-
 \lstdefinestyle{Python}{
 	language=Python,
 	frame=leftline,
@@ -62,18 +60,21 @@
 	stringstyle=\color{IDLEstring}
 }
 
+\definecolor{Javacomment}{rgb}{0,0.5,0}
+\definecolor{Javakey}{rgb}{0.0,0.0,0.75}
+\definecolor{Javastring}{rgb}{0.5,0.5,0.5}
 \lstdefinestyle{Java}{
 	language=Java,
+	breaklines=true,
 	frame=leftline,
 	rulecolor=\color{BoxCode},
 	numbers=left,
-	tabsize=4,
-	basicstyle=\footnotesize\ttfamily,
+	tabsize=3,
+	basicstyle=\scriptsize\ttfamily,
 	showstringspaces=false,
-	%breaklines=true,
-	keywordstyle=\color{IDLEkey},
-	commentstyle=\color{IDLEcomment},
-	stringstyle=\color{IDLEstring}
+	keywordstyle=\color{Javakey},
+	commentstyle=\color{Javacomment},
+	stringstyle=\color{Javastring}
 }
 
 %ARM Specific

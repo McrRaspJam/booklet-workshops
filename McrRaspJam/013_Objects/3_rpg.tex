@@ -1,0 +1,71 @@
+\section{A Simple Text-based RPG Encounter}
+
+	We'll be recreating a simple gameplay mechanic for a fantasy RPG game at this point in the workshop. We will create a \textbf{combat encounter} between the \textbf{player}, a Wizard, and a \textbf{monster}, a magically reanimated zombie.
+	
+	We'll be starting with the simplest possible implementation, then gradually iterate upon it to make the game more interesting to play. We'll be making too many small changes to give full instructions here, so instead, the starting point of the program will be listed here, and an outline of potential changes will be provided.
+	
+	\lstinputlisting[style=Java, title={Character.java}]{McrRaspJam/013_Objects/3_rpg/CharacterA.java}
+	\lstinputlisting[style=Java, title={CombatProgram.java}]{McrRaspJam/013_Objects/3_rpg/CombatProgram.java}
+	
+	\subsubsection{Changes to make}
+	
+		\begin{enumerate}
+			\item Currently, the player makes an attack but nothing is printed. Modify \texttt{attackCharacter} to describe each attack.
+			\item Create a game loop in \texttt{CombatProgram}, where the two characters attack each other until one has been defeated.
+			\item The game has the same result each time it is played. Change the attack method so that damage dealt is based on a virtual dice roll.
+			\item Give the player a choice between ranged and close-quarter attacks. the two attacks have different damage potential. Zombies can only use close-quarter attacks.
+			\item Change the program so that a continuous stream on enemies can be fought. You will probably want to move the Game Loop into a separate method.
+		\end{enumerate}
+	
+	Congratulations if you manage to implement all of those! You can keep thinking of changes to make from here. Perhaps your wizard should have an amount of Mana to spend on attacks? Perhaps the player should be able to heal somehow?
+
+\section{What we didn't cover}
+
+	We didn't have time to cover everything about objects in this one workshop, so here are a few extra important features to look at, if you want to explore Object-oriented programming further.
+	
+	\subsection*{Constructor methods}
+	
+		We can use constructor methods to set variables when we first create an object.
+		\iftoggle{isPRINT}{}{The constructor is called when you use the keyword \texttt{new}. When we called \texttt{new} in our programs before, a default constructor was used which does not set any variables.}		
+		A constructor method is identified by a method with the deceleration \texttt{public <Class Name>()}. A typical constructor for the vector class from earlier would be
+		
+		\lstinputlisting[style=Java, breaklines=true, firstline=17, firstnumber=17, lastline=23]{McrRaspJam/013_Objects/2_object/Vector3b.java}
+		
+		for the same use case as before, we would now use the following code;
+		
+		\begin{lstlisting}[style=Java, numbers=none]
+Vector3 testVector = new Vector3(3, 4, 0);
+System.out.println(testVector.magnitude());
+		\end{lstlisting}
+		
+	\subsection*{The static context}
+	
+		Methods and variables can be prefixed with the keyword \texttt{static}. When a method or variable is \texttt{static}, it is not copied to each object instance. Instead, the variable/method is \textit{shared} between all instances of the class. 
+		
+		Static members can not be accessed through an instance, and vice versa. If Vector3 had static variables and methods, we would access them like so:
+		
+		\begin{lstlisting}[style=Java, numbers=none]
+//To access static things
+Vector3.staticVariable += 1;
+Vector3.staticMethod();
+
+//this will NOT work
+testVector.staticVariable +=1;
+testVector.staticMethod();
+
+//and NEITHER will this
+vector3.x += 1;
+vector3.magnitude();
+		\end{lstlisting}
+		
+		
+	
+	\iftoggle{isPRINT}{}{
+		\subsection*{Inheritance}
+		
+			An important feature of Object-oriented design, sub-classes can inherit properties of other classes.
+			
+			For example, if we wanted to create a wild animal in our Pet program, the wild animal wouldn't have a name. We could make an Animal class, with just the name variable (and perhaps treats), then pet would be a subclass of animal, in which would just be the name variable.
+			
+			\lstinputlisting[style=Java, breaklines=true, numbers=none]{McrRaspJam/013_Objects/3_rpg/outroinheritance.txt}
+	}

@@ -1,6 +1,6 @@
 \section{Java quick start}
 
-	In your preferred editor, create a new file and copy the following code. Note that Java is case sensitive.
+	In your preferred editor, create a new file and copy the following code.
 	
 	\lstinputlisting[style=Java]{McrRaspJam/013_Objects/1_java/HelloWorld.java}
 	
@@ -26,31 +26,10 @@ print("Hello, World")
 	
 	We'll explain what some of the other lines are soon. For now, each program we write will have these same lines, so we don't need to worry about them just yet.
 	
-	\subsection{Variables}
-	
-	In Java, variables must be defined with a type. Common types might include:
-	
-	\begin{itemize}[nosep]
-		\item \texttt{int} -- An integer (whole number).
-		\item \texttt{float} -- A floating point number i.e. a number with a decimal point.
-		\item \texttt{boolean} -- A boolean value i.e. true or false.
-		\item \texttt{String} -- A String i.e text. Strings are a collection of type \texttt{char}.
-	\end{itemize}
-
-	An example of variables being defined, then modified is shown below.
-	
-	\begin{lstlisting}[style=Java, numbers=none]
-int a;
-a = 5;
-int b = 3;
-a = a + b;
-	\end{lstlisting}
-	
-	What would the values stored in \texttt{a} and \texttt{b} be after this code was run?	
-	
 	\subsection{Loops and Conditional Statements}
 	
 		If you've done any programming before, you'll know that we frequently use loops, or \textbf{iterative statements} to perform repetitive tasks. The \texttt{for} statement is a loop that will operate a set number of times based on what parameters we provide it.
+		The format for the \texttt{for} loop is \mbox{\texttt{for(start; end; increment)}}.
 		
 		\begin{lstlisting}[style=Java, firstnumber=5]
 for(int i=0; i<10; i++)
@@ -66,13 +45,15 @@ else
 		
 		\lstinputlisting[style=Java, breaklines=true]{McrRaspJam/013_Objects/1_java/HelloWorldLoop.java}
 		
-		A \textbf{conditional statements} like \texttt{if else} are used to selectively run code based on a condition. Let's use an \texttt{if else} statement to change our program a little. We'll change the \texttt{println()} to print out \texttt{i}, the current count number. Then, when we reach a specific number, we'll print out a bit of text after the number.
+		A \textbf{conditional statement} are those that only executes if a required condition is met. Most languages have an \texttt{if} statement, and Java's works the same way as most other languages, with the format \texttt{if(condition)}. We also have \texttt{else}, if we want to perform two different things based on the result of our condition.
+		
+		Let's change our program a little. We'll change the \texttt{println} to print out \texttt{i}, the current count number. Then, when we reach a specific number, we'll print out a bit of text after the number.
 		
 		\lstinputlisting[style=Java, breaklines=true, firstline=5, firstnumber=5, lastline=11]{McrRaspJam/013_Objects/1_java/HelloWorldIf.java}
 		
 		Now compile and run the program again, you should see something like
 		
-		\begin{lstlisting}[style=Terminal, numbers=none]
+		\begin{lstlisting}[style=Terminal]
 ...
 4
 5
@@ -81,9 +62,6 @@ My favourite number!
 ...
 		\end{lstlisting}
 		
-		\textbf{Optional:} A standard basic programming test is FizzBuzz. Use loops and conditions to recreate the game.
-		
-		\iffalse		
 		If you want to try to make something on your own with these statements, a common programming exercise with loops and conditions is FizzBuzz. You'll need the modulus operator \texttt{\%} for your conditions.
 		
 		\begin{aside}[FizzBuzz]
@@ -91,24 +69,31 @@ My favourite number!
 			
 			The answer for FizzBuzz starts 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz, 16...
 		\end{aside}
-		\fi
 	
 	\subsection{Methods}
 	
-		\begin{aside}[Sequential Execution]
-			A traditional computer program runs one line at a time from top to bottom. In a language like Java, the \textit{main method} is the thing that runs from start to end, and the program ends when the main method is complete. We use method calls to `extend' the main method by jumping to additional code.
-		\end{aside}
+	\textbf{Methods}, often called \textbf{functions} in other languages, are used to separate parts of our code. This is useful for several reasons -- like readability and repetition -- but is primarily used to seperate our code into individual tasks (hence function).
 	
-		Java also has \textbf{methods}, often called \textbf{functions} or \textbf{procedures} in other languages, used in much the same way.
-		
-		Let's write a method that prints out a square number. In our current program, we'll define a new method like the following listing. We also need to make a call to the function from \texttt{main()}.  When you run your program again, it should now print `Hello, World!' 10 times.
-		
-		\lstinputlisting[style=Java, breaklines=true, firstline=3, firstnumber=3,  lastline=14]{McrRaspJam/013_Objects/1_java/FunctionA.java}
-		
-		\textbf{Parameters} are passed in the same way as many other languages, within the parentheses with a type deceleration. Functions can also \textbf{return} a value, but the method deceleration must be changed to say what type it returns.
-		
-		Currently the function is \texttt{void}, meaning it returns nothing. To return an number, we change \texttt{void} to \texttt{int}. Let's make the function return the square of the parameter input, then \texttt{main()} will print that number.
-		
-		\lstinputlisting[style=Java, breaklines=true, firstline=3, firstnumber=3, lastline=15]{McrRaspJam/013_Objects/1_java/FunctionB.java}
+	Let's write a method that prints out a square number. In our current program, we'll define a new method like so:
+	
+	\lstinputlisting[style=Java, breaklines=true, lastline=9]{McrRaspJam/013_Objects/1_java/FunctionA.java}
+	
+	You can see that we already had a method, called \texttt{main()}. This is the \textbf{main method}, and is the first thing that is run when Java executes our program.
+	
+	We've added a new method called \texttt{printHelloWorld()}, which will print `Hello, World!' when run. Try compiling and running now. Currently, the program behaves as before, and does not print `Hello, World'. This is because we need to \textbf{call} the method to run it.
+	
+	\begin{aside}[Sequential Execution]
+		A traditional computer program runs one line at a time from top to bottom. In a language like Java, the \textit{main method} is the thing that runs from start to end, and the program ends when the main method is complete. We use method calls to `extend' the main method.
+	\end{aside}
+
+	Modify your main method so that it calls the new method within the \texttt{for} loop as show below. When you run your program again, it should now print `Hello, World!' 10 times.
+	
+	\lstinputlisting[style=Java, breaklines=true, firstline=8, firstnumber=8, lastline=14]{McrRaspJam/013_Objects/1_java/FunctionA.java}
+	
+	We can provide \textbf{parameters} to a method, which allow us to pass values to the method that can allow them to perform more useful tasks. Let's change our method to calculate and print a squared number. Make the following changes, note that we've changed the method name, both where it is defined \textit{and} where it is called, and we've set \texttt{i} as the parameter of our method call.
+	
+	\lstinputlisting[style=Java, breaklines=true, firstline=3, firstnumber=3, lastline=15]{McrRaspJam/013_Objects/1_java/FunctionB.java}
+	
+	
 	
 	

@@ -27,18 +27,41 @@
 	%Difficulty
 	\textit{Difficulty: Intermediate workshop}
 	
-	\setcounter{tocdepth}{1}
-	\tableofcontents
+	\setcounter{tocdepth}{2}
+	\iftoggle{isPRINT}{
+		\renewcommand{\baselinestretch}{0.75}\normalsize
+		\tableofcontents
+		\renewcommand{\baselinestretch}{1.0}\normalsize
+	}{\tableofcontents}
 	
 	%
 	% Input the main CONTENT below, sans title page or contents.
-	% Recommend inputting per section, and adding page breaks here.
+	% Recommend inputting per section, and adding \clearpage breaks here.
 	%
 	
 	\input{McrRaspJam/013_Objects/0_introduction}
-		\newpage
+		\newpageprint
+	
 	\input{McrRaspJam/013_Objects/1_java}
+		\newpageprint
+		
+	\input{McrRaspJam/013_Objects/2_object}
+	\iftoggle{isPRINT}{}{\input{McrRaspJam/013_Objects/4_slides}}
+		\newpageprint
 	
+	\input{McrRaspJam/013_Objects/3_rpg}
+		\newpageprint
 	
+	%Code Listings in WEB version only
+	\iftoggle{isPRINT}{
+		\section*{Omissions}
+			Whoops, we've run out of space. Some text has been left out of this printed version of the workshop booklet, but you can find it (along with full code listings) in the online version at \mbox{\href{https://drive.google.com/open?id=0B_1SFjX_5JrmfnhpX0pPRXl6bmJNal8zdUxMeWZOdjJyZVdzU3V6UnBGdlVIMENtbFFkbVk}{bit.ly/McrRaspJam}}
+	}{
+		\onecolumn
+		
+		\begin{appendix}
+			\input{McrRaspJam/013_Objects/5_codelisting}
+		\end{appendix}
+	}
 
 \end{document}
