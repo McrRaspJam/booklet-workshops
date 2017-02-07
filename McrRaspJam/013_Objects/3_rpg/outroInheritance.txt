@@ -1,0 +1,13 @@
+public class Animal
+{
+	public String species;
+	...
+}
+
+public class Pet extends Animal
+{
+	//Pet's also have a species variable,
+	//it is inherited from Animal
+	public String name;
+	...
+}

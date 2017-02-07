@@ -1,0 +1,51 @@
+\section{Starting at the Deep End}
+
+	The Linux command line is usually accessed through one of two ways.
+	
+	\begin{enumerate}[noitemsep]
+		\item By opening a terminal window from the desktop.
+		\item By running the operating system in the command line mode.
+	\end{enumerate}
+	
+	When we use the latter method, the desktop environment won't start at all. We'll set our Pi's into this mode now, so we won't feel tempted to stray outside of the command line for this workshop.
+	
+	\begin{aside}[Why use the Command Line?]
+		Other than as a fun challenge, running a machine without a desktop environment has some benefits.
+		
+		Imagine a server in a large server-bank. These machines run automatically, and are only accessed by humans for maintenance purposes. So most of the time, running a graphical desktop would waste resources.
+	\end{aside}
+
+	\subsection{Enable boot to Console}
+	
+		Open a terminal window and type the following
+		
+\begin{lstlisting}[style=Terminal]
+$ sudo raspi-config
+\end{lstlisting}
+	
+		a bright blue menu should appear. Navigate to the following options using the arrow keys and enter.
+		
+		\begin{itemize}[nosep]
+			\item 3 Boot Options\\\textit{then}
+			\item B1 Desktop/CLI\\\textit{then}
+			\item B1 Console
+		\end{itemize}
+	
+		Then navigate to Finish. You will be then asked if you wish to restart. Select Yes.
+		
+	\subsection{Login}
+	
+		If you joined the Raspberry Pi community recently, you'll have always had the Raspberry Pi boot to desktop automatically.
+		
+		We've now disabled this behaviour, and when we reboot our Pi, you'll be greeted with a login screen. The default Raspbian login credentials are as follows:
+		\\
+		\\\textbf{username:}\hspace{2cm}pi
+		\\\textbf{password:}\hspace{2cm}raspberry
+		
+		Take care when typing your password, it won't appear on screen as you type it, not even as asterisks or dots.
+		
+		\begin{aside}[The hidden password]
+		This is a security feature to hide the length of your password from onlookers, as well as the password itself.
+		
+		Knowing the length of a password would make guessing or brute-forcing a passworded lock considerably faster.
+		\end{aside}

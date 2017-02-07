@@ -12,7 +12,7 @@
 \settoggle{isPRINT}{false}
 
 % Enter the document title here
-\newcommand{\workshopTitle}{Workshop 12: The Linux Command Line}
+\newcommand{\workshopTitle}{Workshop 11: GPIO \& Motors}
 
 % Enter the author of this workshop
 \newcommand{\workshopAuthor}{Jack Kelly}
@@ -22,10 +22,10 @@
 	\input{McrRaspJam/Common/booklet_title}
 	
 	%Place a SINGLE paragraph summary here
-	This workshop teaches the very basics of using the Linux Command Line Interface. (CLI)
+	In this workshop, we'll learn about motor controller chips, and make a breadboard circuit to drive a motor. 
 	
 	%Difficulty
-	\textit{Difficulty: Introductory workshop}
+	\textit{Difficulty: Intermediate workshop}
 	
 	\setcounter{tocdepth}{1}
 	\tableofcontents
@@ -36,11 +36,17 @@
 	% Recommend inputting per section, and adding page breaks here.
 	%
 	
-	\input{McrRaspJam/012_CLI/0_introduction}
-	\input{McrRaspJam/012_CLI/1_setup}
-	\input{McrRaspJam/012_CLI/2_navigation}
-	\input{McrRaspJam/012_CLI/3_files}
-	\input{McrRaspJam/012_CLI/4_aptget}
-	\input{McrRaspJam/012_CLI/5_destroy}	
+	\input{McrRaspJam/011_Motors/0_introduction}
+	\input{McrRaspJam/011_Motors/1_LED}
+	\input{McrRaspJam/011_Motors/2_Motor}
+	
+	\begin{appendices}	
+		%Don't list each appendix in Table of Contents
+		\addtocontents{toc}{\setcounter{tocdepth}{-1}}
+		\iftoggle{isPRINT}{}{\input{McrRaspJam/011_Motors/a0_codelisting}}
+		\newpage
+		\input{McrRaspJam/011_Motors/a1_GPIO}
+		\input{McrRaspJam/011_Motors/a2_motorcontroller}
+	\end{appendices}
 
 \end{document}

@@ -1,0 +1,49 @@
+\section{What to do Next?}
+
+	\subsection*{Installing Applications}
+
+		Once you've reached your desktop, take a look at your application menu. It should look familiar to regular Raspbian, especially on PIXEL, LXDE or XFCE, but is missing much of the software we usually make use of.
+		
+		It's up to you which software you wish to install. For example, at the Jam we usually use a program called IDLE, which is an IDE for Python. To install IDLE, we install the package named \textbf{idle3}:
+\begin{lstlisting}[style=Terminal]
+$ sudo apt-get install idle3
+\end{lstlisting}
+
+		Python 3 is automatically installed as a dependency.
+		
+		If we also wanted to install the older python2 version of IDLE that is included in Raspbian, we could install the package \textbf{idle}, however, we probably don't need to.
+		
+		In fact, we don't even need IDLE to program in python. If you prefer editing Python files in another editor, we just need the Python Interpreter itself, which you can install with the \textbf{python3} package:
+\begin{lstlisting}[style=Terminal]
+$ sudo apt-get install python3
+\end{lstlisting}
+
+		\subsubsection*{Finding package names}
+		
+			Time for you to try installing some software yourself. Try and install the following programs.
+	
+	\begin{itemize}[nosep]
+		\item Minecraft: Pi Edition
+		\item A web browser, such as Chromium
+		\item The font `Roboto'
+	\end{itemize}
+	
+			It's not always clear what exact package names will be, but we can use some tricks to find them.
+			
+			Firstly, remember that the tab key attempts an auto-complete on your current command. Try typing the following, then pressing tab
+	
+	\begin{lstlisting}[style=Terminal]
+$ sudo apt-get install minecr
+	\end{lstlisting}
+	
+			We can also look for online listings of Raspbian software. A web view of the actual software list apt-get uses can be found at \mbox{\href{http://archive.raspbian.org/}{archive.raspbian.org}}, but it's a bit confusing to navigate.
+			
+			The website Raspberry Connect maintains a more readable package list at \mbox{\href{http://www.raspberryconnect.com/raspbian-packages-list}{raspberryconnect.com/raspbian-packages-list}}
+	
+	\subsection*{Customise the Desktop Environment}
+
+		All of the desktop environments listed are customizable, especially PIXEL, LXDE and XFCE.
+		
+		You can play around with wallpapers, window themes, panel settings, and perhaps even setting the system font to the one you just installed. You get to make sure everything is just the way you like it.
+		
+		For further details on customising each desktop environment, take a look at the original post mentioned in \autoref{source}, at \url{https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=133691}

@@ -1,0 +1,34 @@
+%Title
+\title{
+	\iftoggle{isPRINT}
+		%Print Title
+		{Manchester Raspberry Jam \\ \workshopTitle}
+		%Web Title
+		{
+			\begin{center}
+				\includegraphics[width=30mm]{McrRaspJam/Common/logo-512}
+			\end{center}
+			\vspace{12pt}
+			\workshopTitle
+		}
+	}
+
+\iffalse
+\author{
+	Written by \workshopAuthor
+	}
+\fi
+
+\author{}
+
+\date{}
+
+\maketitle
+
+\iftoggle{isPRINT}{
+	\begin{mdframed}[rightline=false, leftline=false]
+		\footnotesize
+		This booklet is available online at \mbox{\href{https://drive.google.com/open?id=0B_1SFjX_5JrmfnhpX0pPRXl6bmJNal8zdUxMeWZOdjJyZVdzU3V6UnBGdlVIMENtbFFkbVk}{bit.ly/McrRaspJam}}
+		\normalsize
+	\end{mdframed}
+}{}

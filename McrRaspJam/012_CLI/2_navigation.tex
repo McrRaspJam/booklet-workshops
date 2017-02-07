@@ -1,0 +1,75 @@
+\section{Directories}
+
+	\subsection{Where am I?}
+	
+		Once you've logged in, you should see a line that looks like this.
+	
+		\begin{lstlisting}[style=Terminal]
+pi@raspberrypi:~$
+		\end{lstlisting}
+	
+		This is your command prompt. Let's break up that line.
+		
+		\begin{itemize}[nosep]
+			\item The first part is the current user. We logged in as \textbf{pi}, so that appears here.
+			\item Following the \textbf{@} is the hostname, or the `machine name'. \textbf{raspberrypi} is the default hostname in Raspbian.
+			\item Following the colon, your current director is shown. The tilde character \textbf{\~} is a shortcut for your home folder.
+			\item \textbf{\$} is the current prompt. When this is the last thing printed, the terminal is ready to receive an instruction.
+		\end{itemize}
+	
+		Let's confirm that the tilde is pointing at our home folder. To find the full address to our current directory, we can use the \textbf{pwd} command, which stands for `print working directory'.
+
+		\begin{lstlisting}[style=Terminal]
+pi@raspberrypi:~$ pwd
+/home/pi
+		\end{lstlisting}
+	
+	%\subsection{The Filesystem}
+	
+	%	\textit{<Written explanation to be added after the workshop>}
+	
+	\subsection{Moving around}
+	
+		So, we're currently in our home directory, and there are two levels above us. to move to the root folder, we can use the \textbf{cd} command, which stands for `change directory'.
+		
+		\begin{lstlisting}[style=Terminal]
+pi@raspberrypi:~$ cd ..
+pi@raspberrypi:/home $ cd ..
+pi@raspberrypi:/ $ pwd
+/
+		\end{lstlisting}
+
+		\textbf{..} causes us to move up a directory. to move into a directory, we can type its name.
+	
+		\begin{lstlisting}[style=Terminal]
+pi@raspberrypi:/ $ cd usr
+pi@raspberrypi:/usr $ pwd
+/usr
+		\end{lstlisting}
+
+		We can type an absolute directory starting with `/', the root folder. 
+		
+		\begin{lstlisting}[style=Terminal]
+pi@raspberrypi:/usr $ cd /media
+pi@raspberrypi:/media $ pwd
+/media
+		\end{lstlisting}
+
+Using the cd command without a directory or .. takes us to the home folder. We can string together directory changes using forward slashes.
+
+		\begin{lstlisting}[style=Terminal]
+pi@raspberrypi:/media $ cd
+pi@raspberrypi:~ $ pwd
+/home/pi
+pi@raspberrypi:~ $ cd ../../usr
+pi@raspberrypi:/usr $ pwd
+/usr
+		\end{lstlisting}
+
+		Now have a go at finding at finding the location of the Python 3 binary executable. You can use the \textbf{whereis} command to find the location of a program.
+		
+		\begin{lstlisting}[style=Terminal]
+$ whereis python3
+		\end{lstlisting}
+
+		The first part of the output will be the directory of the binary file.

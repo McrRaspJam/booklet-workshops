@@ -1,0 +1,151 @@
+\section{Object-oriented Design}
+
+	When compared with Object-oriented programming, the more traditional form of programming that we have been using is usually referred to as \textbf{Procedural programming} due to its use of procedure (method) calls.
+	
+	One problem that arises with procedural programming is the difficulty of representing more complex things in code. \textbf{Primitive} types like \texttt{int} and \texttt{float} can store simple values, but how do we store a complex concept like a user account, or perhaps a product in an store inventory system? That product may a multitude of attributes, such as a name, price, a position within the store, and a barcode.
+	
+	Object-orientated design was designed to be a solution to this problem. For today, we are interested in the following core properties of objects:
+	
+	\begin{itemize}
+		\item Objects contain their own \textbf{variables}, which are properties of the concept they are representing.
+		\item Objects contain their own \textbf{procedures}. This allows us to write methods that may do things like interact with other objects or automatically generate their variables.
+		\item Objects can be \textbf{instantiated}. Each instance of an object has it's own unique set of variables.
+	\end{itemize}
+
+	We'll see what these things mean as we code our own objects.
+
+%	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
+	\subsection{Example: A Vector Object}
+	
+		In mathematics, a \textbf{vector} is a quantity consisting of a \textbf{direction} and a \textbf{magnitude}. A vector describes how to get from one point in space to another, but does not in itself have a position. You can think of a vector as an `arrow', the arrow points from one point to another, but if you pick up the arrow and place it somewhere else, it is still the same vector.
+		
+		In computing, a vector is usually stored as a coordinate pair (x, y and z for 3D vectors), and the other properties, like magnitude can be calculated from these.
+		
+		A basic vector object, with a coordinate pair and magnitude method might look like the following listing. Note the set of variables, as well as a method that can be called for each object.
+		
+		\lstinputlisting[style=Java, breaklines=true, firstline=3]{McrRaspJam/013_Objects/2_object/Vector3.java}
+		
+		This would be used in a program as shown below. We'll explain some of this notation with next example.
+		
+		\begin{lstlisting}[style=Java, numbers=none]
+Vector3 testVector = new Vector3();
+testVector.x = 3;
+testVector.y = 4;
+testVector.z = 0;
+System.out.println(testVector.magnitude());
+		\end{lstlisting}
+	
+%	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+	
+	\subsection{Creating a Pet Object}
+
+		\subsubsection{Creating a class}
+		
+			Time for you to have a go. We're going to use objects to create a \texttt{Pet} type for a simple program.
+			
+			An object is an \textbf{instance} of a \textbf{class}, so we'll start by creating the class for our pet type.
+			Create a new file called \texttt{Pet.java}, then type the same class definition as we had in our hello world program.
+			
+			\begin{lstlisting}[style=Java]
+public class Pet
+{
+
+}
+			\end{lstlisting}
+		
+		\subsubsection{Naming our pet}
+		
+			We said before that objects have their own set of variables. For each \texttt{Pet}, we will store the \texttt{name} of that pet, as well as its \texttt{species}. Add variable decelerations to the \texttt{Pet} class, as shown below.
+			
+			\begin{lstlisting}[style=Java]
+public class Pet
+{
+	public String name;
+	public String species;
+}
+			\end{lstlisting}
+	
+			Note that the variables are prefixed by \texttt{public}. We'll explain why this is the case shortly. We've create a fairly spartan class, but we can already begin using it in a program to represent pets.
+			
+			Create another class called \texttt{PetProgram.java}, this class will contain a main method, and will be where we write the program that uses \texttt{Pet} objects.
+			
+			\begin{lstlisting}[style=Java]
+public class PetProgram
+{
+	public static void main (String[] args)
+	{
+	}
+}
+			\end{lstlisting}
+		
+			Our program will create a pet, and give it a name and species. Within your main method, create a \texttt{Pet} variable as shown below.
+			
+			\lstinputlisting[style=Java, breaklines=true, firstline=5, firstnumber=5, lastline=6]{McrRaspJam/013_Objects/2_object/PetProgram.java}
+			
+			the \texttt{new} keyword means the program will make an \textbf{instance} of the \texttt{Pet} class. Each instance of a class is an \textbf{object}, and has its own copy of the variables from the \texttt{Pet} class.
+			we access an object's variables using the notation \texttt{object.variable }. To set the \texttt{name} and \texttt{species} of our pet, we do the following:
+			
+			\lstinputlisting[style=Java, breaklines=true, firstline=7, firstnumber=7, lastline=8]{McrRaspJam/013_Objects/2_object/PetProgram.java}
+			
+			We'll also create a second pet, so we may compare two objects at once. Then, to test our objects are working as expected, we'll print the names of our pets by accessing each object's \texttt{name} variable.
+			
+			\lstinputlisting[style=Java, breaklines=true, firstline=9, firstnumber=9, lastline=17]{McrRaspJam/013_Objects/2_object/PetProgram.java}
+			
+			Let's compile and run our program. When working with multiple classes, compile the class that contains \texttt{main()} method, and any classes that are mentioned in the program will also be compiled.
+			\begin{lstlisting}[style=Terminal]
+$ javac PetProgram.java
+$ java PetProgram
+My two pets are called Doug and Polly
+			\end{lstlisting}
+	
+		\subsubsection{Feeding our pets treats}
+	
+			Let's implement a behaviour for our pets. We'll cast aside realistic animal behaviour, and have all species behave the same way to make the problem a little simpler.
+			
+			When we give our pet a treat, we'll get them to do one of two things.
+			\begin{enumerate}[nosep]
+				\item Eat the treat immediately.
+				\item Store the treat to eat later.
+			\end{enumerate}
+			We'll store the number of treats the pet has stored, and create a method to reward the pet with a treat.
+		
+			Start by adding treats as an integer variable. Then write a function to add to this variable.
+			
+			\lstinputlisting[style=Java, breaklines=true]{McrRaspJam/013_Objects/2_object/PetA.java}
+			
+			We'll decide whether the pet will eat its treat using a virtual coin flip, which we can do by generating a random \texttt{boolean}.
+			
+			\lstinputlisting[style=Java, breaklines=true, firstline=8, firstnumber=8, lastline=16]{McrRaspJam/013_Objects/2_object/PetB.java}
+			
+			You'll notice that in the listing above, \texttt{treats} is set to private. This means that only code within this class can access that variable. calling \texttt{pet.treats} in \texttt{PetProgram} would produce an error. I've done this because the pet should decide which treats get ate, and being able to set \texttt{treats} directly would disallow the pet the chance to eat its treats.
+			
+			\begin{aside}[Access Modifiers]
+				The most common access modifiers are \texttt{public} and \texttt{private} variables and methods that do not specify their access modifier are given a default modifier that for the purposes of this workshop behaves the same as \texttt{public}.
+				
+				Access modifiers are useful for preventing incorrect modification of variables or use of methods.
+			\end{aside}
+			
+			We can currently change \texttt{treats} by calling \texttt{giveTreat()}. To print the current number from our main method, we'll need to provide an \textbf{accessor method}, this will take a \texttt{private} variable and allow us to read it through a \texttt{public} method.
+			
+			\lstinputlisting[style=Java, breaklines=true, firstline=17, firstnumber=17, lastline=21]{McrRaspJam/013_Objects/2_object/PetB.java}
+			
+			Now, let's return to \texttt{PetProgram} and feed one of our pets some treats.
+			
+			\lstinputlisting[style=Java, breaklines=true]{McrRaspJam/013_Objects/2_object/PetProgramB.java}
+			
+			Because our program now has a random element, you'll get a different result each time you run your program.
+		
+			\begin{lstlisting}[style=Terminal]
+$ javac PetProgram.java
+$ java PetProgram
+Doug has 2 treats.
+$ java PetProgram
+Doug has 1 treats.
+$ java PetProgram
+Doug has 3 treats.
+			\end{lstlisting}
+
+			\textbf{Optional:} Modify \texttt{giveTreat()} so that instead of calling it 3 times, we can instead do \texttt{giveTreat(3);}
+			
+			\textbf{Optional:} Think of some other properties that you could add, and what type of variable they should be (some might be better represented by their own type). Add one of those to your \texttt{Pet} class, along with a method to do something with that variable.

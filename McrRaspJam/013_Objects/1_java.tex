@@ -1,0 +1,114 @@
+\section{Java quick start}
+
+	In your preferred editor, create a new file and copy the following code. Note that Java is case sensitive.
+	
+	\lstinputlisting[style=Java]{McrRaspJam/013_Objects/1_java/HelloWorld.java}
+	
+	Save this file as \textbf{HelloWorld.java}, then open a terminal to the same folder, and type the commands listed below. You should get the following output.
+	
+	\begin{lstlisting}[style=Terminal]
+$ javac HelloWorld.java
+$ java HelloWorld
+Hello, World!
+	\end{lstlisting}
+	
+	Now, compare that to the equivalent Python program:
+	
+	\begin{lstlisting}[style=Python]
+print("Hello, World")
+	\end{lstlisting}
+	
+	Coming from most over languages, Java may seem quite complicated. You'll find out that in Java, we have to use a lot of terms that would be optional or excluded in other languages. Java is a language where seemingly nothing is implied.
+	
+	\begin{aside}[println()]
+		println() is the print function for Java. In the Java language we have to state which library or class this function comes from, which in this case is from the \texttt{System} class. \texttt{out} is the standard output stream, text sent to this stream is printed in the terminal.
+	\end{aside}
+	
+	We'll explain what some of the other lines are soon. For now, each program we write will have these same lines, so we don't need to worry about them just yet.
+	
+	\subsection{Variables}
+	
+	In Java, variables must be defined with a type. Common types might include:
+	
+	\begin{itemize}[nosep]
+		\item \texttt{int} -- An integer (whole number).
+		\item \texttt{float} -- A floating point number i.e. a number with a decimal point.
+		\item \texttt{boolean} -- A boolean value i.e. true or false.
+		\item \texttt{String} -- A String i.e text. Strings are a collection of type \texttt{char}.
+	\end{itemize}
+
+	An example of variables being defined, then modified is shown below.
+	
+	\begin{lstlisting}[style=Java, numbers=none]
+int a;
+a = 5;
+int b = 3;
+a = a + b;
+	\end{lstlisting}
+	
+	What would the values stored in \texttt{a} and \texttt{b} be after this code was run?	
+	
+	\subsection{Loops and Conditional Statements}
+	
+		If you've done any programming before, you'll know that we frequently use loops, or \textbf{iterative statements} to perform repetitive tasks. The \texttt{for} statement is a loop that will operate a set number of times based on what parameters we provide it.
+		
+		\begin{lstlisting}[style=Java, firstnumber=5]
+for(int i=0; i<10; i++)
+{
+	// Code to repeat
+}
+else
+		\end{lstlisting}
+	
+		The above \texttt{for} loop would loop it's contents 10 times, starting with \texttt{i} at 0, and stopping when \texttt{i} reaches 10. \texttt{i++} is a shorthand notation for \texttt{i = i + 1}, so each time the loop ends \texttt{i} is increased by 1.
+		
+		Let's modify our hello world program to print multiple times using this loop. Make the changes in the listing below, then compile (\texttt{javac}) and run (\texttt{java}) your program as before, and you should now see ``Hello, World!'' printed 10 times.
+		
+		\lstinputlisting[style=Java, breaklines=true]{McrRaspJam/013_Objects/1_java/HelloWorldLoop.java}
+		
+		A \textbf{conditional statements} like \texttt{if else} are used to selectively run code based on a condition. Let's use an \texttt{if else} statement to change our program a little. We'll change the \texttt{println()} to print out \texttt{i}, the current count number. Then, when we reach a specific number, we'll print out a bit of text after the number.
+		
+		\lstinputlisting[style=Java, breaklines=true, firstline=5, firstnumber=5, lastline=11]{McrRaspJam/013_Objects/1_java/HelloWorldIf.java}
+		
+		Now compile and run the program again, you should see something like
+		
+		\begin{lstlisting}[style=Terminal, numbers=none]
+...
+4
+5
+My favourite number!
+6
+...
+		\end{lstlisting}
+		
+		\textbf{Optional:} A standard basic programming test is FizzBuzz. Use loops and conditions to recreate the game.
+		
+		\iffalse		
+		If you want to try to make something on your own with these statements, a common programming exercise with loops and conditions is FizzBuzz. You'll need the modulus operator \texttt{\%} for your conditions.
+		
+		\begin{aside}[FizzBuzz]
+			FizzBuzz is a number game that is often used as a basic example of a programming task. The objective is to count up from 1 to a certain number, but for each number that is divisible by 3 say `Fizz', for each number divisible by 5 say `Buzz', and for numbers that are divisible by both numbers, say `FizzBuzz'.
+			
+			The answer for FizzBuzz starts 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz, 16...
+		\end{aside}
+		\fi
+	
+	\subsection{Methods}
+	
+		\begin{aside}[Sequential Execution]
+			A traditional computer program runs one line at a time from top to bottom. In a language like Java, the \textit{main method} is the thing that runs from start to end, and the program ends when the main method is complete. We use method calls to `extend' the main method by jumping to additional code.
+		\end{aside}
+	
+		Java also has \textbf{methods}, often called \textbf{functions} or \textbf{procedures} in other languages, used in much the same way.
+		
+		Let's write a method that prints out a square number. In our current program, we'll define a new method like the following listing. We also need to make a call to the function from \texttt{main()}.  When you run your program again, it should now print `Hello, World!' 10 times.
+		
+		\lstinputlisting[style=Java, breaklines=true, firstline=3, firstnumber=3,  lastline=14]{McrRaspJam/013_Objects/1_java/FunctionA.java}
+		
+		\textbf{Parameters} are passed in the same way as many other languages, within the parentheses with a type deceleration. Functions can also \textbf{return} a value, but the method deceleration must be changed to say what type it returns.
+		
+		Currently the function is \texttt{void}, meaning it returns nothing. To return an number, we change \texttt{void} to \texttt{int}. Let's make the function return the square of the parameter input, then \texttt{main()} will print that number.
+		
+		\lstinputlisting[style=Java, breaklines=true, firstline=3, firstnumber=3, lastline=15]{McrRaspJam/013_Objects/1_java/FunctionB.java}
+	
+	

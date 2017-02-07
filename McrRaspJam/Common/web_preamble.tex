@@ -1,0 +1,6 @@
+\documentclass[a4paper, onecolumn, oneside, 11pt]{article}
+\usepackage{McrRaspJam/Common/webstyle}
+
+\addtocontents{toc}{\cftpagenumbersoff{subsection}}
+\setcounter{secnumdepth}{2}
+\newcommand{\newpageprint}{\iftoggle{isPRINT}{}{\clearpage}}

@@ -1,0 +1,99 @@
+\section{Java quick start}
+
+	In your preferred editor, create a new file and copy the following code.
+	
+	\lstinputlisting[style=Java]{McrRaspJam/013_Objects/1_java/HelloWorld.java}
+	
+	Save this file as \textbf{HelloWorld.java}, then open a terminal to the same folder, and type the commands listed below. You should get the following output.
+	
+	\begin{lstlisting}[style=Terminal]
+$ javac HelloWorld.java
+$ java HelloWorld
+Hello, World!
+	\end{lstlisting}
+	
+	Now, compare that to the equivalent Python program:
+	
+	\begin{lstlisting}[style=Python]
+print("Hello, World")
+	\end{lstlisting}
+	
+	Coming from most over languages, Java may seem quite complicated. You'll find out that in Java, we have to use a lot of terms that would be optional or excluded in other languages. Java is a language where seemingly nothing is implied.
+	
+	\begin{aside}[println()]
+		println() is the print function for Java. In the Java language we have to state which library or class this function comes from, which in this case is from the \texttt{System} class. \texttt{out} is the standard output stream, text sent to this stream is printed in the terminal.
+	\end{aside}
+	
+	We'll explain what some of the other lines are soon. For now, each program we write will have these same lines, so we don't need to worry about them just yet.
+	
+	\subsection{Loops and Conditional Statements}
+	
+		If you've done any programming before, you'll know that we frequently use loops, or \textbf{iterative statements} to perform repetitive tasks. The \texttt{for} statement is a loop that will operate a set number of times based on what parameters we provide it.
+		The format for the \texttt{for} loop is \mbox{\texttt{for(start; end; increment)}}.
+		
+		\begin{lstlisting}[style=Java, firstnumber=5]
+for(int i=0; i<10; i++)
+{
+	// Code to repeat
+}
+else
+		\end{lstlisting}
+	
+		The above \texttt{for} loop would loop it's contents 10 times, starting with \texttt{i} at 0, and stopping when \texttt{i} reaches 10. \texttt{i++} is a shorthand notation for \texttt{i = i + 1}, so each time the loop ends \texttt{i} is increased by 1.
+		
+		Let's modify our hello world program to print multiple times using this loop. Make the changes in the listing below, then compile (\texttt{javac}) and run (\texttt{java}) your program as before, and you should now see ``Hello, World!'' printed 10 times.
+		
+		\lstinputlisting[style=Java, breaklines=true]{McrRaspJam/013_Objects/1_java/HelloWorldLoop.java}
+		
+		A \textbf{conditional statement} are those that only executes if a required condition is met. Most languages have an \texttt{if} statement, and Java's works the same way as most other languages, with the format \texttt{if(condition)}. We also have \texttt{else}, if we want to perform two different things based on the result of our condition.
+		
+		Let's change our program a little. We'll change the \texttt{println} to print out \texttt{i}, the current count number. Then, when we reach a specific number, we'll print out a bit of text after the number.
+		
+		\lstinputlisting[style=Java, breaklines=true, firstline=5, firstnumber=5, lastline=11]{McrRaspJam/013_Objects/1_java/HelloWorldIf.java}
+		
+		Now compile and run the program again, you should see something like
+		
+		\begin{lstlisting}[style=Terminal]
+...
+4
+5
+My favourite number!
+6
+...
+		\end{lstlisting}
+		
+		If you want to try to make something on your own with these statements, a common programming exercise with loops and conditions is FizzBuzz. You'll need the modulus operator \texttt{\%} for your conditions.
+		
+		\begin{aside}[FizzBuzz]
+			FizzBuzz is a number game that is often used as a basic example of a programming task. The objective is to count up from 1 to a certain number, but for each number that is divisible by 3 say `Fizz', for each number divisible by 5 say `Buzz', and for numbers that are divisible by both numbers, say `FizzBuzz'.
+			
+			The answer for FizzBuzz starts 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz, 16...
+		\end{aside}
+	
+	\subsection{Methods}
+	
+	\textbf{Methods}, often called \textbf{functions} in other languages, are used to separate parts of our code. This is useful for several reasons -- like readability and repetition -- but is primarily used to seperate our code into individual tasks (hence function).
+	
+	Let's write a method that prints out a square number. In our current program, we'll define a new method like so:
+	
+	\lstinputlisting[style=Java, breaklines=true, lastline=9]{McrRaspJam/013_Objects/1_java/FunctionA.java}
+	
+	You can see that we already had a method, called \texttt{main()}. This is the \textbf{main method}, and is the first thing that is run when Java executes our program.
+	
+	We've added a new method called \texttt{printHelloWorld()}, which will print `Hello, World!' when run. Try compiling and running now. Currently, the program behaves as before, and does not print `Hello, World'. This is because we need to \textbf{call} the method to run it.
+	
+	\begin{aside}[Sequential Execution]
+		A traditional computer program runs one line at a time from top to bottom. In a language like Java, the \textit{main method} is the thing that runs from start to end, and the program ends when the main method is complete. We use method calls to `extend' the main method.
+	\end{aside}
+
+	Modify your main method so that it calls the new method within the \texttt{for} loop as show below. When you run your program again, it should now print `Hello, World!' 10 times.
+	
+	\lstinputlisting[style=Java, breaklines=true, firstline=8, firstnumber=8, lastline=14]{McrRaspJam/013_Objects/1_java/FunctionA.java}
+	
+	We can provide \textbf{parameters} to a method, which allow us to pass values to the method that can allow them to perform more useful tasks. Let's change our method to calculate and print a squared number. Make the following changes, note that we've changed the method name, both where it is defined \textit{and} where it is called, and we've set \texttt{i} as the parameter of our method call.
+	
+	\lstinputlisting[style=Java, breaklines=true, firstline=3, firstnumber=3, lastline=15]{McrRaspJam/013_Objects/1_java/FunctionB.java}
+	
+	
+	
+	

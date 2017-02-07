@@ -7,22 +7,22 @@
 
 % Is this document PRINT or WEB format?
 % (you can use the toggle to cut content for paper, see etoolbox)
-\input{McrRaspJam/Common/web_preamble}
+\input{McrRaspJam/Common/print_preamble}
 \providetoggle{isPRINT}
-\settoggle{isPRINT}{false}
+\settoggle{isPRINT}{true}
 
 % Enter the document title here
-\newcommand{\workshopTitle}{Workshop 12: The Linux Command Line}
+\newcommand{\workshopTitle}{Workshop n: }
 
 % Enter the author of this workshop
-\newcommand{\workshopAuthor}{Jack Kelly}
+\newcommand{\workshopAuthor}{Joe Bloggs}
 
 
 \begin{document}
 	\input{McrRaspJam/Common/booklet_title}
 	
 	%Place a SINGLE paragraph summary here
-	This workshop teaches the very basics of using the Linux Command Line Interface. (CLI)
+	Lorem ipsum dolor sit amet,
 	
 	%Difficulty
 	\textit{Difficulty: Introductory workshop}
@@ -35,12 +35,5 @@
 	% Input the main CONTENT below, sans title page or contents.
 	% Recommend inputting per section, and adding page breaks here.
 	%
-	
-	\input{McrRaspJam/012_CLI/0_introduction}
-	\input{McrRaspJam/012_CLI/1_setup}
-	\input{McrRaspJam/012_CLI/2_navigation}
-	\input{McrRaspJam/012_CLI/3_files}
-	\input{McrRaspJam/012_CLI/4_aptget}
-	\input{McrRaspJam/012_CLI/5_destroy}	
 
 \end{document}
