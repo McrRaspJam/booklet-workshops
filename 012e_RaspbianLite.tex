@@ -6,10 +6,11 @@
 %
 
 % Is this document PRINT or WEB format?
-% (you can use the toggle to cut content for paper, see etoolbox)
-\input{McrRaspJam/Common/web_preamble}
-\providetoggle{isPRINT}
-\settoggle{isPRINT}{false}
+% use \printtrue or \printfalse
+\newif\ifprint
+\printtrue
+
+\input{McrRaspJam/Common/preamble}
 
 % Enter the document title here
 \newcommand{\workshopTitle}{Workshop 12 Extension: Raspbian Lite}
@@ -27,17 +28,22 @@
 	%Difficulty
 	\textit{Follows on from Workshop 12.}
 	
-	\setcounter{tocdepth}{1}
 	\tableofcontents
+	\vspace{12pt}
 	
 	%
 	% Input the main CONTENT below, sans title page or contents.
 	% Recommend inputting per section, and adding page breaks here.
 	%
+	% \webclearpage command is provided, will break page for web format only.
+	%
 	
 	\input{McrRaspJam/012_CLI/extension/0_introduction}
+	\clearpage
 	\input{McrRaspJam/012_CLI/extension/1_foundation}
-	\input{McrRaspJam/012_CLI/extension/2_furniture}	
+	\webclearpage
+	\input{McrRaspJam/012_CLI/extension/2_furniture}
+	\webclearpage
 	\input{McrRaspJam/012_CLI/extension/3_customize}
 	
 \end{document}
