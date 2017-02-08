@@ -5,7 +5,7 @@ public class Pet
 	
 	private int treats;
 	
-	public void giveTreat();
+	public void giveTreat()
 	{		
 		Random rand = new Random();
 		boolean eatnow = rand.nextBoolean();
@@ -15,7 +15,7 @@ public class Pet
 			treats = treats + 1;
 	}
 	
-	public int getNumberOfTreats();
+	public int getNumberOfTreats()
 	{
 		return treats;
 	}

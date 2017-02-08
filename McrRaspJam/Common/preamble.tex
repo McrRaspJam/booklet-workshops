@@ -1,0 +1,19 @@
+\ifprint
+	\documentclass[a4paper, twocolumn, twoside, 11pt]{article}
+	\usepackage{McrRaspJam/Common/printstyle}	
+\else
+	\documentclass[a4paper, onecolumn, oneside, 12pt]{article}
+	\usepackage{McrRaspJam/Common/webstyle}
+\fi
+
+\addtocontents{toc}{\cftpagenumbersoff{subsection}}
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+%Clear page for web version
+\newcommand{\webclearpage}{
+	\ifprint
+	\else
+		\clearpage
+	\fi
+}

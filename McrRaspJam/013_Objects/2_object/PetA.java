@@ -5,7 +5,7 @@ public class Pet
 	
 	private int treats;
 	
-	public void giveTreat();
+	public void giveTreat()
 	{
 		treats = treats + 1;
 	}

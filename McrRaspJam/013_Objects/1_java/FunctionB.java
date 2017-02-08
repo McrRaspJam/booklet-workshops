@@ -10,7 +10,7 @@ public class HelloWorld
 	{
 		for(int i=0; i<1000; i++)
 		{
-			System.out.println(squareOf(int number));
+			System.out.println(squareOf(i));
 		}
 	}
 }
