@@ -1,0 +1,47 @@
+% Ensure that the toggle \newif\ifprint is defined
+\ProvidesPackage{McrRaspJam/Common/asides}
+
+\usepackage{mdframed}
+\mdfsetup{frametitlealignment=\center}
+\definecolor{asideback}{rgb}{0.9,0.95,1.0}
+\definecolor{asideborder}{rgb}{0.75,0.9,1.0}	
+
+
+\ifprint
+
+	\newenvironment{aside}[1][Aside]
+	{
+		\begin{mdframed}[frametitle={#1}]
+			\footnotesize
+			\setlength{\parskip}{2pt}
+			\vspace{2pt} %correct for parskip
+			}
+			{
+		\end{mdframed}
+	}
+	
+\else
+
+	\newenvironment{aside}[1][Aside]
+	{
+		\begin{mdframed}
+			[
+				frametitle={#1},
+				backgroundcolor=asideback,
+				linecolor=asideborder,
+				linewidth=0.75pt,
+				roundcorner=4pt,
+				innertopmargin=8pt,
+				innerbottommargin=8pt,
+				innerleftmargin=16pt,
+				innerrightmargin=16pt
+			]
+			\setlength{\parskip}{2pt}
+			\vspace{2pt} %correct for parskip
+			}
+			{
+		\end{mdframed}
+	}
+	
+\fi
+	

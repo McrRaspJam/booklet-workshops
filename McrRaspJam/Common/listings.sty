@@ -1,0 +1,136 @@
+% Ensure that the toggle \newif\ifprint is defined
+\ProvidesPackage{McrRaspJam/Common/listings}
+
+\usepackage{listings}
+
+\ifprint
+
+	% DEFAULT colour scheme is based on IDLE, as that's what we use most
+	\definecolor{defaultcolorcomment}{cmyk}{0.63, 0, 1.0, 0.5}
+	\definecolor{defaultcolorkeyword}{cmyk}{0.46, 0.81, 0, 0.5}
+	\definecolor{defaultcolorstring}{cmyk}{0, 1.0, 1.0, 0.5}
+	\definecolor{rulecolorcode}{cmyk}{0.46, 0.81, 0, 0.5}
+	\lstdefinestyle{default}
+	{
+		frame=leftline,
+		rulecolor=\color{rulecolorcode},
+		numbers=left,
+		xleftmargin=4pt,
+		tabsize=8,
+		basicstyle=\footnotesize\ttfamily,
+		showstringspaces=false,
+	}
+
+
+
+	% TERMINAL format scheme
+	\definecolor{terminalcolorkeyword}{cmyk}{0, 1.0, 1.0, 0.5}
+	\lstdefinestyle{Terminal}{
+		style=default,
+		language=bash,
+		rulecolor=\color{black},
+		keywordstyle=\color{terminalcolorkeyword},
+		morekeywords={whereis, sudo, apt-get, raspi-config, ls, nano, cp, mv, rm, mkdir}
+	}
+
+
+
+	% PYTHON format scheme
+	\lstdefinestyle{Python}{
+		style=default,
+		language=Python
+	}
+
+
+
+	% ARM format scheme
+	\lstdefinestyle{ARM}{
+		style=default,
+		language=[ARM]{Assembler}
+	}
+
+
+
+	% JAVA format scheme
+	\definecolor{Javacomment}{rgb}{0,0.5,0}
+	\definecolor{Javakey}{rgb}{0.0,0.0,0.75}
+	\definecolor{Javastring}{rgb}{0.5,0.5,0.5}
+	\lstdefinestyle{Java}{
+		style=default,
+		language=Java,
+		breaklines=true,
+		tabsize=4,
+		basicstyle=\scriptsize\ttfamily,
+		keywordstyle=\color{Javakey},
+		commentstyle=\color{Javacomment},
+		stringstyle=\color{Javastring}
+	}
+	
+\else
+
+	% DEFAULT colour scheme is based on IDLE, as that's what we use most
+	\definecolor{defaultcolorcomment}{rgb}{0.75, 0, 0}
+	\definecolor{defaultcolorkeyword}{rgb}{0.5, 0.0, 0.5}
+	\definecolor{defaultcolorstring}{rgb}{0, 0.5, 0}
+	\definecolor{rulecolorcode}{rgb}{0.9, 0.75, 1.0}
+	\definecolor{backgroundcolorcode}{rgb}{0.98, 0.95, 1.0}
+	\lstdefinestyle{default}
+	{
+		frame=single,
+		rulecolor=\color{rulecolorcode},
+		backgroundcolor=\color{backgroundcolorcode},
+		numbers=left,
+		tabsize=8,
+		basicstyle=\small\ttfamily,
+		showstringspaces=false,
+	}
+
+	
+	
+	% TERMINAL format scheme
+	\definecolor{terminalcolorkeyword}{rgb}{0, 0.5, 0}
+	\definecolor{rulecolorterminal}{rgb}{0.75, 0.75, 0.75}
+	\definecolor{backgroundcolorterminal}{rgb}{0.95, 0.95, 0.95}
+	\lstdefinestyle{Terminal}{
+		style=default,
+		language=bash,
+		rulecolor=\color{rulecolorterminal},
+		backgroundcolor=\color{backgroundcolorterminal},
+		keywordstyle=\color{terminalcolorkeyword},
+		morekeywords={whereis, sudo, apt-get, raspi-config, ls, nano, cp, mv, rm, mkdir}
+	}
+	
+	
+	
+	% PYTHON format scheme
+	\lstdefinestyle{Python}{
+		style=default,
+		language=Python
+	}
+	
+	
+	
+	% ARM format scheme
+	\lstdefinestyle{ARM}{
+		style=default,
+		language=[ARM]{Assembler}
+	}
+
+	
+	
+	% JAVA format scheme
+	\definecolor{Javacomment}{rgb}{0,0.5,0}
+	\definecolor{Javakey}{rgb}{0.0,0.0,0.75}
+	\definecolor{Javastring}{rgb}{0.5,0.5,0.5}
+	\lstdefinestyle{Java}{
+		style=default,
+		language=Java,
+		breaklines=true,
+		tabsize=4,
+		basicstyle=\footnotesize\ttfamily,
+		keywordstyle=\color{Javakey},
+		commentstyle=\color{Javacomment},
+		stringstyle=\color{Javastring}
+	}
+	
+\fi

@@ -64,11 +64,11 @@ else
 		
 		Let's modify our hello world program to print multiple times using this loop. Make the changes in the listing below, then compile (\texttt{javac}) and run (\texttt{java}) your program as before, and you should now see ``Hello, World!'' printed 10 times.
 		
-		\lstinputlisting[style=Java, breaklines=true]{McrRaspJam/013_Objects/1_java/HelloWorldLoop.java}
+		\lstinputlisting[style=Java]{McrRaspJam/013_Objects/1_java/HelloWorldLoop.java}
 		
 		A \textbf{conditional statements} like \texttt{if else} are used to selectively run code based on a condition. Let's use an \texttt{if else} statement to change our program a little. We'll change the \texttt{println()} to print out \texttt{i}, the current count number. Then, when we reach a specific number, we'll print out a bit of text after the number.
 		
-		\lstinputlisting[style=Java, breaklines=true, firstline=5, firstnumber=5, lastline=11]{McrRaspJam/013_Objects/1_java/HelloWorldIf.java}
+		\lstinputlisting[style=Java, firstline=5, firstnumber=5, lastline=11]{McrRaspJam/013_Objects/1_java/HelloWorldIf.java}
 		
 		Now compile and run the program again, you should see something like
 		
@@ -103,12 +103,12 @@ My favourite number!
 		
 		Let's write a method that prints out a square number. In our current program, we'll define a new method like the following listing. We also need to make a call to the function from \texttt{main()}.  When you run your program again, it should now print `Hello, World!' 10 times.
 		
-		\lstinputlisting[style=Java, breaklines=true, firstline=3, firstnumber=3,  lastline=14]{McrRaspJam/013_Objects/1_java/FunctionA.java}
+		\lstinputlisting[style=Java, firstline=3, firstnumber=3,  lastline=14]{McrRaspJam/013_Objects/1_java/FunctionA.java}
 		
 		\textbf{Parameters} are passed in the same way as many other languages, within the parentheses with a type deceleration. Functions can also \textbf{return} a value, but the method deceleration must be changed to say what type it returns.
 		
 		Currently the function is \texttt{void}, meaning it returns nothing. To return a number, we need to change \texttt{void} to \texttt{int}. Let's make the function return the square of the parameter input, then \texttt{main()} will print that number.
 		
-		\lstinputlisting[style=Java, breaklines=true, firstline=3, firstnumber=3, lastline=15]{McrRaspJam/013_Objects/1_java/FunctionB.java}
+		\lstinputlisting[style=Java, breaklines=false, firstline=3, firstnumber=3, lastline=15]{McrRaspJam/013_Objects/1_java/FunctionB.java}
 	
 	

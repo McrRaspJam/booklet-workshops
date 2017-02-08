@@ -1,14 +1,39 @@
+% Page Formatting
 \ifprint
 	\documentclass[a4paper, twocolumn, twoside, 11pt]{article}
-	\usepackage{McrRaspJam/Common/printstyle}	
+	\usepackage[margin=2cm]{geometry}
+	\setlength{\columnsep}{1.25cm}
+	\setlength{\parskip}{6pt}
 \else
 	\documentclass[a4paper, onecolumn, oneside, 12pt]{article}
-	\usepackage{McrRaspJam/Common/webstyle}
+	\usepackage[margin=3cm]{geometry}
+	\setlength{\parskip}{9pt}
 \fi
 
+% FONT and text format
+\usepackage[utf8]{inputenc}	
+\usepackage[UKenglish]{babel}
+\ifprint
+	\usepackage[usenames, dvipsnames]{color}				%Font Colour
+	\usepackage[colorlinks=false]{hyperref}	%URLs
+\else
+	\usepackage[T1]{fontenc}
+	\usepackage[sfdefault]{roboto}
+	\usepackage[T1]{fontenc}
+	\usepackage[usenames, dvipsnames]{color}				%Font Colour
+	\usepackage[colorlinks=true,linkcolor=black,urlcolor=WildStrawberry]{hyperref}
+\fi
+
+
+% Table of Contents Format
+\usepackage{tocloft}
 \addtocontents{toc}{\cftpagenumbersoff{subsection}}
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{2}
+
+% Listings and Asides
+\usepackage{McrRaspJam/Common/listings}
+\usepackage{McrRaspJam/Common/asides}
 
 %Clear page for web version
 \newcommand{\webclearpage}{
@@ -17,3 +42,9 @@
 		\clearpage
 	\fi
 }
+
+% misc.
+\usepackage{enumitem}									%List spacing changes
+\usepackage[toc,page]{appendix}							%Appendix package
+\usepackage{graphicx}									% TOC?
+\usepackage{etoolbox}									%Boolean used for print/web switching
