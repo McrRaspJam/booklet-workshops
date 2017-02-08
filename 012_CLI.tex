@@ -6,10 +6,11 @@
 %
 
 % Is this document PRINT or WEB format?
-% (you can use the toggle to cut content for paper, see etoolbox)
-\input{McrRaspJam/Common/web_preamble}
-\providetoggle{isPRINT}
-\settoggle{isPRINT}{false}
+% use \printtrue or \printfalse
+\newif\ifprint
+\printfalse
+
+\input{McrRaspJam/Common/preamble}
 
 % Enter the document title here
 \newcommand{\workshopTitle}{Workshop 12: The Linux Command Line}
@@ -27,9 +28,13 @@
 	%Difficulty
 	\textit{Difficulty: Introductory workshop}
 	
-	\setcounter{tocdepth}{1}
+	\ifprint
+	\renewcommand{\baselinestretch}{0.75}\normalsize
 	\tableofcontents
-	\vspace{12pt}
+	\renewcommand{\baselinestretch}{1.0}\normalsize
+	\else
+	\tableofcontents
+	\fi
 	
 	%
 	% Input the main CONTENT below, sans title page or contents.
@@ -37,10 +42,15 @@
 	%
 	
 	\input{McrRaspJam/012_CLI/0_introduction}
+		\clearpage
 	\input{McrRaspJam/012_CLI/1_setup}
+		\webclearpage
 	\input{McrRaspJam/012_CLI/2_navigation}
+		\webclearpage
 	\input{McrRaspJam/012_CLI/3_files}
+	%	\webclearpage
 	\input{McrRaspJam/012_CLI/4_aptget}
-	\input{McrRaspJam/012_CLI/5_destroy}	
+		\webclearpage
+	\input{McrRaspJam/012_CLI/5_destroy}
 
 \end{document}

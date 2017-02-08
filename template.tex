@@ -28,8 +28,13 @@
 	%Difficulty
 	\textit{Difficulty: Introductory workshop}
 	
-	\tableofcontents
-	\vspace{12pt}
+	\ifprint
+		\renewcommand{\baselinestretch}{0.75}\normalsize
+		\tableofcontents
+		\renewcommand{\baselinestretch}{1.0}\normalsize
+	\else
+		\tableofcontents
+	\fi
 	
 	%
 	% Input the main CONTENT below, sans title page or contents.
