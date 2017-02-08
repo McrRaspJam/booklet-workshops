@@ -8,7 +8,7 @@
 	%Difficulty
 	This is an intermediate workshop, that builds upon a familiar knowledge of a text-based programming language like Python.
 		
-	\subsection*{How to use these Booklets}
+	\subsection*{How to use these booklets}
 
 	\input{McrRaspJam/common/introduction/howto}
 	
@@ -16,20 +16,23 @@
 	\input{McrRaspJam/013_Objects/0_introduction/listingcode}
 	\input{McrRaspJam/013_Objects/0_introduction/listingterminal}
 	\input{McrRaspJam/013_Objects/0_introduction/aside}
-		
-	%Aknowledgements
-	These booklets were created using \textrm{\LaTeX}, an advanced typesetting system used for several sorts of books, academic reports and letters.
-	%License spiel
-	To allow modification and redistribution of these booklets, they are distributed under the \hbox{CC BY-SA 4.0} License. Latex source documents are available at \url{http://github.com/McrRaspJam/booklet-workshops}
-	
-	%\href{http://github.com/McrRaspJam/booklet-workshops}{github.com/McrRaspJam/booklet-workshops}
-	
-	%\input{McrRaspJam/Common/introduction/downloadlocation}
 	
 	%\subsection*{What you'll need}
+	
+		% We'll be using Java for this workshop, which is installed by default in Raspbian.
+	
+	\subsection*{Everything else}
+	
+		% Aknowledgements
+		These booklets were created using \textrm{\LaTeX}, an advanced typesetting system used for several sorts of books, academic reports and letters.
+		\ifprint\else
+			If you'd like to have a look at using LaTeX, We recommend looking at \TeX studio, which is available on most platforms, and also in the Raspbian repository.
+		\fi
 		
-	%	We'll be using Java for this workshop, which is installed by default in Raspbian.
 		
-	\subsection*{Questions?}
+		% License spiel
+		To allow modification and redistribution of these booklets, they are distributed under the \hbox{CC BY-SA 4.0} License.
+		Latex source documents are available at \url{http://github.com/McrRaspJam/booklet-workshops}
+		
 		If you get stuck, find errors or have feedback about these booklets, please email me at:
 		\href{mailto:jam@jackjkelly.com}{\texttt{jam@jackjkelly.com}}
