@@ -10,6 +10,8 @@
 	\setlength{\parskip}{9pt}
 \fi
 
+
+
 % FONT and text format
 \usepackage[utf8]{inputenc}	
 \usepackage[UKenglish]{babel}
@@ -25,15 +27,27 @@
 \fi
 
 
+
 % Table of Contents Format
 \usepackage{tocloft}
 \addtocontents{toc}{\cftpagenumbersoff{subsection}}
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{2}
 
+
+
+% Section spacing
+\ifprint
+	\usepackage[compact]{titlesec}
+\fi
+
+
+
 % Listings and Asides
 \usepackage{McrRaspJam/Common/listings}
 \usepackage{McrRaspJam/Common/asides}
+
+
 
 %Clear page for web version
 \newcommand{\webclearpage}{
