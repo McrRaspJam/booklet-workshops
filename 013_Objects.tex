@@ -7,9 +7,10 @@
 
 % Is this document PRINT or WEB format?
 % (you can use the toggle to cut content for paper, see etoolbox)
-\input{McrRaspJam/Common/print_preamble}
-\providetoggle{isPRINT}
-\settoggle{isPRINT}{true}
+\newif\ifprint
+\printtrue
+
+\input{McrRaspJam/Common/preamble}
 
 % Enter the document title here
 \newcommand{\workshopTitle}{Workshop 13: Objects}
@@ -26,42 +27,49 @@
 	
 	%Difficulty
 	\textit{Difficulty: Intermediate workshop}
-	
-	\setcounter{tocdepth}{2}
-	\iftoggle{isPRINT}{
+
+	\ifprint
 		\renewcommand{\baselinestretch}{0.75}\normalsize
 		\tableofcontents
 		\renewcommand{\baselinestretch}{1.0}\normalsize
-	}{\tableofcontents}
+	\else
+		\tableofcontents
+	\fi
 	
 	%
 	% Input the main CONTENT below, sans title page or contents.
-	% Recommend inputting per section, and adding \clearpage breaks here.
+	% Recommend inputting per section, and adding page breaks here.
+	%
+	% \webclearpage command is provided, will break page for web format only.
 	%
 	
 	\input{McrRaspJam/013_Objects/0_introduction}
-		\newpageprint
+		\webclearpage
 	
 	\input{McrRaspJam/013_Objects/1_java}
-		\newpageprint
+		\webclearpage
 		
 	\input{McrRaspJam/013_Objects/2_object}
-	\iftoggle{isPRINT}{}{\input{McrRaspJam/013_Objects/4_slides}}
-		\newpageprint
+	
+	\ifprint
+	\else
+		\input{McrRaspJam/013_Objects/4_slides}
+	\fi
+		\webclearpage
 	
 	\input{McrRaspJam/013_Objects/3_rpg}
-		\newpageprint
+		\webclearpage
 	
 	%Code Listings in WEB version only
-	\iftoggle{isPRINT}{
+	\ifprint
 		\section*{Omissions}
 			Whoops, we've run out of space. Some text has been left out of this printed version of the workshop booklet, but you can find it (along with full code listings) in the online version at \mbox{\href{https://drive.google.com/open?id=0B_1SFjX_5JrmfnhpX0pPRXl6bmJNal8zdUxMeWZOdjJyZVdzU3V6UnBGdlVIMENtbFFkbVk}{bit.ly/McrRaspJam}}
-	}{
+	\else
 		\onecolumn
 		
 		\begin{appendix}
 			\input{McrRaspJam/013_Objects/5_codelisting}
 		\end{appendix}
-	}
+	\fi
 
 \end{document}

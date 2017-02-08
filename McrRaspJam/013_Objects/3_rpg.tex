@@ -26,7 +26,7 @@
 	\subsection*{Constructor methods}
 	
 		We can use constructor methods to set variables when we first create an object.
-		\iftoggle{isPRINT}{}{The constructor is called when you use the keyword \texttt{new}. When we called \texttt{new} in our programs before, a default constructor was used which does not set any variables.}		
+		\ifprint\else The constructor is called when you use the keyword \texttt{new}. When we called \texttt{new} in our programs before, a default constructor was used which does not set any variables.\fi		
 		A constructor method is identified by a method with the deceleration \texttt{public <Class Name>()}. A typical constructor for the vector class from earlier would be
 		
 		\lstinputlisting[style=Java, breaklines=true, firstline=17, firstnumber=17, lastline=23]{McrRaspJam/013_Objects/2_object/Vector3b.java}
@@ -60,7 +60,8 @@ vector3.magnitude();
 		
 		
 	
-	\iftoggle{isPRINT}{}{
+	\ifprint
+	\else
 		\subsection*{Inheritance}
 		
 			An important feature of Object-oriented design, sub-classes can inherit properties of other classes.
@@ -68,4 +69,4 @@ vector3.magnitude();
 			For example, if we wanted to create a wild animal in our Pet program, the wild animal wouldn't have a name. We could make an Animal class, with just the name variable (and perhaps treats), then pet would be a subclass of animal, in which would just be the name variable.
 			
 			\lstinputlisting[style=Java, breaklines=true, numbers=none]{McrRaspJam/013_Objects/3_rpg/outroinheritance.txt}
-	}
+	\fi
