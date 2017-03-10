@@ -4,9 +4,12 @@
 
 	IDLE opens into it's shell by default, allowing you to enter code and have it run immediately without having to create and save any files. Note that this shell doesn't save your code for you, so make sure you save any code you want to keep!
 
-	\begin{center}
-		\includegraphics[width=120mm]{McrRaspJam/014_Python/1_idle/screenshot}
-	\end{center}
+	\ifprint
+	\else
+		\begin{center}
+			\includegraphics[width=120mm]{McrRaspJam/014_Python/1_idle/screenshot}
+		\end{center}
+	\fi
 
 	Try typing the following code into the shell and hitting enter.
 
@@ -20,7 +23,7 @@ Hello, World!
 
 	Now, compare that to the equivalent Java program:
 
-	\lstinputlisting[style=Java, numbers=none]{McrRaspJam/014_Python/1_idle/HelloWorld.java}
+	\lstinputlisting[style=Java, numbers=none, breaklines=true]{McrRaspJam/014_Python/1_idle/HelloWorld.java}
 
 	As opposed to Java, Python is a simple language in which a lot of functionality is implicit and not explicit. There is no need for \texttt{System.out.println} or even the \texttt{main} function, as Python provides them for you.
 
