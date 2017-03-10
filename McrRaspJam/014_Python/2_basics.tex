@@ -1,0 +1,38 @@
+\section{The Basics}
+	\subsection{Variables}
+
+		Variables in Python are just names for a value, like a label on a box. Variables can contain any type, and their type and contents can even change throughout the program's execution!
+
+		You can declare a variable by simply giving it a name and a value as shown below.
+
+		\lstinputlisting[style=Python, numbers=none]{McrRaspJam/014_Python/2_basics/variables.py}
+
+		In this code we create a variable called \texttt{name} containing a person's name and print the variable's contents.
+
+		\textbf{Extra:} Why not try changing this to say your name?
+
+	\subsection{Loops}
+
+		Loops in programming allow us to run some code multiple times, meaning we don't have to repeat ourselves if we want something doing more than once. There are two types of loops in Python called \texttt{for} and \texttt{while} loops.
+
+		The \texttt{for} loop allows us to run some code a specific number of times, an example being printing the numbers 1 through 10.
+
+	  \lstinputlisting[style=Python, numbers=none]{McrRaspJam/014_Python/2_basics/loops.py}
+
+		The above \texttt{for} loop runs through a list of numbers from 1 to 10 in order, which is what the \texttt{range} function has provided us with.
+
+		\textbf{Extra:} Why not try modifying this code to print your name 10 times?
+
+	\subsection{Conditional Statements}
+
+		\textbf{Conditional statements} are used to selectively run code based on a condition. This can be useful as we can only run specific code when we want to. In this example we'll change our code so that it only prints out even numbers.
+
+		\lstinputlisting[style=Python, numbers=none]{McrRaspJam/014_Python/2_basics/conditionals.py}
+
+		This code goes through each number between 1 and 10 and checks if it is a multiple of 2. If it is then we print it, otherwise we ignore that number and go on to the next one.
+
+		\textbf{Extra:} Why not try modifying this code to print multiples of 3?
+
+		\begin{aside}[Indentation]
+			Indentation is how far along the line your code is positioned and it matters a lot in Python! The indentation is needed so that Python knows what code is inside a block (e.g. the \texttt{for} loop) and what code isn't. IDLE automatically indents the code for you when starting a block and unindents when it finds an empty line.
+		\end{aside}

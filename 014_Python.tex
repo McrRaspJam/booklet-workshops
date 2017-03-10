@@ -1,0 +1,61 @@
+%
+% Manchester Raspberry Jam Workshop Booklet
+%
+% This template is designed to try and aide consistency between each booklet.
+% Insert files as instructed by comments, things like tables of contents are created by other linked files
+%
+
+% Is this document PRINT or WEB format?
+% (you can use the toggle to cut content for paper, see etoolbox)
+\newif\ifprint
+\printfalse
+
+\input{McrRaspJam/Common/preamble}
+
+% Enter the document title here
+\newcommand{\workshopTitle}{Workshop 14: Python}
+
+% Enter the author of this workshop
+\newcommand{\workshopAuthor}{CREATIVE PI}
+
+
+\begin{document}
+	\input{McrRaspJam/014_Python/booklet_title}
+
+	%Place a SINGLE paragraph summary here
+	This workshop focuses on the basics of Python and using it with Minecraft and the Sense HAT.
+
+	%Difficulty
+	\textit{Difficulty: Introductory workshop}
+
+	\ifprint
+		\renewcommand{\baselinestretch}{0.75}\normalsize
+		\tableofcontents
+		\renewcommand{\baselinestretch}{1.0}\normalsize
+	\else
+		\tableofcontents
+	\fi
+
+	%
+	% Input the main CONTENT below, sans title page or contents.
+	% Recommend inputting per section, and adding page breaks here.
+	%
+	% \webclearpage command is provided, will break page for web format only.
+	%
+
+	\input{McrRaspJam/014_Python/0_introduction}
+		\clearpage
+
+	\input{McrRaspJam/014_Python/1_idle}
+		\webclearpage
+
+	\input{McrRaspJam/014_Python/2_basics}
+		\webclearpage
+
+	\input{McrRaspJam/014_Python/3_exercises}
+		\webclearpage
+
+	\input{McrRaspJam/014_Python/4_sense_hat}
+		\webclearpage
+
+\end{document}
