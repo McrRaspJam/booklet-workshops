@@ -5,6 +5,6 @@ sense = SenseHat()
 mc = minecraft.Minecraft.create()
 
 while True:
-    for hit in mc.events.pollBlockHits()
+    for hit in mc.events.pollBlockHits():
         text = hit.pos.x + ", " + hit.pos.y + ", " + hit.pos.z
-        sense.show_text(text)
+        sense.show_message(text)
