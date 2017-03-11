@@ -1,0 +1,23 @@
+\section{Python in Minecraft}
+
+	\subsection{What is Minecraft?}
+
+		Minecraft is a popular sandbox open-world building game, a free version of which is pre-installed with Raspbian on your Pi. Minecraft Pi Edition provides a powerful API for development, allowing people to build within the game using Python and making it a great way to get to grips with Python.
+
+	\subsection{Getting Started}
+
+		You can find Minecraft under \texttt{Games > Minecraft PI} from the Raspberry Pi logo in the top left of your screen. Opening it should present you with a screen allowing you to start a new game or join a game, clicking "Start Game" will allow you to create a new world, which we will be using throughout the workshop.
+
+		We will also need Python's IDLE tool, which allows us to write and run Python code. You can find this under \texttt{Programming > IDLE}. There may be more than one version available and whilst we will be using Python 3 throughout this workshop, the code may still run under Python 2.
+
+		Now that we have all of our software open, we can start programming! The first thing we need to do is import Minecraft's API (the code that they provide so that we can control Minecraft) into Python so we can use it.
+
+		\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/015_MinecraftSenseHAT/1_python_in_minecraft/import.py}
+
+		After we've imported their code, we can use it to connect to Minecraft using the \allowbreak\texttt{Minecraft\allowbreak .create()} function.
+
+		\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/015_MinecraftSenseHAT/1_python_in_minecraft/connecting.py}
+
+		We need to remember our connection so that we can use it later, so we stored it in the variable \texttt{mc}. This variable can be called anything, we just need to keep track of our connection to the game.
+
+		We're now connected to the game and can start playing with the game itself.
