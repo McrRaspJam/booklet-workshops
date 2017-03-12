@@ -1,0 +1,36 @@
+% Title Format
+\ifprint
+	\title{Manchester Raspberry Jam \\ \workshopTitle}
+\else
+	\title{
+		\begin{center}
+			\includegraphics[width=30mm]{McrRaspJam/Common/logo-512}
+		\end{center}
+		\begin{center}
+			\includegraphics[width=60mm]{McrRaspJam/014_Python/creative-pi-1024}
+		\end{center}
+		\vspace{12pt}
+		\workshopTitle
+	}
+\fi
+
+%Author (disabled until multiple authors have worked on Workshop booklets (: )
+\iffalse
+\author{
+	Written by \workshopAuthor
+	}
+\fi
+
+\author{}
+\date{\vspace{-44pt}}
+\maketitle
+
+
+% Online download location
+\ifprint
+	\begin{mdframed}[rightline=false, leftline=false]
+		\scriptsize
+		This booklet is available online at \mbox{\href{https://drive.google.com/open?id=0B_1SFjX_5JrmfnhpX0pPRXl6bmJNal8zdUxMeWZOdjJyZVdzU3V6UnBGdlVIMENtbFFkbVk}{bit.ly/McrRaspJam}}
+		\normalsize
+	\end{mdframed}
+\fi

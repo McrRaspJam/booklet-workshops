@@ -1,0 +1,60 @@
+%
+% Manchester Raspberry Jam Workshop Booklet
+%
+% This template is designed to try and aide consistency between each booklet.
+% Insert files as instructed by comments, things like tables of contents are created by other linked files
+%
+
+% Is this document PRINT or WEB format?
+% (you can use the toggle to cut content for paper, see etoolbox)
+\newif\ifprint
+\printfalse
+
+\input{McrRaspJam/Common/preamble}
+
+% Enter the document title here
+\newcommand{\workshopTitle}{Workshop 15: Minecraft and the Sense HAT}
+
+% Enter the author of this workshop
+\newcommand{\workshopAuthor}{CREATIVE PI}
+
+% Use multirow package
+\usepackage{multirow}
+
+\begin{document}
+	\input{McrRaspJam/015_MinecraftSenseHat/booklet_title}
+
+	%Place a SINGLE paragraph summary here
+	This workshop focuses on some more advanced Python and using it with Minecraft and the Sense HAT.
+
+	%Difficulty
+	\textit{Difficulty: Intermediate workshop}
+
+	\ifprint
+		\renewcommand{\baselinestretch}{0.75}\normalsize
+		\tableofcontents
+		\renewcommand{\baselinestretch}{1.0}\normalsize
+	\else
+		\tableofcontents
+	\fi
+
+	%
+	% Input the main CONTENT below, sans title page or contents.
+	% Recommend inputting per section, and adding page breaks here.
+	%
+	% \webclearpage command is provided, will break page for web format only.
+	%
+
+	\input{McrRaspJam/015_MinecraftSenseHat/0_introduction}
+		\clearpage
+
+	\input{McrRaspJam/015_MinecraftSenseHat/1_python_in_minecraft}
+		\webclearpage
+
+	\input{McrRaspJam/015_MinecraftSenseHat/2_manipulating_the_world}
+		\webclearpage
+
+	\input{McrRaspJam/015_MinecraftSenseHat/3_integrating_the_sense_hat}
+		\webclearpage
+
+\end{document}

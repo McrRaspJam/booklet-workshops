@@ -1,0 +1,48 @@
+\section{The Sense HAT}
+	The Sense HAT is a small board that plugs into the GPIO port on the top of the Pi. It has a small multi-colour LED display, a joystick and some sensors and works great with Python!
+
+	\subsection{The Sense HAT and Python}
+
+		The Sense HAT has amazing support for Python, allowing you to display images, access all of the sensors and even work out what direction the Pi is facing! This is all done using the Sense HAT's official library, which comes pre-installed with the Pi.
+
+		Connecting to the Sense HAT using Python is surprisingly easy and can be done in just 2 lines.
+
+		\lstinputlisting[style=Python, numbers=none]{McrRaspJam/014_Python/4_sense_hat/connecting.py}
+
+		The first line imports the \texttt{SenseHAT} class from the \texttt{sense\_hat} library (provided by the creators of the HAT). The second line connects to the HAT and stores the connection in a variable which we'll use later on.
+
+	\subsection{Displaying Some Text}
+
+		The Sense HAT provides us with an easy-to-use function for displaying text called \texttt{show\_message}. This function scrolls text across the screen of the HAT whilst allowing you to change the speed and the colour.
+
+		\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/014_Python/4_sense_hat/text.py}
+
+		Running this code will cause the text \texttt{"Hello, my name is Jack"} to scroll across the screen of the Sense HAT in white.
+
+		\webclearpage
+
+		You can change the colour by telling the function what the \texttt{text\_colour} should be.
+
+		\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/014_Python/4_sense_hat/text_colour.py}
+
+		\textbf{Extra:} Why not try modifying this code to print your name in green?
+
+		\begin{aside}[Colours of the Rainbow]
+			The Sense HAT accepts colours as a list of three numbers between 0 and 255, allowing you to vary the amount of red, green and blue being shown. Bright red is \texttt{[255, 0, 0]}, bright green is \texttt{[0, 255, 0]} and bright blue is \texttt{[0, 0, 255]}. You can mix these to create over 16 million colours!
+		\end{aside}
+
+	\subsection{Drawing a Face}
+
+		The Sense HAT also allows you to set individual pixels on it's screen to certain colours. We're going to use this to draw a smiley face!
+
+		\lstinputlisting[style=Python, numbers=none]{McrRaspJam/014_Python/4_sense_hat/face.py}
+
+		The first two numbers on each \texttt{set\_pixel} line are the \texttt{x} and \texttt{y} positions for the pixel and the list of numbers at the end is the colour for the pixel (as we saw earlier when displaying text).
+
+		If you make a mistake and the face looks wrong you can use \texttt{sense.clear()} to clear the screen and start again.
+
+		\textbf{Extra:} Why not try changing it to a sad face?
+
+		\begin{aside}[Find that pixel!]
+			The Sense HAT's coordinate system starts at \texttt{0, 0} (top left) and goes up to \texttt{7, 7} (bottom right), meaning you should only use \texttt{x} and \texttt{y} values between these!
+		\end{aside}

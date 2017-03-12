@@ -1,0 +1,72 @@
+\section{Integrating the Sense HAT}
+	\subsection{Joystick}
+
+		The Sense HAT has a small joystick on it that allows you to move in 4 directions but also "press" the joystick as a button. We will be using the joystick when integrating the HAT with Minecraft, allowing us to control certain elements of the game using the stick.
+
+		By the end of this section we will have created a program that allows us to move the player around using the joystick.
+
+		\subsubsection{Handling Input}
+
+			To take input from the joystick, we need a loop that runs forever and some code that waits until the joystick was moved. We also need to be able to tell what type of event happened, such as "pressed" or "released", as well as the direction that the stick was pushed in.
+
+			We use the \texttt{wait\_for\_event} function from the Sense HAT's API to wait until the joystick is moved. This function will stop any code from after it running until the stick is moved, which is exactly what we need. When the joystick \textit{is} moved, this function returns information about the movement and allows the rest of the code after it to run.
+
+			\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/015_MinecraftSenseHAT/3_integrating_the_sense_hat/input.py}
+
+			This code will print out information about the action performed when the joystick is moved, including when the button is pressed.
+
+		\subsubsection{Moving the Player}
+
+			Now we need to take the input from the joystick and apply it to the player. We can do this by adding 1 to the position of the player on a specific axis (either \texttt{x}, \texttt{y} or \texttt{z}), depending on how the joystick was moved.
+
+			We'll need the input code from earlier again, as well as some of the Minecraft code for getting the player's position.
+
+			\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/015_MinecraftSenseHAT/3_integrating_the_sense_hat/moving_0.py}
+
+			This code will print the player's position every time the joystick is moved --- we're almost there already!
+
+			Up next is changing the player's position depending on the direction pressed on the joystick. The easiest way to do this is compare the event's \texttt{direction} value against known directions using an \texttt{if} statement.
+
+			\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/015_MinecraftSenseHAT/3_integrating_the_sense_hat/moving_1.py}
+
+			This code will print the new position for the player every time the joystick is moved, but without actually moving the player. The \texttt{pos.x += 1} lines mean "take the x position of the player and add 1", which is a shorter version of \texttt{pos.x = pos.x + 1}. This code will make the up, right, down and left directions of the joystick move the player's position north, east, south and west.
+
+			All we need to do now is apply the player's new position using \texttt{setPos}.
+
+			\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/015_MinecraftSenseHAT/3_integrating_the_sense_hat/moving.py}
+
+			And that's it! We now have a working piece of code that allows you to move the player around with the joystick.
+
+			You may notice that there are some issues with this, mainly the fact that you can go through walls! Sadly this is not a trivial thing to fix, as we'd need to check if the player is about to move into a block or not before moving them there. Another issue is that the movement is not in the direction the player is looking, which looks rather odd! There isn't much we can do about this, as Minecraft Pi edition doesn't give us a way to work out which way the player is looking, meaning we can't move the player depending on where they are looking.
+
+			\textbf{Extra:} How would you make the player move faster when you move the joystick?
+
+			\textbf{Extra:} How would you make the player move up when you press the joystick in? \textit{Hint: The direction value will be "push" when the button is pushed in.}
+
+	\subsection{Display}
+
+		The Sense HAT's display allows us to display graphics and text, making it useful for outputting information from the computer. In this section we will be outputting the ID of the block that the player hit whenever the player hits a block.
+
+			\subsubsection{Showing Text}
+
+				The Sense HAT makes it easy to show text, providing the easy-to-use \texttt{show\_message} function, which scrolls text across the HAT's display.
+
+				\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/015_MinecraftSenseHAT/3_integrating_the_sense_hat/text.py}
+
+			\subsubsection{Converting Positions to Text}
+
+				By default, positions in Minecraft are in the form \texttt{Vec3(x, y, z)}. This is no good for our screen, as it has quite a bit of text that is \textit{not} the position. We can convert the position to a shorter piece of text by joining the positions into a string using the \texttt{+} operator.
+
+				\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/015_MinecraftSenseHAT/3_integrating_the_sense_hat/position.py}
+
+				In this example, we converted the \texttt{x}, \texttt{y} and \texttt{z} values into strings and joined them together with commas, giving us the form \texttt{x, y, z}.
+
+				We have already seen how to listen for events in section~\ref{sec:manipulating_the_world}, so we will skip the explanation behind that code and go straight to outputting the position of blocks that have been hit.
+
+				\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/015_MinecraftSenseHAT/3_integrating_the_sense_hat/display_position.py}
+
+				And that's it! Right clicking on blocks with a sword should show the position of the block on the Sense HAT's screen.
+
+				\textbf{Extra:} Why not try changing the colour of the text shown on the HAT's screen?
+
+				\textbf{Extra:} How about changing the colour of the text depending on the type of block hit? \textit{Hint: Use \texttt{getBlock} alongside \texttt{hit.pos} to get the type of block that was hit.}
