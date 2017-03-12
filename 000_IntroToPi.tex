@@ -2,14 +2,15 @@
 % Manchester Raspberry Jam Workshop Booklet
 %
 % This template is designed to try and aide consistency between each booklet.
-% Insert files as instructed by comments, things like tables of contents are created by other linked files
+% Insert files and settings only as instructed by comments.
 %
 
 % Is this document PRINT or WEB format?
-% (you can use the toggle to cut content for paper, see etoolbox)
-\input{McrRaspJam/Common/web_preamble}
-\providetoggle{isPRINT}
-\settoggle{isPRINT}{false}
+% use \printtrue or \printfalse
+\newif\ifprint
+\printfalse
+
+\input{McrRaspJam/common/preamble}
 
 % Enter the document title here
 \newcommand{\workshopTitle}{Getting Started with Raspberry Pi}
@@ -19,7 +20,7 @@
 
 
 \begin{document}
-	\input{McrRaspJam/Common/booklet_title}
+	\input{McrRaspJam/common/booklet_title}
 	
 	%Place a SINGLE paragraph summary here
 	This workshop booklet will help you get your Raspberry Pi up and running.
@@ -27,20 +28,29 @@
 	%Difficulty
 	\textit{Difficulty: Introductory workshop}
 	
-	\setcounter{tocdepth}{1}
-	\tableofcontents
-	\vspace{12pt}
+	\ifprint
+		\renewcommand{\baselinestretch}{0.75}\normalsize
+		\tableofcontents
+		\renewcommand{\baselinestretch}{1.0}\normalsize
+	\else
+		\tableofcontents
+	\fi
 	
 	%
 	% Input the main CONTENT below, sans title page or contents.
 	% Recommend inputting per section, and adding page breaks here.
 	%
+	% \webclearpage command is provided, will break page for web format only.
+	%
 	
 	\input{McrRaspJam/000_IntroToPi/0_Introduction}
 	\newpage
 	\input{McrRaspJam/000_IntroToPi/1_EquipmentNeeded}
+	\webclearpage
 	\input{McrRaspJam/000_IntroToPi/2_NOOBS}
+	\webclearpage
 	\input{McrRaspJam/000_IntroToPi/3_Setup}
+	\webclearpage
 	\input{McrRaspJam/000_IntroToPi/4_Resources}
 
 \end{document}
