@@ -5,7 +5,7 @@
 
 		Minecraft Pi Edition provides a simple function for posting messages into the game's chat called \texttt{postToChat}. This function allows us to pass in some text and have the text appear in-game.
 
-		\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/015_MinecraftSenseHAT/2_manipulating_the_world/chat.py}
+		\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/014b_MinecraftSenseHAT/2_manipulating_the_world/chat.py}
 
 		\textbf{Extra:} Why not try changing what is said in chat or even try changing how many times it is said?
 
@@ -15,7 +15,7 @@
 
 		You can get the player's current position using \texttt{player.getPos()}, which returns an object containing the player's current position. This can be useful for moving the player around using code or modifying blocks relative to the player.
 
-		\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/015_MinecraftSenseHAT/2_manipulating_the_world/position.py}
+		\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/014b_MinecraftSenseHAT/2_manipulating_the_world/position.py}
 
 	\subsection{Blocks}
 
@@ -41,15 +41,15 @@
 
 		There are lots of types of blocks in Minecraft and it would be a pain to have to look up their IDs every time you want to place a block. This is where the Minecraft API comes in again, as it provides us a list of block names and their respective IDs.
 
-		\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/015_MinecraftSenseHAT/2_manipulating_the_world/block.py}
+		\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/014b_MinecraftSenseHAT/2_manipulating_the_world/block.py}
 
 		Note that we imported \texttt{block} from \texttt{mcpi} as opposed to \texttt{minecraft}. If you are looking to use both Minecraft and the blocks (as you would do if you were writing a normal program), you can import them both by separating their names by a comma.
 
-		\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/015_MinecraftSenseHAT/2_manipulating_the_world/import.py}
+		\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/014b_MinecraftSenseHAT/2_manipulating_the_world/import.py}
 
 		We can place and remove blocks using \texttt{setBlock} and specifying the position and type of block to place. An easy way to try out placing blocks is by placing a block over the player's head.
 
-		\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/015_MinecraftSenseHAT/2_manipulating_the_world/block_head.py}
+		\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/014b_MinecraftSenseHAT/2_manipulating_the_world/block_head.py}
 
 		\textbf{Extra:} Why not try changing the block from grass to a different block?
 
@@ -69,11 +69,11 @@
 
 		Firstly we need the basic framework for handling events, which consists of a loop that runs forever and a function that gets a list of all of the events that we have not processed yet.
 
-		\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/015_MinecraftSenseHAT/2_manipulating_the_world/event_framework.py}
+		\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/014b_MinecraftSenseHAT/2_manipulating_the_world/event_framework.py}
 
 		This code prints out the position of the block any time the player hits a block, which we can use to turn that block into gold! We can use the function \texttt{setBlock} that we learned about earlier to change the block the player hit into a gold block.
 
-		\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/015_MinecraftSenseHAT/2_manipulating_the_world/midas.py}
+		\lstinputlisting[style=Python, numbers=none, breaklines=true]{McrRaspJam/014b_MinecraftSenseHAT/2_manipulating_the_world/midas.py}
 
 		Our final code simply takes the position of the block that was hit and turns it into a gold block.
 
