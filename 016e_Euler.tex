@@ -1,0 +1,49 @@
+%
+% Manchester Raspberry Jam Workshop Booklet
+%
+% This template is designed to try and aide consistency between each booklet.
+% Insert files as instructed by comments, things like tables of contents are created by other linked files
+%
+
+% Is this document PRINT or WEB format?
+% use \printtrue or \printfalse
+\newif\ifprint
+\printtrue
+
+\input{McrRaspJam/common/preamble}
+
+% Enter the document title here
+\newcommand{\workshopTitle}{Activity 2: Project Euler}
+
+% Enter the author of this workshop
+\newcommand{\workshopAuthor}{}
+
+
+\begin{document}
+	\input{McrRaspJam/common/booklet_title}
+	
+	%Place a SINGLE paragraph summary here
+	A collection of mathematical programming problems from \href{https://projecteuler.net/}{\texttt{projecteuler.net}}.
+	
+	%Difficulty
+	\textit{Suitable for anybody who is confident in basic programming.}
+	
+	\tableofcontents
+	\vspace{12pt}
+	
+	%
+	% Input the main CONTENT below, sans title page or contents.
+	% Recommend inputting per section, and adding page breaks here.
+	%
+	% \webclearpage command is provided, will break page for web format only.
+	%
+	
+	\input{McrRaspJam/016e_Euler/0_introduction}
+	\webclearpage
+	\input{McrRaspJam/012_CLI/extension/1_foundation}
+	\webclearpage
+	\input{McrRaspJam/012_CLI/extension/2_furniture}
+	\webclearpage
+	\input{McrRaspJam/012_CLI/extension/3_customize}
+	
+\end{document}
