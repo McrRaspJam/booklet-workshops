@@ -1,0 +1,65 @@
+%
+% Manchester Raspberry Jam Workshop Booklet
+%
+% This template is designed to try and aide consistency between each booklet.
+% Insert files and settings only as instructed by comments.
+%
+
+% Is this document PRINT or WEB format?
+% use \printtrue or \printfalse
+\newif\ifprint
+\printtrue
+
+\input{McrRaspJam/common/preamble}
+
+% Enter the document title here
+\newcommand{\workshopTitle}{Workshop 15: GPIO Zero}
+
+% Enter the author of this workshop
+\newcommand{\workshopAuthor}{Written by Jack Kelly}
+
+
+\begin{document}
+	\input{McrRaspJam/common/booklet_title}
+	
+	%Place a SINGLE paragraph summary here
+	Learn the basics of physical computing on Raspberry Pi using the \textit{GPIO Zero} Python library.
+	
+	%Difficulty
+	\textit{Difficulty: Introductory workshop}
+	
+	\ifprint
+		\renewcommand{\baselinestretch}{0.75}\normalsize
+		\tableofcontents
+		\renewcommand{\baselinestretch}{1.0}\normalsize
+	\else
+		\tableofcontents
+	\fi
+	
+	%
+	% Input the main CONTENT below, sans title page or contents.
+	% Recommend inputting per section, and adding page breaks here.
+	%
+	% \webclearpage command is provided, will break page for web format only.
+	%
+	
+	\input{McrRaspJam/015_GPIOZero/0_introduction}
+	\clearpage
+	
+	\section{Creating a Basic Circuit}
+	\webclearpage
+	
+	\section{Traffic Lights}
+	\webclearpage
+	
+	\section{Morse Code}
+	\clearpage	
+	
+	\begin{appendices}
+		\input{McrRaspJam/015_GPIOZero/8_resistorbands}
+		\webclearpage
+		
+		\input{McrRaspJam/015_GPIOZero/9_morse}
+	\end{appendices}
+
+\end{document}

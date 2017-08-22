@@ -77,8 +77,13 @@
 			'' & · − · · − · \\
 			' & · − − − − · \\
 		\end{tabular}\textbf{}
+	
+		\ifprint
+		\else
+			Additional ITU recognised characters exist, these can be found at \href{https://en.wikipedia.org/wiki/Morse_code#Letters.2C_numbers.2C_punctuation.2C_prosigns_for_Morse_code_and_non-English_variants}{\texttt{http://en.wikipedia.org/wiki/Morse\_code}}
+		\fi
 
-		Additional ITU recognised characters exist, these can be found at \href{https://en.wikipedia.org/wiki/Morse_code#Letters.2C_numbers.2C_punctuation.2C_prosigns_for_Morse_code_and_non-English_variants}{\texttt{http://en.wikipedia.org/wiki/Morse\_code}}
+\iffalse
 
 	\subsection*{Example Phrases}
 
@@ -111,5 +116,7 @@
  I       =       I       +           1
 		\end{verbatim}
 		i = i+1
+
+\fi
 
 \normalsize
