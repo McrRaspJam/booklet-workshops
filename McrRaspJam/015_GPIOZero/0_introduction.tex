@@ -1,9 +1,7 @@
 \setcounter{section}{-1}
 \section{Introduction}
 
-	If you've controlled electronics using the Raspberry Pi's GPIO before, you probably used a Python library called \textit{RPi.GPIO} to write your programs.
-	
-	GPIO Zero is an alternative GPIO library for Python, written by Raspberry Pi's Ben Nuttall, with the help of Dave Jones. It is designed to be easier to use than RPi.GPIO, whilst having the same capabilities.
+	If you've controlled electronics using the Raspberry Pi's GPIO before, you probably used a Python library called \textit{RPi.GPIO} to write your programs. GPIO Zero is an alternative GPIO library for Python, designed to be easier to use than RPi.GPIO, whilst having the same capabilities.
 
 	Today, we'll learn how to create simple breadboard circuits using the Raspberry Pi's GPIO, then we'll write Python programs that control those circuits using the GPIO Zero library.
 
@@ -17,16 +15,28 @@
 	%Code Listings
 	\input{McrRaspJam/015_GPIOZero/0_introduction/listingcode}
 	\input{McrRaspJam/015_GPIOZero/0_introduction/aside}
+
+		
+	\subsection*{What you'll need}
 	
-	%\subsection*{What you'll need}
+	To create the circuits in this workshop, you will need:
 	
-		% We'll be using Java for this workshop, which is installed by default in Raspbian.
+	\begin{itemize}[nosep]
+		\item A solderless breadboard and jumper wires
+		\item Red, yellow and green LEDs
+		\item A push-button tactile switch
+		\item Suitable resistors for the LEDs and button
+		\item A 3-5V \textbf{DC} piezo buzzer
+	\end{itemize}
 	
+	\ifprint\else All of the software you for this workshop is pre-installed on recent versions of Raspbian. \fi
+		
 	\subsection*{Everything else}
 	
 		% Aknowledgements
-		These booklets were created using \textrm{\LaTeX}, an advanced typesetting system used for several sorts of books, academic reports and letters.
 		\ifprint\else
+			These booklets were created using \textrm{\LaTeX}, an advanced typesetting system used for several sorts of books, academic reports and letters.
+			
 			If you'd like to have a look at using LaTeX, We recommend looking at \TeX studio, which is available on most platforms, and also in the Raspbian repository.
 		\fi
 		
