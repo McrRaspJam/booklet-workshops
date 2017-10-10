@@ -1,0 +1,135 @@
+\section{International Morse Code}
+
+\small
+
+	\subsection*{Standard rules}
+	
+		\begin{itemize}[noitemsep]
+			\item The length of a dot is 1 unit.
+			\item The length of a dash is 3 units.
+			\item The space between parts of the same letter is 1 unit.
+			\item The space between letters is 3 units.
+			\item The space between words is 7 units.
+		\end{itemize}
+	
+	\subsection*{Beginner's rules}
+	
+		This rule-set is adjusted to make it easier to listen to and write down incoming Morse code messages. It's recommended that you write your morse code program to use these timings.
+		
+		\begin{itemize}[noitemsep]
+			\item A unit is $\sim$\textbf{0.25} seconds.
+			\item The length of a dot is 1 unit.
+			\item The length of a dash is 4 units.
+			\item The space between parts of the same letter is 1 unit.
+			\item The space between letters is 8 units.
+			\item The space between words is $\sim$20 units.
+		\end{itemize}
+
+	\subsection*{Characters}
+
+	\subsubsection*{Alphabet}
+	
+		\begin{tabular}{rl}
+			A & · − \\ 
+			B & − · · · \\ 
+			C & − · − ·  \\ 
+			D & − · ·  \\ 
+			E & ·  \\ 
+			F & · · − ·  \\ 
+			G & − − ·  \\ 
+			H & · · · ·  \\ 
+			I & · ·  \\ 
+			J & · − − −  \\ 
+			K & − · −  \\ 
+			L & · − · ·  \\ 
+			M & − −  \\ 
+			N & − ·  \\ 
+			O & − − −  \\
+			P & · − − ·  \\
+			Q & − − · −  \\ 
+			R & · − ·  \\ 
+			S & · · ·  \\ 
+			T & −  \\ 
+			U & · · −  \\ 
+			V & · · · −  \\ 
+			W & · − −  \\ 
+			X & − · · −  \\ 
+			Y & − · − −  \\ 
+			Z & − − · ·  \\ 
+		\end{tabular}
+	
+	\subsubsection*{Numeral}
+	
+		\begin{tabular}{rl}
+			0 & − − − − − \\ 
+			1 & · − − − − \\ 
+			2 & · · − − − \\ 
+			3 & · · · − − \\ 
+			4 & · · · · − \\ 
+			5 & · · · · · \\ 
+			6 & − · · · · \\ 
+			7 & − − · · · \\
+			8 & − − − · · \\ 
+			9 & − − − − · \\ 
+		\end{tabular}
+	
+	\subsubsection*{Punctuation}
+	
+		\begin{tabular}{rl}
+			. & · − · − · − \\ 
+			, & − − · · − − \\ 
+			? & · · − − · · \\ 
+			! & − · − · − − \\ 
+			( & − · − − · \\ 
+			) & − · − − · − \\ 
+			: & − − − · · · \\
+			; & − · − · − · \\
+			= & − · · · − \\ 
+			+ & · − · − · \\
+			- & − · · · · − \\ 
+			'' & · − · · − · \\
+			' & · − − − − · \\
+		\end{tabular}\textbf{}
+	
+		\ifprint
+		\else
+			Additional ITU recognised characters exist, these can be found at \href{https://en.wikipedia.org/wiki/Morse_code#Letters.2C_numbers.2C_punctuation.2C_prosigns_for_Morse_code_and_non-English_variants}{\texttt{http://en.wikipedia.org/wiki/Morse\_code}}
+		\fi
+
+\iffalse
+
+	\subsection*{Example Phrases}
+
+		\begin{verbatim}
+· · ·   − − −   · · ·
+ S       O       S
+		\end{verbatim}
+		SOS
+
+		\begin{verbatim}
+· · · ·   ·   · − · ·   · − · ·   − − −
+  H     E     L        L        O 
+		\end{verbatim}
+		Hello
+
+		\begin{verbatim}
+· − − − −   · · − − −       · · · − −
+    1             2     SPACE     3
+		\end{verbatim}
+		12 3 (\textit{not} 1 2 3)
+
+		\begin{verbatim}
+· · ·   −   · − ·   − · − − ·   − · − − · −
+ S     T     R         (             )
+		\end{verbatim}
+		str()
+	
+		\begin{verbatim}
+· ·   − · · · −   · ·   · − · − ·   · − − − −
+ I       =       I       +           1
+		\end{verbatim}
+		i = i+1
+
+\fi
+
+\normalsize
