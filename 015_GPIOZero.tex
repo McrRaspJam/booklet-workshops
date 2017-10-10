@@ -8,7 +8,7 @@
 % Is this document PRINT or WEB format?
 % use \printtrue or \printfalse
 \newif\ifprint
-\printtrue
+\printfalse
 
 \input{McrRaspJam/common/preamble}
 
@@ -49,16 +49,19 @@
 	\input{McrRaspJam/015_GPIOZero/1_simplecircuit}
 	
 	\webclearpage
-	\section{Traffic Lights}
-
-	\clearpage	
-	\input{McrRaspJam/015_GPIOZero/3_morsecode}
+	\input{McrRaspJam/015_GPIOZero/2_trafficlight}
 	
-	\clearpage	
+	%\webclearpage	
+	\input{McrRaspJam/015_GPIOZero/3_rgb}
+
+	%\webclearpage	
+	\input{McrRaspJam/015_GPIOZero/4_morsecode}
+	
+	\clearpage
 	\begin{appendices}
 		\input{McrRaspJam/015_GPIOZero/8_resistorbands}
-		\webclearpage
 		
+		\webclearpage
 		\input{McrRaspJam/015_GPIOZero/9_morse}
 	\end{appendices}
 
