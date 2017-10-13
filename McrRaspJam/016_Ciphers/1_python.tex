@@ -1,8 +1,8 @@
-\section{Python Basics}
+\section{Python Basics} \label{python}
 
-	In order to write programs to perform cryptography, we will need to be able to manipulate words and sentences, which in programming we call \textit{strings}.
+	To be able to write programs to encode ciphers, we'll need to be able to pull letters and words out of the plaintext.
 	
-	We'll start with some basic Python programs, which will teach us everything we need in order to pull words and sentences apart.
+	When we store text in a Python variable, it is called a \texttt{string}. These first few Python programs will teach us everything we need to manipulate strings.
 	
 	\begin{figure}[h]
 		\centering
@@ -13,26 +13,24 @@
 	
 	Go to the main menu on your Raspberry Pi desktop and \textbf{open} the application titled \textit{Python 3 (IDLE)}.
 	
-	After a few seconds, IDLE will open to the \textit{Python Shell}. In this window, go to \textbf{File $\rightarrow$ New File}, which will open an empty window where we can write our programs.
+	After a few seconds, IDLE will open to the \textit{Python Shell}. In this window, go to \texttt{File $\rightarrow$ New File}, which will open an empty window where we can write our programs.
 	
 	\subsection*{Hello, World!}
 		
-		In your empty window, \textbf{copy} the following program:
+		In your empty window, \textbf{write} the following program:
 		
 		\lstinputlisting[style=Python, title=helloworld.py]{McrRaspJam/016_Ciphers/1_python/helloworld.py}
 		
-		then, select \textbf{Run $\rightarrow$ Run Module} at the top of the window.
-		
-		After saving, your program will run and ``Hello, World!'' should appear in the shell window in blue.
+		then, \textbf{run} the program by selecting \texttt{Run $\rightarrow$ Run Module} at the top of the window.
 		
 	\subsection*{Inputting text}
 	
-		The next thing we'll need for our cipher programs is to enter text when our program runs. \textbf{Modify} your code to add the following command.
+		We need to be able to type in text at the start of our programs, which we can do with the \texttt{input()} function.
+		\textbf{Modify} your program as shown, then \textbf{run} it.
 		
 		\lstinputlisting[style=Python]{McrRaspJam/016_Ciphers/1_python/input.py}
 		
-		\textbf{Run} your program again. This time you will be asked to enter text into the shell window, and when you press enter it will be repeated back to you.
-		
+		\pagebreak[2]
 		\begin{aside}[Variables]
 			When we store data (like text or numbers) in our programs, we store them as \textit{variables}.
 			
@@ -45,13 +43,9 @@
 	
 		It is often useful to store several pieces of data in a single variable. A common way of doing this in Python is to use a list.
 		
-		\textbf{Open} a new file by selecting \textbf{File $\rightarrow$ New File}, then write the following program in the new window:
+		Open a \textbf{new} file then \textbf{write} the following program in the new window:
 		
 		\lstinputlisting[style=Python, title=list.py, breaklines=true]{McrRaspJam/016_Ciphers/1_python/list.py}
-		
-		Before you run your program, have a guess what will be printed out when you run the program. Run your program, then see whether what was printed matched what you thought it would be.
-		
-		\textit{extra challenge:} How can we fix the word spacing in the printed text?
 		
 		\begin{aside}[Lists]
 			When we add \textit{elements} of data to a list, they are given the next available \textit{index} number.
@@ -68,21 +62,22 @@
 			To access a single element from a list, we use square brackets, as we have done in our program above.
 		\end{aside}
 	
+	\pagebreak[2]
 	\subsection*{Strings are Lists}
 	
-		When we write our cipher programs, we'll need to look at single letters from the sentences we input. In python, a text \texttt{string} is actually a list of single \texttt{characters}.
+		In python, a text \texttt{string} is actually a list of single \texttt{characters}. This makes it easy to grab single letters from a plaintext.
 		
-		This means that we can access a string just like a list. Return to your hello world program, and \textbf{modify} the print statement as follows.
+		
+		 Return to your hello world program, and \textbf{modify} the print statement as follows.
 	
 		\textbf{\lstinputlisting[style=Python, title=helloworld.py]{McrRaspJam/016_Ciphers/1_python/inputlist.py}}
 		
-		Now, when you run your program, only the first letter of whatever you typed in will be printed out.
-		
-		Next, we'll try printing out each letter one-by-one, which we can do using a \textit{loop}.
+		Now when you run your program, only the first letter of whatever you typed in will be printed out.
+		Next, we'll try printing out each letter one-by-one, which we can do using a \textit{loop}:
 		
 		\textbf{\lstinputlisting[style=Python, title=helloworld.py]{McrRaspJam/016_Ciphers/1_python/inputlist2.py}}
 		
 		The \texttt{for} loop we used repeats once for each element in the list that we provide it, in this case each letter in our string.
 		
-		\textbf{Run} your program, and this time your text should be printed one character at a time, each on its own line.
+		\textbf{Run} your program once more, and this time your text should be printed one character at a time, each on its own line.
 		
