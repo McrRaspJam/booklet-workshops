@@ -1,0 +1,54 @@
+\setcounter{section}{-1}
+\section{Introduction}
+
+	Last month in \href{http://mcrraspjam.org.uk/workshop-15-gpio-zero/}{workshop 15}, we \textit{encoded} a message in Morse code, a method that makes it simpler to transmit written language through rudimentary means, such as a spotlight, or a pulse in an electrical wire.
+	
+	We also often use the word \textit{code} to refer to an encrypted \textbf{cipher}. A different type of encoding, when we encode a message in a cipher, we attempt to make the message difficult---or ideally impossible--- for an outsider to read.
+	
+	Today, we'll have a go at encoding, decoding and cracking some famous ciphers of the classical era using Python programs. %, as well as taking a look at more modern ciphers and some of the cryptography tools available to us as users of Linux on the Raspberry Pi.
+	
+	
+	%Difficulty
+	This is an introductory workshop, all of the Python concepts will be covered from scratch.
+		
+	\subsection*{How to use these booklets}
+
+	\input{McrRaspJam/common/introduction/howto}
+	
+	%Code Listings
+	\input{McrRaspJam/015_GPIOZero/0_introduction/listingcode}
+	\input{McrRaspJam/015_GPIOZero/0_introduction/aside}
+	
+	\ifprint\else
+		\subsection*{What you'll need}
+		All of the software you for this workshop is pre-installed on recent versions of Raspbian.
+	\fi
+	
+	\subsection*{Terminology}
+	
+		Some of the words used to describe programming and cryptography often cross, so the following words will be used in this booklet.
+		
+		\begin{tabular}{rl}
+			\textbf{Program} & Code written in Python \\
+			\textbf{Cipher} & A cryptographic code \\
+			\textbf{Plaintext} & A phrase that \textit{isn't} encrypted \\ 
+			\textbf{Ciphertext} & A phrase that \textit{is} encrypted
+		\end{tabular} 
+	
+		\ifprint\else This should avoid confusing sentences, like the fact that last month we were coding programs to encode Morse code, this month we're coding cipher codes, a different type of encoding. \fi
+	
+	\subsection*{Everything else}
+	
+		% Aknowledgements
+		\ifprint\else
+			These booklets were created using \textrm{\LaTeX}, an advanced typesetting system used for several sorts of books, academic reports and letters.
+			
+			If you'd like to have a look at using LaTeX, We recommend looking at \TeX studio, which is available on most platforms, and also in the Raspbian repository.
+		\fi
+		
+		% License spiel
+		To allow modification and redistribution of these booklets, they are distributed under the \hbox{CC BY-SA 4.0} License.
+		Latex source documents are available at \url{http://github.com/McrRaspJam/booklet-workshops}
+		
+		If you get stuck, find errors or have feedback about these booklets, please email me at:
+		\href{mailto:jam@jackjkelly.com}{\texttt{jam@jackjkelly.com}}

@@ -1,0 +1,151 @@
+\section{Substitution Ciphers}
+
+	\ifprint\else	
+		Ciphers have existed in some form since the classical era. One of the earliest examples of ciphers being used to keep information are clay tablets from Mesopotamia---dating back to 1500 BCE---which were used to keep trade secrets like the recipe for pottery glaze.
+	
+		\begin{aside}[Origins of Ciphers]
+			From \href{http://en.wikipedia.org/wiki/History_of_cryptography}{Wikipedia}:
+			
+			\textit{``The earliest known use of cryptography is found in non-standard hieroglyphs carved into the wall of a tomb from the Old Kingdom of Egypt circa 1900 BCE.}
+				
+			\textit{``These are not thought to be serious attempts at secret communications, however, but rather to have been attempts at mystery, intrigue, or even amusement for literate onlookers.''}
+		\end{aside}
+	\fi
+	
+\subsection{Atbash}
+
+	Atbash was a simple substitution cipher that emerged around 500 BCE, and was originally used to encode the Hebrew alphabet.
+	\ifprint\else (the name is a shortening of the letters Aleph-Tav-Beth-Shin) \fi
+	
+	In a substitution cipher, the characters of the plain-text are \textit{substituted} with another set of characters---usually the same alphabet in a different order. For Atbash, this is very simple, the alphabet is reversed.
+	
+	\begin{figure*}
+		\begin{tabular}{r|cccccccccccccccccccccccccc}
+			\textbf{plaintext} & a & b & c & d & e & f & g & h & i & j & k & l & m & n & o & p & q & r & s & t & u & v & w & x & y & z \\ 
+			\hline
+			\textbf{ciphertext} & z & y & x & w & v & u & t & s & r & q & p & o & n & m & l & k & j & i & h & g & f & e & d & c & b & a \\ 
+		\end{tabular} 
+		\caption{Atbash substitution for the Latin alphabet}
+		\label{fig:atbash}
+	\end{figure*}
+
+	\subsubsection*{An Example}
+	
+		The tradition when practising cryptography is to use faux military commands, so we'll start with the plaintext ``\textbf{Attack at dawn}''.
+		
+		using the table in \autoref{fig:atbash}, we find each letter in the first row, and replace it with the letter in the following row.
+		
+		\begin{tabular}{ccc}
+			A & $\rightarrow$ & Z \\ 
+			t & $\rightarrow$ & g \\ 
+			t & $\rightarrow$ & g \\ 
+			a & $\rightarrow$ & z \\ 
+			c & $\rightarrow$ & x \\ 
+			k & $\rightarrow$ & p \\ 
+		\end{tabular} 
+	
+		Our ciphertext for this phrase would be ``\textbf{Zggzxp zg wzdm}''.
+	
+		Now, using a pen and paper and \autoref{fig:atbash}, have a go at encoding the following plaintext using Atbash.
+		
+		``\textbf{We are discovered, flee at once}''
+	
+	\subsubsection*{Atbash in Python}
+	
+		Now we know how Atbash works, we can try writing a Python program that encodes it.
+		
+		When run in a terminal, the program should look like the following:
+		
+		\begin{lstlisting}[style=Terminal, numbers=none]
+$ python3 atbash.py
+Enter plaintext: attackatdawn
+zggzxpzgwzdm
+		\end{lstlisting}
+		
+		\textbf{Open} a new script file in IDLE by going to \texttt{File $\rightarrow$ New File}.
+		
+		The first thing our program needs to do when run is get the plaintext. We'll use an \texttt{input()} function, just like we did in \autoref{python}.
+		
+		\lstinputlisting[style=Python, lastline=1, title=atbash.py]{McrRaspJam/016_Ciphers/2_ciphers1/atbash1.py}
+		
+		We'll also set an empty \texttt{string} variable, where we'll add our ciphertext.
+		
+		\lstinputlisting[style=Python, firstline=2, firstnumber=2]{McrRaspJam/016_Ciphers/2_ciphers1/atbash1.py}
+	
+		The other thing we need is a copy of the table in \autoref*{fig:atbash}, which we'll place in lists.
+		
+		We could do this by manually defining the list:
+		
+		\lstinputlisting[style=Python, numbers=none, breaklines=true, lastline=1]{McrRaspJam/016_Ciphers/2_ciphers1/alphabetlist.py}
+		
+		but let's save some time and take advantage of one of Python's libraries to automate the generation of this list:
+		
+		\lstinputlisting[style=Python, lastline=6]{McrRaspJam/016_Ciphers/2_ciphers1/atbash2.py}
+		
+		Then we'll create the substitute alphabet by copying the list in reverse:
+		
+		\lstinputlisting[style=Python, firstline=7, firstnumber=7, lastline=7]{McrRaspJam/016_Ciphers/2_ciphers1/atbash2.py}
+		
+		\ifprint\else You can check these lists are correct by running the program, then typing \texttt{alphabet} and \texttt{subalphabet} into the shell window prompt, which will print their contents. \fi
+	
+		We have everything we need, we can now perform the encryption. Just like on pen and paper, we convert each letter one-by-one, so we'll use the loop we learned in \autoref{python}.
+	
+		\lstinputlisting[style=Python, firstline=8, firstnumber=8, lastline=9]{McrRaspJam/016_Ciphers/2_ciphers1/atbash2.py}
+		
+		\pagebreak[3] %pagebreak hint
+		
+		%\textbf{Look away} from your program for the moment.
+		
+		At this point we have one more problem to consider. To pull a letter from the alphabet list, we need to access it using an index number. (In \texttt{alphabet} 0=a, 1=b, 2=c, etc.)
+		
+		We need a way to number letters based on their position in the alphabet. Fortunately, the ASCII encoding scheme already assigns a number to each letter, and because it is widely used it is very easy to get the  code for a letter in Python.
+		
+		\pagebreak[2] %pagebreak hint
+		
+		\begin{aside}[ASCII]
+			ASCII (\textit{American Standard Code for Information Interchange}) was invented as a way to standardise how letters were stored on different file formats and computer systems, starting in the early 1960's.
+			
+			ASCII encodes a small number of characters, mostly, alphanumeric characters, punctuation and control characters (things like `new line', `end of file' or `backspace'.)
+			
+			These days, most text is actually encoded in the much larger \href{https://unicode.org/}{Unicode} standard.
+		\end{aside}
+		
+		To get a number for each letter in our loop:
+		
+		\begin{lstlisting}[style=Python, firstnumber=9]
+for letter in plaintext:
+    charnumber = ord(letter)
+		\end{lstlisting}
+		
+		However, the ASCII number for ``a'' is `97', ``b'' is `98' etc. so we'll need to subtract 97 to match the 0--25 range of our alphabet list 
+		
+		\lstinputlisting[style=Python, firstline=10, firstnumber=10, lastline=10]{McrRaspJam/016_Ciphers/2_ciphers1/atbash2.py}
+		
+		Now, we can simply take the character number, and access the substitute alphabet list using the same index.
+		
+		\begin{lstlisting}[style=Python, firstnumber=11]
+    subalphabet[charnumber]
+		\end{lstlisting}
+		
+		Remember that we're in a loop, so we just need to add the current cipher letter to the ciphertext.
+		
+		\lstinputlisting[style=Python, firstline=11, firstnumber=11, lastline=11]{McrRaspJam/016_Ciphers/2_ciphers1/atbash2.py}
+		
+		Once the loop has completed, our ciphertext should be complete! We simply need to add a print statement outside of the loop.
+		
+		\lstinputlisting[style=Python, firstline=11, firstnumber=11]{McrRaspJam/016_Ciphers/2_ciphers1/atbash2.py}
+		
+		Try testing the program using the two plaintexts from the pen and paper exercise and see if the output from your program matches.
+		
+		Bear in mind your program currently has some limitations:
+		\begin{itemize}[nosep]
+			\item Capital letters won't work, as they have different ASCII codes to lowercase letters.
+			\item We haven't told the program what to do with spaces, so we can't use them either.
+		\end{itemize}
+	
+		If you wanted to extend your program, fixing these would be a good place to start. You should also have a think about the following:
+		
+		\begin{itemize}[nosep]
+			\item Our program currently \textit{encodes} Atbash ciphers. What would we have to do to write a program that \textit{decodes} the cipher?
+			\item How secure do you think Atbash is?
+		\end{itemize}

@@ -1,0 +1,61 @@
+%
+% Manchester Raspberry Jam Workshop Booklet
+%
+% This template is designed to try and aide consistency between each booklet.
+% Insert files and settings only as instructed by comments.
+%
+
+% Is this document PRINT or WEB format?
+% use \printtrue or \printfalse
+\newif\ifprint
+\printtrue
+
+\input{McrRaspJam/common/preamble}
+
+% Enter the document title here
+\newcommand{\workshopTitle}{Workshop 16: Ciphers}
+
+% Enter the author of this workshop
+\newcommand{\workshopAuthor}{Written by Jack Kelly}
+
+
+\begin{document}
+	\input{McrRaspJam/common/booklet_title}
+	
+	%Place a SINGLE paragraph summary here
+	Learn how classical ciphers worked, and how to write Python programs to encode, decode and crack them!
+	
+	%Difficulty
+	\textit{Difficulty: Introductory workshop.}
+	
+	\ifprint
+		\renewcommand{\baselinestretch}{0.75}\normalsize
+		\tableofcontents
+		\renewcommand{\baselinestretch}{1.0}\normalsize
+	\else
+		\tableofcontents
+	\fi
+	
+	%
+	% Input the main CONTENT below, sans title page or contents.
+	% Recommend inputting per section, and adding page breaks here.
+	%
+	% \webclearpage command is provided, will break page for web format only.
+	%
+	
+	\input{McrRaspJam/016_Ciphers/0_introduction}
+	\clearpage
+	
+	\input{McrRaspJam/016_Ciphers/1_python}
+	\webclearpage
+	
+	\input{McrRaspJam/016_Ciphers/2_atbash}	
+	\input{McrRaspJam/016_Ciphers/2_caesar}
+	\webclearpage
+
+	\input{McrRaspJam/016_Ciphers/3_transposition}	
+	
+%	\begin{appendices}
+%	\end{appendices}
+
+\end{document}

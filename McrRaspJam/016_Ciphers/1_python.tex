@@ -1,0 +1,83 @@
+\section{Python Basics} \label{python}
+
+	To be able to write programs to encode ciphers, we'll need to be able to pull letters and words out of the plaintext.
+	
+	When we store text in a Python variable, it is called a \texttt{string}. These first few Python programs will teach us everything we need to manipulate strings.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.8\linewidth]{McrRaspJam/016_Ciphers/1_python/idle}
+		\caption{The IDLE \textit{shell} window}
+		\label{fig:idle}
+	\end{figure}
+	
+	Go to the main menu on your Raspberry Pi desktop and \textbf{open} the application titled \textit{Python 3 (IDLE)}.
+	
+	After a few seconds, IDLE will open to the \textit{Python Shell}. In this window, go to \texttt{File $\rightarrow$ New File}, which will open an empty window where we can write our programs.
+	
+	\subsection*{Hello, World!}
+		
+		In your empty window, \textbf{write} the following program:
+		
+		\lstinputlisting[style=Python, title=helloworld.py]{McrRaspJam/016_Ciphers/1_python/helloworld.py}
+		
+		then, \textbf{run} the program by selecting \texttt{Run $\rightarrow$ Run Module} at the top of the window.
+		
+	\subsection*{Inputting text}
+	
+		We need to be able to type in text at the start of our programs, which we can do with the \texttt{input()} function.
+		\textbf{Modify} your program as shown, then \textbf{run} it.
+		
+		\lstinputlisting[style=Python]{McrRaspJam/016_Ciphers/1_python/input.py}
+		
+		\pagebreak[2]
+		\begin{aside}[Variables]
+			When we store data (like text or numbers) in our programs, we store them as \textit{variables}.
+			
+			A variable has a \textit{label}---what the variable is called---and a \textit{value}---the data we wish to store in it.
+			
+			When we `set' a variable, we call this an \textit{assignment}, signified by the \texttt{=} sign.
+		\end{aside}
+	
+	\subsection*{Lists}
+	
+		It is often useful to store several pieces of data in a single variable. A common way of doing this in Python is to use a list.
+		
+		Open a \textbf{new} file then \textbf{write} the following program in the new window:
+		
+		\lstinputlisting[style=Python, title=list.py, breaklines=true]{McrRaspJam/016_Ciphers/1_python/list.py}
+		
+		\begin{aside}[Lists]
+			When we add \textit{elements} of data to a list, they are given the next available \textit{index} number.
+			
+			\vspace{4pt}
+			\begin{tabular}{c|c}
+				0 & Vanilla \\ 
+				1 & Strawberry \\ 
+				2 & Chocolate \\ 
+				3 & Raspberry Ripple
+			\end{tabular} 
+			\vspace{4pt}
+						
+			To access a single element from a list, we use square brackets, as we have done in our program above.
+		\end{aside}
+	
+	\pagebreak[2]
+	\subsection*{Strings are Lists}
+	
+		In python, a text \texttt{string} is actually a list of single \texttt{characters}. This makes it easy to grab single letters from a plaintext.
+		
+		
+		 Return to your hello world program, and \textbf{modify} the print statement as follows.
+	
+		\textbf{\lstinputlisting[style=Python, title=helloworld.py]{McrRaspJam/016_Ciphers/1_python/inputlist.py}}
+		
+		Now when you run your program, only the first letter of whatever you typed in will be printed out.
+		Next, we'll try printing out each letter one-by-one, which we can do using a \textit{loop}:
+		
+		\textbf{\lstinputlisting[style=Python, title=helloworld.py]{McrRaspJam/016_Ciphers/1_python/inputlist2.py}}
+		
+		The \texttt{for} loop we used repeats once for each element in the list that we provide it, in this case each letter in our string.
+		
+		\textbf{Run} your program once more, and this time your text should be printed one character at a time, each on its own line.
+		
