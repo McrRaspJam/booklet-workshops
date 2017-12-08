@@ -1,0 +1,371 @@
+%
+% Manchester Raspberry Jam Workshop Booklet
+%
+% This template is designed to try and aide consistency between each booklet.
+% Insert files and settings only as instructed by comments.
+%
+
+% Is this document PRINT or WEB format?
+% use \printtrue or \printfalse
+\newif\ifprint
+\printfalse
+
+\input{McrRaspJam/common/preamble}
+
+% Enter the document title here
+\newcommand{\workshopTitle}{Workshop 8: Introduction to Sense HAT}
+
+% Enter the author of this workshop
+\newcommand{\workshopAuthor}{Jack Kelly}
+
+
+\begin{document}
+	\input{McrRaspJam/common/booklet_title}	
+	
+	%Place a SINGLE paragraph summary here
+	Learn the features of the Sense HAT add-on board and how to program them using the Python API.
+	
+	%Difficulty
+	\textit{Difficulty: Introductory workshop}
+	
+	\ifprint
+		\renewcommand{\baselinestretch}{0.75}\normalsize
+		\tableofcontents
+		\renewcommand{\baselinestretch}{1.0}\normalsize
+	\else
+		\tableofcontents
+	\fi
+	
+	%
+	% Input the main CONTENT below, sans title page or contents.
+	% Recommend inputting per section, and adding page breaks here.
+	%
+	% \webclearpage command is provided, will break page for web format only.
+	%
+	
+	\input{McrRaspJam/008_SenseHAT/0_introduction}
+		\clearpage
+		
+	\section{Weather station}
+	
+	The Sense HAT has a pair of environmental sensors, for temperature, atmospheric pressure, and relative humidity.
+	We'll start with a simple script, which probes on of these sensors, and prints out the data as text on screen.
+	
+	\subsection*{weather.py}
+	
+	After opening IDLE, click `File $\rightarrow$ Open...'.
+	From the Home folder `pi', where you currently are, navigate to
+	`workshops $\rightarrow$ 008\_senseHAT $\rightarrow$ morning'
+	and open `weather.py'.
+	
+	\lstinputlisting[style=python, firstline=1, firstnumber=1, lastline=5, title=weather.py]{McrRaspJam/008_SenseHAT/code/weather.py}
+	
+	The first two lines of the script tell Python that this program will use the Sense HAT.
+	The first line loads the `API', which allows us to program the Sense HAT in Python, and
+	the second line runs some set-up procedures for our program.
+	
+	First, we'll add a basic print function, as a welcome message when running the program.
+	
+	\ifprint\else
+	\begin{aside}[print()]
+		A \textbf{print function} will `print' text on-screen when the program is run.
+		
+		We put what we want to be printed inside the parentheses, text must be surrounded by quote marks.
+	\end{aside}
+	\fi
+	
+	\lstinputlisting[style=python, firstline=6, firstnumber=6, lastline=8, breaklines=true]{McrRaspJam/008_SenseHAT/code/weather.py}
+	
+	You can try running your program now, by first saving, then going to \mbox{`Run $\rightarrow$ Run Module'}. The window should switch back to the one that first opened when we ran IDLE, and our text should turn up after a couple of seconds.
+	
+	The print statement is a simple start to our program, and we'll come back to them shortly, but now, let's try pulling data from the Sense HAT sensors:
+	
+	\lstinputlisting[style=python, firstline=9, firstnumber=9, lastline=11]{McrRaspJam/008_SenseHAT/code/weather.py}
+	
+	We have used the Sense HAT function `hat.get\_temperature()' to get the temperature, in Celsius, from the sensor. It returns it as a number which we have stored in the variable `temperature'.
+	
+	\ifprint\else
+	\begin{aside}[Function]
+		A function calls a piece of code that somebody else has written for us.
+		
+		A function can be identified by the pair of parentheses. print(), str() and round() are examples of functions.
+		
+		Some functions output, or `return' a value, they can also take inputs, called `parameters' which are placed within the parentheses.
+	\end{aside}
+	\begin{aside}[Variable]
+		When we store a number or other value in our program for later use, it is called a variable.
+		
+		We can give a variable any name we want, and we set a variable using: `variablename = value'
+	\end{aside}
+	\fi
+	
+	We need to print out the number so we can see it when we run the program. We'll use another print function, but instead of text, surrounded by quotes, we'll use our variable `temperature' instead:
+	
+	\lstinputlisting[style=python, firstline=1, firstnumber=12, lastline=2]{McrRaspJam/008_SenseHAT/code/weather_alt.py}
+	
+	str() is used to turn a number into a `string', the text representation of our number, as print() cannot print numbers without conversion.
+	
+	When you run this program, you'll see that the temperature is printed out with a high number of decimal points. (e.g. 29.852941513061523)
+	This is a lot more than we need, so we can round the number down to less decimal places using another function round().
+	
+	round has two parameters, which we separate within the parentheses using commas, round(number, decimal places). In our code that looks like this:
+	
+	\lstinputlisting[style=python, firstline=5, firstnumber=11, lastline=8]{McrRaspJam/008_SenseHAT/code/weather_alt.py}
+	
+	The program now outputs a temperature which is easy to read.
+	One last thing we can do is add a label and unit when we print out the temperature.
+	
+	We can combine strings in the print function by adding them together.
+	Instead of mathematical addition like numbers, Python will perform a `string concatenation'; basically, putting one string after another to make one big string.
+	
+	\lstinputlisting[style=python, firstline=14, firstnumber=14, lastline=14, breaklines=true]{McrRaspJam/008_SenseHAT/code/weather.py}
+	
+	Make sure each `string' of text is encapsulated in its own set of quotes, like above.
+	
+	\subsection*{Adding Humidity}
+	
+	Once we've gotten our heads around the temperature, we can use exactly the same steps for the humidity and pressure.
+	
+	\begin{aside}[Humidity]
+		Humidity is a measure of the water vapour in the air, and is measured as a percentage \%.
+		
+		Water holds a lot of heat energy, which can increase temperatures. Humid air also slows down the rate at which we can sweat, which can make hot temperatures even more unbearable!\textsuperscript{\cite{humidity}}
+	\end{aside}
+	
+	Instead of using the get\_temperature() function, we just need to use the `get\_humidity()' function instead. Everything else is the same, so we can copy and paste our code, and change the variable names and text labels.
+	
+	\lstinputlisting[style=python, firstline=15, firstnumber=15, lastline=20]{McrRaspJam/008_SenseHAT/code/weather.py}
+	
+	\subsection*{Adding Atmospheric Pressure}		
+	Finally, we can do atmospheric pressure. This time the function is called get\_pressure(). Have a go at this implementing this last measurement yourself.
+	\begin{aside}[Atmospheric pressure]
+		Atmospheric pressure is caused by the weight of air from the atmosphere, and is measured in millibars.
+		
+		As altitude increases, the amount of air in the atmosphere starts to decrease (referred to as thin air), resulting in a lower pressure. Pressure is also affected by temperature, with local differences affecting winds. Low pressure is associated with high cloud cover and precipitation.
+		\textsuperscript{\cite{pressure}}
+	\end{aside}
+	
+	\webclearpage
+	\section{G-Force}
+	
+	As well as the environmental sensors, the Sense HAT has a set of inertial momentum unit (motion and orientation) sensors. These are used primarily for determining the orientation of your Pi, which we'll use this afternoon.
+	
+	For now, we'll use the raw accelerometer data to measure the 'G-force' under various scenarios.
+	
+	\ifprint\else
+	\begin{aside}[G-forces]
+		G-forces are a measure of acceleration acting on an object, relative to 1G, the acceleration due to the force of gravity. A still object like our Pi is experiencing 1G downwards.
+		
+		Here are a few interesting examples of different situational G-forces:\textsuperscript{\cite{gforce}}
+		\color{Black}
+		\begin{tabular}{|c|c|}
+			\hline \textbf{Example} & \textbf{G-force} \\ 
+			\hline Gravity on the Moon & 0.165 \\ 
+			\hline Gravity on the Earth & 1 \\ 
+			\hline Space Shuttle launch & 3 \\ 
+			\hline Top Fuel dragster & 4.2 \\ 
+			\hline High-G roller coaster & 3.5 - 6 \\ 
+			\hline Jet fighter manoeuvre & 9 - 12 \\ 
+			\hline Human on Rocket sled test & 46.2 \\ 
+			\hline Bullet in gun barrel & 60,000 \\ 
+			\hline Proton in LHC & 190,000,000 \\ 
+			\hline 
+		\end{tabular}
+	\end{aside}
+	\fi
+	
+	\subsubsection*{gforce.py}
+	
+	Click \mbox{`File $\rightarrow$ Open...'}.
+	From the home folder, go to \mbox{`workshops $\rightarrow$ 008\_senseHAT $\rightarrow$ morning'} and open `gforce.py'.
+	
+	Like before, we'll be calling an API function to fetch the sensor data. get\_accelerometer\_raw() returns a vector, with x, y and z axis `components'.
+	
+	\lstinputlisting[style=python, firstline=1, firstnumber=1, lastline=6]{McrRaspJam/008_SenseHAT/code/gforce_alt.py}
+	
+	We've seen vectors before, used in Minecraft: Pi Edition's APIs, but this time the function has returned the three components within a `dictionary' data structure, rather than a list, as used previously. We'll need to know how to access the individual components to round them.
+	
+	\ifprint\else
+	\begin{aside}
+		\textbf{A dictionary} is quite similar to a list in Python. A list is a group of variables, each referenced by a number. A vector (13, 24, 17) in a list would look like:
+		
+		\color{Black}
+		\begin{tabular}{|c|c|}
+			\hline Index & Value \\ 
+			\hline 0 & 13 \\ 
+			\hline 1 & 24 \\ 
+			\hline 2 & 17 \\ 
+			\hline 
+		\end{tabular} 
+		\color{JungleGreen}
+		
+		The $y$ component would be accessed with: \mbox{Vector[1]}
+		
+		A Dictionary uses text indices instead of numerical ones. This may be more intuitive to you, but it also makes dictionaries great for data with no inherent ordering. If you want to use a dictionary in your own programs, you can define one like so:
+		\mbox{dictionary = \{'x': 13, 'y': 24, 'z': 17\}}
+		
+		Which means a dictionary for that vector would look like:
+		
+		\color{Black}
+		\begin{tabular}{|c|c|}
+			\hline Index & Value \\ 
+			\hline 'x' & 13 \\ 
+			\hline 'y' & 24 \\ 
+			\hline 'z' & 17 \\ 
+			\hline 
+		\end{tabular}
+		\color{JungleGreen}
+		
+		The $y$ component would be accessed with: \mbox{Vector['y']}	
+	\end{aside}
+	\fi
+	
+	We can now access each component and round it, returning it back to the dictionary
+	
+	\lstinputlisting[style=python, firstline=7, firstnumber=7, lastline=10, breaklines=true]{McrRaspJam/008_SenseHAT/code/gforce_alt.py}
+	
+	We now have rounded all of the 3 G-Force Values, and we can print them.
+	Luckily Python will neatly print out all of the components of a data structure like a dictionary, we can just to pass it to the print function:
+	\lstinputlisting[style=python, firstline=11, firstnumber=11, lastline=11]{McrRaspJam/008_SenseHAT/code/gforce_alt.py}
+	
+	You can now run your program. Make sure your Raspberry Pi is flat on the desk, can you figure out which axis is the up/down axis, based on the numbers?
+	
+	One final modification to our program. It'd be nice to measure G's changing as we move the Raspberry Pi about, so we'll encapsulate our program in an infinite loop, like so:
+	
+	\lstinputlisting[style=python, firstline=5, firstnumber=5, breaklines=true]{McrRaspJam/008_SenseHAT/code/gforce.py}
+	
+	Rerun the program, and experiment with the different G-forces you can create.
+	
+	By rotating your pi to stand on different sizes, you can change the axis and polarity of gravity. By shaking your pi you can cause brief forces in directions
+	other than that of gravity. If you were to drop your Pi on a hard surface, you might see G spikes in the 10's or 100's, consistent with crash forces.
+	
+	\webclearpage
+	\section{G-Force Demonstration}
+	
+	We'll take a look at a few applications for the G-force sensor now. There's no coding for this section, we'll just be looking at some interesting examples.
+	
+	With a small adjustment to our code, we can output to a text file, instead of to the Python shell. I chose to output the captured telemetry in CSV format.
+	
+	\begin{aside}
+		\textbf{CSV} formatted data is a simple text format, where data is separated into rows, separated by columns. For example, the following CSV data:
+		\color{Black}
+		\newline time, x, y, z\newline
+		0.0, 0.97, 0.03, 0.01\newline
+		0.1, 0.98, 0.02, 0.01
+		\color{JungleGreen}
+		
+		is equivalent to a spreadsheet table:
+		\color{Black}
+		\begin{tabular}{|c|c|c|c|}
+			\hline time & x & y & z \\ 
+			\hline 0.0 & 0.97 & 0.03 & 0.01 \\ 
+			\hline 0.1 & 0.98 & 0.02 & 0.01 \\ 
+			\hline 
+		\end{tabular}
+	\end{aside}
+	
+	Many pieces of software will accept CSV as data input, we'll look at two pieces of software, \mbox{Wolfram Mathematica} and \mbox{Libreoffice Calc}. (a spreadsheet software)
+	
+	\subsubsection*{Dropping the Pi}
+	
+	Elevator forces are bit pedestrian, far more exciting is the prospect of Zero-G. Astronauts onboard the ISS experience `microgravity' in orbit around the earth, but we can also experience brief moments of zero G-force on earth.
+	
+	\begin{aside}
+		Objects in \textbf{free-fall} are accelerating with gravity, and feel no resisting forces from the ground; They measure 0G.
+		
+		We can experience zero-G in earth, essentially by strapping ourselves to "falling" objects, such as the `Vomit comet', a plane manoeuvre made infamous by NASA, in their astronaut training.
+	\end{aside}
+	
+	It stands to reason that by dropping our Pi, whilst recording G-force data, we could measure a moment of zero-G. In the hope of preventing you from destroying your Pi, we decided to test it ourselves.
+	
+	We dropped the Pi from a balcony, about a storey high, and caught it from below. We imported the resulting CSV file into \mbox{Libreoffice Calc}, and created a graph.
+	
+	\begin{center}
+		\includegraphics[width=1\linewidth]{McrRaspJam/008_SenseHAT/img/graph_whole}
+	\end{center}
+	
+	You can probably see the drop point on the graph. When held on the balcony, the Z-axis shows a steady 1G under gravity, until it is dropped, where it drops to zero. The large spike is the force exerted as I catch the Pi. Let's look closer at that section:
+	
+	\begin{center}
+		\includegraphics[width=1\linewidth]{McrRaspJam/008_SenseHAT/img/graph_detail}
+	\end{center}
+	
+	Our recorded data looks perfect, we can see consistent 0G in free-fall, just as we predicted. What's more, by getting the duration of free-fall (which I make to be 0.5s), we can work out some more details of our drop.
+	
+	There are a set of mathematical formulas for Constant acceleration, such as under gravity, which you may use in A-level Physics. Don't worry though, they're really simple when calculating gravity! One of those is as follows:
+	
+	$v = u + at$
+	
+	We want to find `v', the speed at the end of the drop. `u' is the speed at the start of the drop, which is 0. `a' is acceleration due to gravity, which is always $9.81m/s^{2}$. `t' is the time in free-fall, which we measured as $0.5s$.
+	
+	$v = 0 + 9.81 \times 0.5$
+	
+	$= 9.81 \times 0.5$
+	
+	$v = 4.9 m/s$
+	
+	Which means that the Raspberry Pi was caught at over 10 miles per hour!
+	
+	\webclearpage
+	\ifprint\else
+	\section{Motion controlled Snake}
+	
+	In workshop 7, we created a simple version of the video game Snake, on the unicorn HAT board.
+	
+	In this workshop, we'll be modifying the game to make the snake move based on how we tilt the Raspberry Pi, rather than using keyboard controls.
+	
+	\subsection*{snake.py}
+	
+	Click `File $\rightarrow$ Open...'.
+	Go to `workshops $\rightarrow$ 008\_senseHAT $\rightarrow$ afternoon' and open `snake.py'.
+	
+	\textit{Note: because the snake game was originally written for the Unicorn HAT, all of the hat functions are accessed by \textbf{UH.<command>}, not hat.<command> as in the earlier programs.}
+	
+	If you attended our previous workshop, this is the same code you completed previously.
+	
+	As we are working with an already complete and playable version of the game, I have separated the control inputs into a separate function, called `get\_input'.
+	
+2	\lstinputlisting[style=python, firstline=16, firstnumber=16, lastline=30]{McrRaspJam/008_SenseHAT/code/snake_old.py}
+	
+	This bit of code checks each keyboard key, and if pressed, will change the direction the snake (player) is travelling. Direction is a number, where 0 signifies up, 1 is right, 2 is down, and 3 is left.
+	
+	Our version of the code will follow the same steps, but rather than using keyboard input, we will use
+	
+	Our function will follow the same steps, except rather than 
+	
+	\subsection*{Rewriting get\_input}
+	
+	First we need to determine to get the G-forces from the Sense HAT. We will store it as a variable, as we did earlier
+	
+	\lstinputlisting[style=python, firstline=16, firstnumber=16, lastline=19]{McrRaspJam/008_SenseHAT/code/snake.py}
+	
+	Before we can return the correct direction, we need to know which direction we need to move in based on the direction of tilt. Rerun your looping G-force program, and record the G measurements for each of the 4 directions.
+	
+	\textit{\scriptsize Remember that the HDMI port is at the "bottom" of game board, and the snake should move ``downhill'', so to move up, you will tilt the top of the Pi downwards.}
+	
+	The directions I determined are below:
+	
+	\begin{tabular}{|c|c|}
+		\hline Axis & Direction \\ 
+		\hline X+ & 1 \\ 
+		\hline X- & 3 \\ 
+		\hline Y+ & 2 \\ 
+		\hline Y- & 0 \\ 
+		\hline 
+	\end{tabular}
+	
+	Then, it is simply a matter of rewriting the old function, but with appropriate x/y values for each direction:
+	
+	\lstinputlisting[style=python, firstline=21, firstnumber=21, lastline=28]{McrRaspJam/008_SenseHAT/code/snake_mid.py}
+	
+	I have chosen values greater than 0.3, as we want a control `deadzone', so the direction does not change erratically when we try to hold our Raspberry Pi flat.
+	
+	We are more or less finished, and your game should now be playable.
+	
+	A final modification I would consider making is to disallow movement changes when holding the Pi diagonally, as currently certain directions are chosen before others which may also be satisfied. I'll leave for you, with a hint below.
+	
+	\scriptsize{
+		\textbf{Hint:} change the if statement as above to an elif, and add a first if before. Use the boolean \textbf{and} and \textbf{or} operators to combine comparisons for your condition. Solution at github.com/McrRaspJam
+	\fi
+
+\end{document}
