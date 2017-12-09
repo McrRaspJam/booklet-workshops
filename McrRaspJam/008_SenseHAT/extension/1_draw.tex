@@ -1,0 +1,67 @@
+\section{Getting started}
+
+Boot your Raspberry Pi to the desktop, and open IDLE 3 or your preferred editor. Open the template Python file \texttt{snowflakes.py}. The main section of the program will currently look like this:
+
+\lstinputlisting[style=python, title=snowflakes.py, numbers=none, firstline=6, lastline=22]{McrRaspJam/008_SenseHAT/extension/code/template.py}
+
+The program has a main function, but we can see that the program doesn't yet do anything, as it is calling functions which are empty.
+
+\subsection*{Create a snowflake}
+
+Let's begin by creating the \texttt{add\_snowflake()} function. We will store the position of each snowflake on the screen, so to create a new snowflake, we can create a coordinate pair like so:
+
+\begin{lstlisting}[style=Python]
+def add_snowflake():
+	newflake = [0, 0]
+\end{lstlisting}
+
+We'll now store this new `flake' in the variable \texttt{snowflakes}, which has been created at the top of our program.
+
+\begin{lstlisting}[style=Python, firstnumber=3]
+	snowflakes.append(newflake)
+\end{lstlisting}
+
+If you run your program now, a snowflake is stored in the \texttt{snowflakes} variable. Type \texttt{snowflakes} into the Python Shell, and you should see [0,0] in its contents.
+
+\subsection*{Draw the snowflake}
+
+Our snowflake now exists in our program, but is not currently being drawn. You may recall from the workshop that the Sense HAT command for drawing a pixel is:
+
+\begin{lstlisting}[style=Python, numbers=none]
+hat.set_pixel(x, y, R, G, B)
+\end{lstlisting}
+
+Our program will soon have many snowflakes, so we need to loop through them like so:
+
+\begin{lstlisting}[style=Python, title=draw()]
+def draw():
+	for snowflake in snowflakes:
+\end{lstlisting}
+
+then, you can draw each snowflake like so:
+
+\begin{lstlisting}[style=Python, breaklines=true, firstnumber=3]
+		hat.set_pixel(snowflake[0], snowflake[1], 255, 255, 255)	
+\end{lstlisting}
+
+Your program should now draw a white pixel at the coordinate (0,0), the top left of the LED matrix.
+
+\subsection*{More Snowflakes}
+
+Let's start adding more snowflakes. First, we need to make the program loop, so it keeps adding more snowflakes:
+
+\lstinputlisting[style=python, title=main(), firstline=8, lastline=11]{McrRaspJam/008_SenseHAT/extension/code/1_createflakes.py}
+
+Add a sleep command, to stop the program running too quickly.
+
+\begin{lstlisting}[style=Python, breaklines=true, firstnumber=5]
+		sleep(0.2)	
+\end{lstlisting}
+
+Currently, our program only creates snowflakes at one position, (0, 0) so we should change the \texttt{add\_snowflake()} function to place them randomly.
+
+The \texttt{randint()} function from the \texttt{Random} library will produce a random whole number between a specified range. If we set the x coordinate to a random number between 0 and 7, snowflakes will appear across the whole top row of the screen:
+
+\lstinputlisting[style=python, title=add\_snowflake(), firstline=29, lastline=31]{McrRaspJam/008_SenseHAT/extension/code/1_createflakes.py}
+
+Try running your program again. The top row should soon fill up, but our flakes aren't falling just yet!

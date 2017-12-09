@@ -1,0 +1,65 @@
+\section{Falling Snow}
+
+Change your main function, so that it calls the \texttt{move()} function after drawing:
+
+\lstinputlisting[style=python, title=main(), firstnumber=1, firstline=8, lastline=12]{McrRaspJam/008_SenseHAT/extension/code/2_movement.py}
+
+Now we can start thinking of ways to move our snowflakes. The most basic thing they should do is fall towards the ground.
+
+If we increase the y coordinate of each flake, every time the program loops, the flake will descend by one pixel.
+
+\begin{lstlisting}[style=Python, title=move()]
+def move():
+	for snowflake in snowflakes:
+		snowflake[1] += 1
+\end{lstlisting}
+
+If you run your program now, you can see your snowflakes are now moving. However, once they reach the bottom of the screen, they will cause an error.
+
+We can't draw outside of the screen, so we'll delete each snowflake as they reach the bottom of the screen:
+
+\begin{lstlisting}[style=Python, title=move(), breaklines=true, firstnumber=4]
+
+		if snowflake[1] > 7:
+			snowflakes.remove(snowflake)
+\end{lstlisting}
+
+You'll also need to call \texttt{hat.clear()} in your draw function to stop snowflakes from leaving `trails'.
+
+\begin{lstlisting}[style=Python, title=draw()]
+def draw():
+hat.clear()
+for snowflake in snowflakes:
+hat.set_pixel(snowflake[0], snowflake[1], 255, 255, 255)
+\end{lstlisting}
+
+Your program should now loop continuously. Our snowflakes fall, like they would under gravity, but we should also simulate the effect of wind. How can you extend the \texttt{move()} function to make flakes move randomly left and right?
+
+\section{Creating more snow}
+
+Currently, each time the program loops, we create one extra flake of snow, we'll call this the \textit{spawn rate} of the snowflakes. Let's modify our program so we can set the spawn rate.
+
+A function called \texttt{add\_snowflakes()} has been provided in a text file in the same folder as \texttt{snowflakes.py}. Copy this function into your program.
+
+\begin{lstlisting}[style=Python, numbers=none]
+def add_snowflakes(count):
+	count_left = count
+
+	while count_left >= 1:
+		add_snowflake()
+		count_left -= 1
+
+	if count_left > 0:
+		count = int(round(1 / count_left, 0))
+		if randint(0, count) == 0:
+			add_snowflake()
+\end{lstlisting}
+
+This function will call \texttt{add\_snowflake()} the correct number of times based on the spawn rate. If you call \texttt{add\_snowflakes(1)}, it will add one snowflake, \texttt{add\_snowflakes(3)} will add three.
+It also works for decimal numbers, \texttt{add\_snowflakes(0.3)} will create a snowflake \textit{approximately} one third of the time.
+
+To update your main method, simply change the \texttt{add\_snowflake()} function call to \texttt{add\_snowflakes()}, using 2 as the parameter:
+
+\lstinputlisting[style=python, title=main(), firstnumber=1, firstline=8, lastline=10]{McrRaspJam/008_SenseHAT/extension/code/3_changerate.py}
+
+Now, when you run your program it should be even snowier!

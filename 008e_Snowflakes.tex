@@ -1,0 +1,49 @@
+%
+% Manchester Raspberry Jam Workshop Booklet
+%
+% This template is designed to try and aide consistency between each booklet.
+% Insert files as instructed by comments, things like tables of contents are created by other linked files
+%
+
+% Is this document PRINT or WEB format?
+% use \printtrue or \printfalse
+\newif\ifprint
+\printfalse
+
+\input{McrRaspJam/common/preamble}
+
+% Enter the document title here
+\newcommand{\workshopTitle}{Workshop 8 Extension: Snowflakes}
+
+% Enter the author of this workshop
+\newcommand{\workshopAuthor}{Jack Kelly}
+
+
+\begin{document}
+	\input{McrRaspJam/common/booklet_title}
+	
+	%Place a SINGLE paragraph summary here
+	Draw snowflakes on the Sense HAT, and control them using the temperature sensor.
+	
+	%Difficulty
+	\textit{Follows on from Workshop 8.}
+	
+	\tableofcontents
+	\vspace{12pt}
+	
+	%
+	% Input the main CONTENT below, sans title page or contents.
+	% Recommend inputting per section, and adding page breaks here.
+	%
+	% \webclearpage command is provided, will break page for web format only.
+	%
+	
+	\input{McrRaspJam/008_SenseHAT/extension/0_introduction}
+	\clearpage
+	\input{McrRaspJam/008_SenseHAT/extension/1_draw}
+	\pagebreak[3]
+	\input{McrRaspJam/008_SenseHAT/extension/2_move}
+	\pagebreak[3]
+	\input{McrRaspJam/008_SenseHAT/extension/3_temp}
+	
+\end{document}
