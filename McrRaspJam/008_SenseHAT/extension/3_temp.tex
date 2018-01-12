@@ -1,0 +1,35 @@
+\section{Climate control}
+
+Our snow now looks great, and we can also control how heavy it snows. We can make our program much more interesting by linking the spawn rate to the temperature sensor on the Sense HAT.
+
+It's difficult to make a Raspberry Pi cold whilst it's plugged in and stationary, so we'll make the temperature at the start of the program as the `cold point', and you can warm the temperature sensor using your finger.
+
+As in the workshop, we can get the temperature from the Sense HAT using:
+
+\begin{lstlisting}[style=Python, numbers=none]
+hat.get_temperature()
+\end{lstlisting}
+
+At the start of the \texttt{main()} function, before the loop, get the `starting' temperature and store it in a variable.
+
+\lstinputlisting[style=python, title=main(), firstnumber=1, firstline=8, lastline=11]{McrRaspJam/008_SenseHAT/extension/code/4_temperature.py}
+
+Once inside the loop, get the `current' temperature, and store that in its own variable. Calculate the difference in temperature by subtracting the starting temperature.
+
+\lstinputlisting[style=python, firstnumber=5, firstline=12, lastline=13]{McrRaspJam/008_SenseHAT/extension/code/4_temperature.py}
+
+Now, we need to manipulate the temperature difference into a useful spawn rate. A good range would be to have a spawn rate of 2 at the start (cold point), and have it drop to 0 when the temperature raises by 2 degrees Celsius.
+
+We'll clamp the temperature difference so it can't be below 0 or above 2:
+
+\lstinputlisting[style=python, firstnumber=7, firstline=14, lastline=18]{McrRaspJam/008_SenseHAT/extension/code/4_temperature.py}
+
+then, because a high temperature should produce a low rate, we will subtract it from 2 to invert it:
+
+\lstinputlisting[style=python, firstnumber=12, firstline=19, lastline=20]{McrRaspJam/008_SenseHAT/extension/code/4_temperature.py}
+
+this number should now be a suitable spawn rate.
+
+\lstinputlisting[style=python, firstnumber=14, firstline=21, lastline=23]{McrRaspJam/008_SenseHAT/extension/code/4_temperature.py}
+
+Run the program again, and hold your finger against the temperature sensor on the Sense HAT. After a few seconds, the snow on the LED matrix should clear!
