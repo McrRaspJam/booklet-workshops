@@ -1,13 +1,13 @@
 % Page Formatting
 \ifprint
-	\documentclass[a4paper, twocolumn, twoside, 11pt]{article}
+	\documentclass[a4paper, twocolumn, twoside, 10pt]{article}
 	\usepackage[margin=2cm]{geometry}
-	\setlength{\columnsep}{1.25cm}
-	\setlength{\parskip}{6pt}
+	\setlength{\columnsep}{1.5cm}
+	\setlength{\parskip}{12pt}
 \else
 	\documentclass[a4paper, onecolumn, oneside, 11pt]{article}
 	\usepackage[margin={4cm, 3cm}]{geometry}
-	\setlength{\parskip}{9pt}
+	\setlength{\parskip}{12pt}
 \fi
 
 
@@ -16,6 +16,11 @@
 \usepackage[utf8x]{inputenc}	
 \usepackage[UKenglish]{babel}
 \ifprint
+	% Print version now use sans-serif font
+	\usepackage[T1]{fontenc}
+	\usepackage[sfdefault]{roboto}
+	\usepackage[T1]{fontenc}
+	
 	\usepackage[usenames, dvipsnames]{color}				%Font Colour
 	\usepackage[colorlinks=false]{hyperref}	%URLs
 \else
