@@ -1,0 +1,50 @@
+\section{Swords and TNT}
+
+\subsection*{Making TNT Explode}
+
+You may have noticed that whilst you can place TNT using the block ID \texttt{46}, it doesn't explode when you hit it. To make it explode, we need to tell Minecraft to spawn the special, exploding variety of the TNT block.
+
+Each block in minecraft can have a number called a \textit{data value}. This number does something different for different blocks. Usually, it does nothing, sometimes it sets the direction a sign or staircase1 faces. For TNT, it tells the game whether the block can explode or not.
+
+To make TNT explode, we just need to set its data value to 1.
+
+\begin{lstlisting}[style=Python, numbers=none]
+mc.setBlock(pos.x, pos.y, pos.z, 46, 1)
+\end{lstlisting}
+
+\pagebreak[1]
+\subsection*{Sword Events}
+
+The sword in \textit{Minecraft: Pi Edition} has a special feature, it records all the blocks you hit, and the API allows us to do something with each of these block hits.
+
+This Program will make every block you hit with your sword turn into gold!
+
+\begin{lstlisting}[style=Python, title=minecraftloop.py, breaklines=true]
+from time import sleep
+from mcpi.minecraft import Minecraft
+mc = Minecraft.create()
+
+while True:
+	blockhits = mc.events.pollBlockHits()
+	
+	for hit in blockhits:
+		pos = hit.pos
+		mc.setBlock(pos.x, pos.y, pos.z, 41)
+	
+	mc.events.clearAll()
+	sleep(0.1)	
+\end{lstlisting}
+
+Theres a few new things going on here, so let's break it down.
+
+\texttt{blockhits = mc.events.pollBlockHits()} gets the list of recent block hits from the game. This list could be short or long, so we use a \texttt{for} loop to iterate through the list.
+
+For each hit, we take the position of the hit and store it in \texttt{pos}. Then just like before, we can use this pos to set a block.
+
+Finally, we need to tell the game to clear the events list, we only want to change the block that got hit once.
+
+\begin{itemize}[noitemsep]
+	\item how can you make the sword turn things into exploding TNT?
+	\item how can you make more than one block change each time you make a hit?
+	\item is there anything interesting you could do if you \textit{didn't} clear the event list?
+\end{itemize}

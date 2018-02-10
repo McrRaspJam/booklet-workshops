@@ -1,0 +1,97 @@
+\section{Python \& Minecraft Basics}
+
+	Boot your Raspberry Pi to the desktop. The default login is as follows, if your pi doesn't log in automatically.
+	
+	\begin{tabular}{rl}
+		\textbf{username} & pi \\ 
+		\textbf{password} & raspberry
+	\end{tabular} 
+	
+	Once at the desktop, Open IDLE from the application menu under \textbf{Programming $\rightarrow$ Python 3 (IDLE)}. The first window that will open is the Python `Shell' window, where our programs will run.
+	
+	From the shell window press \textbf{File $\rightarrow$ New File} to open a second window. This is where we will write our programs.
+	
+	\subsection*{Hello, World!}
+	
+		The first program we write in a new programming language is "Hello, World!". In python, this takes just one line:
+		
+		\begin{lstlisting}[style=Python, title=helloworld.py]
+print("Hello, World!")
+		\end{lstlisting}
+		
+		We can now run our program by clicking \textbf{Run $\rightarrow$ Run Module}, or pressing \textbf{F5}. After saving the file, your program should then run in the shell window.
+		
+		\begin{lstlisting}[style=Terminal, numbers=none]
+=========== RESTART: ===========
+Hello, World!
+>>> 
+		\end{lstlisting}
+	
+	\pagebreak[1]
+	\subsection*{Loading the Minecraft API}
+	
+		We need to tell Python that this is a Minecraft program. To do this, we start all of our Minecraft programs with these two lines:
+	
+		\begin{lstlisting}[style=Python, title=hellominecraft.py]
+from mcpi.minecraft import Minecraft
+mc = Minecraft.create()
+		\end{lstlisting}
+	
+	\pagebreak[1]
+	\subsection*{Hello, Minecraft!}
+		
+		Let's now do the same program in Minecraft, by posting text to the in-game chat.
+
+		If we use \texttt{print()} like we did in the last program, the text would still appear in the shell window. To post to Minecraft, we need to use one of the API functions:	
+
+		\begin{lstlisting}[style=Python, firstnumber=3]
+
+mc.postToChat("Hello, Minecraft!")
+		\end{lstlisting}
+		
+		You can run your program again, but first, make sure Minecraft is running and in-game, otherwise you'll get a an error.
+		
+	\pagebreak[1]
+	\subsection*{Teleportation}
+	
+		In computing, we keep bits of data in things called \textit{variables}. This could be a number, some text, or something more complex, like the position of a player in a videogame.
+		
+		In python, we might use variables as follows:
+		
+		\begin{lstlisting}[style=Terminal, numbers=none]
+>>> a = 3
+>>> b = 5
+>>> a + b
+8
+		\end{lstlisting}
+		
+		for our program, we'll get the player position, and place it in a variable called \texttt{pos}.
+		
+		\begin{lstlisting}[style=Python, firstnumber=5]
+		
+pos = mc.player.getTilePos()
+		\end{lstlisting}
+		
+		\texttt{pos} is a collection of three numbers, which can be accessed using \texttt{pos.x}, \texttt{pos.y} and \texttt{pos.z}, we can teleport the player by using
+
+		\begin{lstlisting}[style=Python, firstnumber=7]
+mc.player.setPos(pos.x, pos.y+100, pos.z)
+		\end{lstlisting}
+		
+		What happens when you run the program? Try using different x, y and z values and see what happens.
+		
+	\pagebreak[1]	
+	\subsection*{Placing Blocks}
+		
+		to place a block at a set of coordinates, we can do:
+		
+		\begin{lstlisting}[style=Python, firstnumber=8]
+
+mc.setBlock(pos.x, pos.y, pos.z, 4)
+		\end{lstlisting}
+		
+		this will turn a block into cobblestone. To change the type of block, change the number 4 into one of the block IDs listed in appendix \autoref{sec:blockids}. 
+		
+		Removing a block is simple, you just need to set the block ID to air! (0)
+		
+		

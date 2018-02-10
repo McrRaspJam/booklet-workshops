@@ -1,0 +1,200 @@
+%
+% Manchester Raspberry Jam Workshop Booklet
+%
+% This template is designed to try and aide consistency between each booklet.
+% Insert files as instructed by comments, things like tables of contents are created by other linked files
+%
+
+% Is this document PRINT or WEB format?
+% (you can use the toggle to cut content for paper, see etoolbox)
+\newif\ifprint
+\printtrue
+
+\input{McrRaspJam/common/preamble}
+
+% Enter the document title here
+\newcommand{\workshopTitle}{Workshop 17: \textit{Minecraft: Pi Edition}}
+
+% Enter the author of this workshop
+\newcommand{\workshopAuthor}{Jack Kelly}
+
+
+\begin{document}
+	\input{McrRaspJam/common/booklet_title}
+	
+	%Place a SINGLE paragraph summary here
+	This workshop teaches the basics of the Python API for \textit{Minecraft: Pi Edition}.
+	
+	%Difficulty
+	\textit{Difficulty: Beginner workshop}
+
+	\ifprint
+		\renewcommand{\baselinestretch}{0.75}\normalsize
+		\tableofcontents
+		\renewcommand{\baselinestretch}{1.0}\normalsize
+	\else
+		\tableofcontents
+	\fi
+	
+	%
+	% Input the main CONTENT below, sans title page or contents.
+	% Recommend inputting per section, and adding page breaks here.
+	%
+	% \webclearpage command is provided, will break page for web format only.
+	%
+	
+	\input{McrRaspJam/017_Minecraft/0_introduction}
+		\clearpage
+		
+	\input{McrRaspJam/017_Minecraft/1_hellominecraft}
+		\webclearpage
+		
+	\input{McrRaspJam/017_Minecraft/2_loops}
+		\webclearpage
+	
+	\input{McrRaspJam/017_Minecraft/3_TNT}
+	\webclearpage
+		
+	\begin{appendices}
+		
+		\section{Minecraft Block IDs} \label{sec:blockids}
+			
+			\scriptsize
+			\begin{tabular}{rl}
+				AIR & 0 \\
+				STONE & 1 \\
+				GRASS & 2 \\
+				DIRT & 3 \\
+				COBBLESTONE & 4 \\
+				WOOD\_PLANKS & 5 \\
+				SAPLING & 6 \\
+				BEDROCK & 7 \\
+				WATER\_FLOWING & 8 \\
+				WATER & 8 \\
+				WATER\_STATIONARY & 9 \\
+				LAVA\_FLOWING & 10 \\
+				LAVA & 10 \\
+				LAVA\_STATIONARY & 11 \\
+				SAND & 12 \\
+				GRAVEL & 13 \\
+				GOLD\_ORE & 14 \\
+				IRON\_ORE & 15 \\
+				COAL\_ORE & 16 \\
+				WOOD & 17 \\
+				LEAVES & 18 \\
+				GLASS & 20 \\
+				LAPIS\_LAZULI\_ORE & 21 \\
+				LAPIS\_LAZULI\_BLOCK & 22 \\
+				SANDSTONE & 24 \\
+				BED & 26 \\
+				COBWEB & 30 \\
+				GRASS\_TALL & 31 \\
+				WOOL & 35 \\
+				FLOWER\_YELLOW & 37 \\
+				FLOWER\_CYAN & 38 \\
+				MUSHROOM\_BROWN & 39 \\
+				MUSHROOM\_RED & 40 \\
+				GOLD\_BLOCK & 41 \\
+				IRON\_BLOCK & 42 \\
+				STONE\_SLAB\_DOUBLE & 43 \\
+				STONE\_SLAB & 44 \\
+				BRICK\_BLOCK & 45 \\
+				TNT & 46 \\
+				BOOKSHELF & 47 \\
+				MOSS\_STONE & 48 \\
+				OBSIDIAN & 49 \\
+				TORCH & 50 \\
+				FIRE & 51 \\
+				STAIRS\_WOOD & 53 \\
+				CHEST & 54 \\
+				DIAMOND\_ORE & 56 \\
+				DIAMOND\_BLOCK & 57 \\
+				CRAFTING\_TABLE & 58 \\
+				FARMLAND & 60 \\
+				FURNACE\_INACTIVE & 61 \\
+				FURNACE\_ACTIVE & 62 \\
+				DOOR\_WOOD & 64 \\
+				LADDER & 65 \\
+				STAIRS\_COBBLESTONE & 67 \\
+				DOOR\_IRON & 71 \\
+				REDSTONE\_ORE & 73 \\
+				SNOW & 78 \\
+				ICE & 79 \\
+				SNOW\_BLOCK & 80 \\
+				CACTUS & 81 \\
+				CLAY & 82 \\
+				SUGAR\_CANE & 83 \\
+				FENCE & 85 \\
+				GLOWSTONE\_BLOCK & 89 \\
+				BEDROCK\_INVISIBLE & 95 \\
+				STONE\_BRICK & 98 \\
+				GLASS\_PANE & 102 \\
+				MELON & 103 \\
+				FENCE\_GATE & 107 \\
+				GLOWING\_OBSIDIAN & 246 \\
+				NETHER\_REACTOR\_CORE & 247
+			\end{tabular}
+			\normalsize
+
+		\section{Other useful functions}
+
+			\begin{lstlisting}[style=Python, numbers=none]
+mc.getBlock(x, y, z)
+			\end{lstlisting}
+			\vspace{-8pt}
+			Get a block ID number for the block at position (x,y,z).
+			\vspace{8pt}
+		
+			\begin{lstlisting}[style=Python, numbers=none]
+mc.setBlocks(x0, y0, z0, x1, y1, z1, id, [data])
+			\end{lstlisting}			
+			\vspace{-8pt}
+			Place multiple blocks within two coordinates. shortcut for the nested loops from \autoref{sec:loops}.
+			\vspace{8pt}
+			
+			\begin{lstlisting}[style=Python, numbers=none]
+mc.getHeight(x, z)
+			\end{lstlisting}
+			\vspace{-8pt}
+			Get the y coordinate (height) of the highest non-air block at that position.
+			\vspace{8pt}
+			
+			\begin{lstlisting}[style=Python, numbers=none]
+mc.saveCheckpoint()
+			\end{lstlisting}
+			\vspace{-8pt}
+			Save the world state.
+			\vspace{8pt}
+			
+			\begin{lstlisting}[style=Python, numbers=none]
+mc.restoreCheckpoint()
+			\end{lstlisting}
+			\vspace{-8pt}
+			Restore the world state from when it was last saved.
+			\vspace{8pt}
+			
+
+\iffalse			
+		\section{Function quick-reference}
+		
+		for a full listing see \href{http://www.stuffaboutcode.com/p/minecraft-api-reference.html}{www.stuffaboutcode.com/p/minecraft-api-reference.html}
+			
+			\begin{lstlisting}[style=Python, numbers=none]
+mc.getBlock(x, y, z)
+			\end{lstlisting}
+		
+			\begin{lstlisting}[style=Python, numbers=none]
+mc.getBlockWithData(x, y, z)
+			\end{lstlisting}
+			
+			\begin{lstlisting}[style=Python, numbers=none]
+mc.setBlock(x, y, z, id, [data])
+			\end{lstlisting}
+\fi
+		
+	\end{appendices}
+	
+	%\input{McrRaspJam/013_Objects/1_java}
+	%	\webclearpage
+	
+\end{document}
