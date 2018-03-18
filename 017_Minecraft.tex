@@ -8,7 +8,7 @@
 % Is this document PRINT or WEB format?
 % (you can use the toggle to cut content for paper, see etoolbox)
 \newif\ifprint
-\printtrue
+\printfalse
 
 \input{McrRaspJam/common/preamble}
 
@@ -59,7 +59,11 @@
 		
 		\section{Minecraft Block IDs} \label{sec:blockids}
 			
-			\scriptsize
+			\ifprint
+				\scriptsize
+			\else
+				\tiny
+			\fi
 			\begin{tabular}{rl}
 				AIR & 0 \\
 				STONE & 1 \\
@@ -136,6 +140,7 @@
 			\end{tabular}
 			\normalsize
 
+		\webclearpage
 		\section{Other useful functions}
 
 			\begin{lstlisting}[style=Python, numbers=none]

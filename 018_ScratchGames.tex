@@ -1,0 +1,54 @@
+%
+% Manchester Raspberry Jam Workshop Booklet
+%
+% This template is designed to try and aide consistency between each booklet.
+% Insert files as instructed by comments, things like tables of contents are created by other linked files
+%
+
+% Is this document PRINT or WEB format?
+% (you can use the toggle to cut content for paper, see etoolbox)
+\newif\ifprint
+\printfalse
+
+\input{McrRaspJam/common/preamble}
+
+% Enter the document title here
+\newcommand{\workshopTitle}{Workshop 18: Games with Scratch}
+
+% Enter the author of this workshop
+\newcommand{\workshopAuthor}{Jack Kelly}
+
+
+\begin{document}
+	\input{McrRaspJam/018_ScratchGames/booklet_title}
+	
+	%Place a SINGLE paragraph summary here
+	In this workshop we'll recreate the classic arcade game \textit{Pong} in Scratch.
+	
+	%Difficulty
+	\textit{Difficulty: Beginner workshop}
+
+	\ifprint
+		\renewcommand{\baselinestretch}{0.75}\normalsize
+		\tableofcontents
+		\renewcommand{\baselinestretch}{1.0}\normalsize
+	\else
+		\tableofcontents
+	\fi
+	
+	%
+	% Input the main CONTENT below, sans title page or contents.
+	% Recommend inputting per section, and adding page breaks here.
+	%
+	% \webclearpage command is provided, will break page for web format only.
+	%
+	
+	\input{McrRaspJam/018_ScratchGames/0_introduction}
+		\pagebreak[3]
+		
+	%\input{McrRaspJam/018_ScratchGames/1_scratch}
+	%\pagebreak[4]
+		
+	\input{McrRaspJam/018_ScratchGames/2_pong1}
+	
+\end{document}
